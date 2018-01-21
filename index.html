@@ -3,6 +3,7 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./css/w3.css">
+    <link rel="stylesheet" href="./css/mengfront.css">
     <title>Meng, Xiangxi</title>
   </head>
 
@@ -19,10 +20,58 @@
         <a href="./news.html" class="w3-bar-item w3-button">News</a>
         <a href="./link.html" class="w3-bar-item w3-button">Link</a>
       </div>
-      <div class='w3-container w3-center'>
-        <img src="./Upload/titlefig.png" class="w3-round" alt="A random research result" style="width:80%">
-      </div>
+
       <!-- contents -->
+      <div class='w3-content w3-display-container w3-center'>
+        <div class="w3-display-container mySlides meng-fading-fast ">
+          <img src="./Upload/titlefig/MC_property.png" style="width:100%">
+          <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+            Optical parameters of intralipids
+          </div>
+        </div>
+        <div class="w3-display-container mySlides meng-fading-fast ">
+          <img src="./Upload/titlefig/electroplating_explode.png" style="width:100%">
+          <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+            Electroplating device design
+          </div>
+        </div>
+        <!--New slides here-->
+        <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+        <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+      </div>
+      <script>
+        var slideIndex = 1;
+        showDivs(slideIndex);
+        carousel();
+
+        function plusDivs(n) {
+          showDivs(slideIndex += n);
+        }
+
+        function showDivs(n) {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          if (n > x.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = x.length}
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          x[slideIndex-1].style.display = "block"; 
+        }
+        
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none"; 
+          }
+          slideIndex++;
+          if (slideIndex > x.length) {slideIndex = 1} 
+          x[slideIndex-1].style.display = "block"; 
+          setTimeout(carousel, 10000); // Change image every 2 seconds
+        }
+      </script>
+
       <div class="w3-container w3-white">
         PhD candidate,<br />
         Department of Biomedical Engineering, Peking University,<br/>
@@ -74,6 +123,7 @@
         Leave a message: <a href="./link.html#comments">Comment widget</a><br />
         Direction: <a href="https://www.google.com/maps/place/313+Ferst+Dr,+Georgia+Institute+of+Technology,+Atlanta,+GA+30332/@33.7784934,-84.3967617,17z/" target="_blank">313 Ferst Drive, Atlanta, GA, USA</a>
       </div>
+
       <!-- Bottom -->
       <hr />
       <div class = "w3-container w3-center" sytle="font-size:9px">
