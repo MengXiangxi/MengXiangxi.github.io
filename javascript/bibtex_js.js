@@ -1171,7 +1171,7 @@ if (!window.jQuery || !window.moment) {
         //Add jquery to the webpage
         var jq = document.createElement('script');
         jq.type = 'text/javascript';
-        jq.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js';
+        jq.src = 'https://code.jquery.com/jquery-3.3.1.min.js';
         document.getElementsByTagName('head')[0].appendChild(jq);
     }
     if (!window.moment) {
