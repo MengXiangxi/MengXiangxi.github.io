@@ -5,7 +5,8 @@
     <link rel="stylesheet" href="./css/w3.css">
     <link rel="stylesheet" href="./css/mengfront.css">
     <title>Meng, Xiangxi</title>
-    <script type="text/javascript" src="./javascript/bibtex_js.js"></script>
+    <script src="./javascript/bibtex_js.js" type="text/javascript" charset="utf-8"></script>
+    <bibtex src="./bibliography/meng_pub.bib"></bibtex>
   </head>
 
   <body>
@@ -17,31 +18,67 @@
       </div>
       <div class = "w3-mobile w3-center meng-color-theme">
         <a href="./" class="w3-bar-item w3-button">Home</a>
-        <a href="#" class="w3-bar-item w3-button"><del>Publications</del></a>
+        <a href="#" class="w3-bar-item w3-button">Publications</a>
         <a href="./news.html" class="w3-bar-item w3-button">News</a>
         <a href="./link.html" class="w3-bar-item w3-button">Link</a>
       </div>
 
       <!-- contents -->
 
+      <div class='w3-content w3-display-container w3-center' id="bibtex_errors"></div>
 
-    <div class="w3-container w3-white">
-        <h1>Journal Articles in English</h1>
-        <bibtex src="https://raw.githubusercontent.com/MengXiangxi/MengXiangxi.github.io/master/bibliography/meng_pub_eng.bib"></bibtex>
-        <div id="bibtex_display"></div> 
-    </div>
+      <div class="w3-content w3-display-container w3-center bibtex_topics"> </div>
 
-    <div class="w3-container w3-white">
-        <h1>Journal Articles in Other Languages</h1>
-        <bibtex src="https://raw.githubusercontent.com/MengXiangxi/MengXiangxi.github.io/master/bibliography/meng_pub_chn.bib"></bibtex>
-        <div id="bibtex_display"></div>
-    </div>
+      <div class="w3-content w3-display-container w3-center bibtex_structure">
+        <div class="sections bibtextypekey">
+          <div class="section @article">
+            <h1>Journal Articles</h1>
+            <div class="sort year" extra="DESC number">
+              <div class="templates"></div>
+            </div>
+          </div>
+          <div class="section @patent">
+            <h1>Selected Patents</h1>
+            <div class="sort year" extra="DESC number">
+              <div class="templates"></div>
+            </div>
+          </div>
+          <!-- <div class="section @book">
+            <h1>Books</h1>
+            <div class="sort year" extra="DESC number">
+              <div class="templates"></div>
+            </div>
+          </div>
+          <div class="section @misc|@phdthesis|@mastersthesis|@bachelorsthesis|@techreport">
+            <h1>Other Publications</h1>
+            <div class="sort year" extra="DESC number">
+              <div class="templates"></div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+      
+      <div id="w3-content w3-display-container w3-center bibtex_display">
 
-    <div class="w3-container w3-white">
-        <h1>Patents</h1>
-        <bibtex src="https://raw.githubusercontent.com/MengXiangxi/MengXiangxi.github.io/master/bibliography/meng_patent.bib"></bibtex>
-        <div id="bibtex_display"></div>
-    </div>
+        <div class="bibtex_template">
+          <ul> <li>
+            <span class="if title">
+              <a class="url">
+                  <span class="title"></span>,
+              </a>
+            </span>
+            <div class="if author">
+              <span class="author"></span>
+            </div>
+            <div>
+              <span class="if journal"><em><span class="journal"></span></em></span>
+              <span class="if month"><span class="month"></span>,</span>
+              <span class="if year"><span class="year"></span>,</span>
+              <span class="if number"><span class="number"></span></span>
+              <span class="if pages">: <span class="pages"></span></span>
+            </div>
+          </li></ul>
+        </div>
 
       <!-- Bottom -->
       <hr />
