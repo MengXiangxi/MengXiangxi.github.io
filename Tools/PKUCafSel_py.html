@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>PKU Cafeteria Selector with Javascript</h2>
+
+<p>The cafeteria selected is:</p>
+
+<p id="cafe" style="font-size:72px;"></p>
+
+<script>
+var cafe = ['shao', 'yi', 'nong', 'song', '1', 'chang', 'yan', 'wu'];
+rand = function(min, max) {
+  if (min==null && max==null)
+    return 0;    
+  
+  if (max == null) {
+      max = min;
+      min = 0;
+    }
+    return min + Math.floor(Math.random() * (max - min + 1));
+  };
+document.getElementById("cafe").innerHTML = cafe[rand(0, cafe.length-1)];
+</script>
+
+</body>
+</html>
