@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="./css/w3.css">
     <link rel="stylesheet" href="./css/mengfront.css">
     <title>Meng, Xiangxi</title>
-    <script src="./javascript/bibtex_js.js" type="text/javascript" charset="utf-8"></script>
-    <bibtex src="./bibliography/meng_pub.bib"></bibtex>
+    <!-- <script src="./javascript/bibtex_js.js" type="text/javascript" charset="utf-8"></script>
+    <bibtex src="./bibliography/meng_pub.bib"></bibtex> -->
   </head>
 
   <body>
@@ -25,9 +25,12 @@
 
       <!-- contents -->
 
-      <div class='w3-content w3-display-container w3-center' id="bibtex_errors"></div>
+      <div class='w3-content w3-display-container'>
+        <script src="https://bibbase.org/show?bib=https%3A%2F%2Fmengxiangxi.info%2Fbibliography%2Fmeng_pub.bib&jsonp=1"></script>
+      </div>
+  
+      <!-- <div class='w3-content w3-display-container w3-center' id="bibtex_errors"></div>
 
-      <!-- <div class="bibtex_topics"> </div> -->
     <div class = "w3-content w3-display-container w3-center">
       <div class="bibtex_structure">
         <div class="sections bibtextypekey">
@@ -43,18 +46,6 @@
               <div class="templates"></div>
             </div>
           </div>
-          <!-- <div class="section @book">
-            <h1>Books</h1>
-            <div class="sort year" extra="DESC number">
-              <div class="templates"></div>
-            </div>
-          </div>
-          <div class="section @misc|@phdthesis|@mastersthesis|@bachelorsthesis|@techreport">
-            <h1>Other Publications</h1>
-            <div class="sort year" extra="DESC number">
-              <div class="templates"></div>
-            </div>
-          </div> -->
         </div>
       </div>
     </div>
@@ -62,7 +53,7 @@
       <div class='w3-content w3-display-container' id="bibtex_display"> </div>
 
         <div class="bibtex_template">
-          <ul> <li>
+          <ol> <li>
             <span class="if title">
               <a class="url">
                   <span class="title"></span>,
@@ -78,8 +69,8 @@
               <span class="if number"><span class="number"></span></span>
               <span class="if pages">: <span class="pages"></span></span>
             </div>
-          </li></ul>
-        </div>
+          </li></ol>
+        </div> -->
 
       <!-- Bottom -->
       <hr />
