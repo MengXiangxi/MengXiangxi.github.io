@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/w3.css">
+    <link rel="stylesheet" href="../css/mengfront.css">
+    <title>Meng, Xiangxi</title>
+  </head>
+
+  <body>
+    <!-- Top -->
+    <div class = "w3-display-topmiddle w3-mobile">
+      <div class = "w3-container w3-center">
+        <h1>Meng, Xiangxi</h1>
+        <p>孟祥溪</p>
+      </div>
+      <div class = "w3-mobile w3-center meng-color-theme">
+        <a href="../" class="w3-bar-item w3-button">Home</a>
+        <a href="../publications.html" class="w3-bar-item w3-button">Publications</a>
+        <a href="../news.html" class="w3-bar-item w3-button">News</a>
+        <a href="../link.html" class="w3-bar-item w3-button">Link</a>
+      </div>
+
+      <!--Contents-->
+      <div  class="w3-container">
+          <h2>如何使用北医 WebVPN</h2>
+          <p>第一步，打开<a href="https://webvpn.bjmu.edu.cn/" target="_blank">北医 WebVPN</a>，尝试用北医的帐号登录。注意，是北医帐号不是北大帐号。到这里，其实就可以通过下面的各个导航项去搜索文献了，但是这还不够方便。</p>
+          <p>第二步，设置书签。很多浏览器，如 Chrome（其他 Chromium 内核的应该也可以）、FireFox、Opera 等均支持 javascript 功能，可以简化登录流程。在浏览器的书签栏中添加一个书签，名称随意（比如 BJMU VPN），“网址”填写下面这串代码：
+          <pre>javascript:location.href = location.origin.replace(/\./g, '-') + ".webvpn.bjmu.edu.cn" + location.pathname + location.search</pre>
+          建议保存在书签栏。如果有某篇文章需要北医权限，则直接按此书签按钮，网站即会直接跳转到类似
+          <pre>https://xxx-xxx-xxx-nnn.webvpn.bjmu.edu.cn/xxx/xxx</pre>
+          这样格式的页面。这个页面就是北医 WebVPN “代理”的页面。
+          </p>
+          <p>注意：在没有登录的情况下，可能会直接转到登录页面。这样的话，在登录页面登录后，后退到文章页面再按一次书签按钮即可。另外，北医 Web VPN 能够支持的期刊有限，很多情况下还得配合北大 VPN 使用。</p>
+      </div>
+
+      <!--Bottom-->
+      <hr />
+      <div class = "w3-container w3-center" sytle="font-size:9px">
+        Meng Xiangxi, 20200214
+      </div>
+    </div>
+  </body>
+
+</html>
