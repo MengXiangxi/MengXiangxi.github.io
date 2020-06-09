@@ -32,3 +32,8 @@ em{
     font-weight: bold;
     color: red
   }
+
+code{
+    font-family: "courier", FangSong;
+    background-color: lightgray
+}
