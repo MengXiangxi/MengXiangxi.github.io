@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/w3.css">
+    <link rel="stylesheet" href="../css/mengfront.css">
+    <title>Meng, Xiangxi</title>
+  </head>
+
+  <body>
+    <!-- Top -->
+    <div class = "w3-display-topmiddle w3-mobile">
+      <div class = "w3-container w3-center">
+        <h1>Meng, Xiangxi</h1>
+        <p>孟祥溪</p>
+      </div>
+      <div class = "w3-mobile w3-center meng-color-theme">
+        <a href="../" class="w3-bar-item w3-button">Home</a>
+        <a href="../publications.html" class="w3-bar-item w3-button">Publications</a>
+        <a href="../news.html" class="w3-bar-item w3-button">News</a>
+        <a href="../link.html" class="w3-bar-item w3-button">Link</a>
+      </div>
+
+      <!--Contents-->
+      <div  class="w3-container">
+        <h2>Review on medical imaging processing softwares for Windows</h2>
+        <p>This is a review of medical imaging processing softwares that I use on my Windows 10 devices. Since I work with PET/CT and PET/MR images, this is from a perspective of a nuclear medical imaging researcher.</p>
+        <p>All are FLOSS unless otherwise mentioned.</p>
+
+        <ul>
+            <li><a href = "https://www.microdicom.com/" target="_blank">MicroDicom</a></li>
+            <p>MicroDicom is a light-weight visualizer of dicom images. It basically just show the image, plus a few essential functions, including window/level adjustment, and snapshot.</p>
+            <p>I usually use Microdicom if I just want to go through the images, or I use it to explore the values of the dicom tags. I can load the dicom folder, and scroll through multiple dicom files, while observing the values for certain dicom fields.</p>
+            <div class="w3-responsive">
+              <table class="w3-table-all w3-center">
+                <tr>
+                  <th>3D View</th>
+                  <th>Multimodality</th>
+                  <th>Segmentation</th>
+                  <th>Specialty</th>
+                  <th>Completeness</th>
+                  <th>Functions</th>
+                </tr>
+                <tr>
+                  <td>No</td>
+                  <td>No</td>
+                  <td>No</td>
+                  <td>Easy navigation, <br /> Dicom Tag</td>
+                  <td>4.0/5.0</td>
+                  <td>3.0/5.0</td>
+                </tr>
+              </table>
+            </div>
+
+            <li><a href = "http://www.itksnap.org/" target="_blank">itk-SNAP</a></li>
+            <p>itk-SNAP is a very popular software among researchers, and it is one of my favorite. It is widely used for manual segmentation of 3D images. It also has a function of auto segmentation, but I have never used it.</p>
+            <p>Apart from segmentation, itk-SNAP also provides users with other great features, including a registered multimodality display. It could also convert dicom files into other formats such as NIfTI.</p>
+            <p>There are also a few things that itk-SNAP could use some improvement. One thing is that, it cannot generate MIP images.</p>
+
+            <div class="w3-responsive">
+              <table class="w3-table-all w3-center">
+                <tr>
+                  <th>3D View</th>
+                  <th>Multimodality</th>
+                  <th>Segmentation</th>
+                  <th>Specialty</th>
+                  <th>Completeness</th>
+                  <th>Functions</th>
+                </tr>
+                <tr>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Yes</td>
+                  <td>Segmentation</td>
+                  <td>4.5/5.0</td>
+                  <td>4.5/5.0</td>
+                </tr>
+              </table>
+            </div>
+
+            <li><a href = "http://mipav.cit.nih.gov" target="_blank">MIPAV</a></li>
+            <p>MIPAV is a popular tool for multiple biomedical images, and it has rich functionalities including image processing, analysis and visualization. Developed by NIH, it has many great features.</p>
+            <p>However, I have not had a good experience with this Java-style software (which somehow reminds me of ImageJ). It seems that the product, so far, has not been optimized specifically for medical imaging.</p>
+
+            <div class="w3-responsive">
+              <table class="w3-table-all w3-center">
+                <tr>
+                  <th>3D View</th>
+                  <th>Multimodality</th>
+                  <th>Segmentation</th>
+                  <th>Specialty</th>
+                  <th>Completeness</th>
+                  <th>Functions</th>
+                </tr>
+                <tr>
+                  <td>Yes</td>
+                  <td>?</td>
+                  <td>Basic</td>
+                  <td>Multipurpose</td>
+                  <td>4.0/5.0</td>
+                  <td>3.5/5.0</td>
+                </tr>
+              </table>
+            </div>
+        </ul>
+
+      </div>
+
+      <div class="w3-container" id="comments">
+        <h2>Comments</h2>
+        <div id="disqus_thread"></div>
+        <script>
+        var disqus_config = function () {
+        this.page.url = "https://mengxiangxi.info/Link/medicalImagingSoftware.html";  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = "https://mengxiangxi.info/Link/medicalImagingSoftware.html"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+      
+        (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mengxiangxi.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      </div>
+
+      <!--Bottom-->
+      <hr />
+      <div class = "w3-container w3-center" sytle="font-size:9px">
+        Meng Xiangxi, 20200823
+      </div>
+    </div>
+  </body>
+
+</html>
