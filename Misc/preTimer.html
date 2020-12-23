@@ -1,106 +1,118 @@
 <html>
 <head>
   <title>Presentation Timer</title>
+  <style>
+    html, body, form {
+      border: 0px;
+      margin: 0px;
+    }
+  </style>
 </head>
-<body onBlur = "window.focus()">
+<body onBlur="window.focus()">
   <div>
-    <div>
-      <div id="txt" style="color:black;font-size:60px">
+
+    <div id="txt" style="color:black;font-size:80px">
       00:00
     </div>
+
     <div>
-      <input type="button" value="initializing" id="start1" onClick="offset(offset1); timedCount()">
-      <input type="button" value="initializing" id="start2" onClick="offset(offset2); timedCount()">
-      <input type="button" value="❚❚" onClick="timedPause()" id="pause-resume" disabled="disabled">
-      <input type="button" value="◼" onClick="timedStop()">
+      <form>
+        <input type="button" value="initializing" id="start1" onClick="offset(offset1); timedCount()">
+        <input type="button" value="initializing" id="start2" onClick="offset(offset2); timedCount()">
+        <input type="button" value="❚❚" onClick="timedPause()" id="pause-resume" disabled=true>
+        <input type="button" value="◼" onClick="timedStop()">
+      </form>
     </div>
+
     </div>
-  </div>
 </body>
 
 <script type="text/javascript">
-  var c=0
-  var d=0
-  var t
-  const per=0.1
-  var pause=0
-  var timer1 = localStorage.getItem('timer1')
-  var timer2 = localStorage.getItem('timer2')
+  var c=0;
+  var d=0;
+  var t;
+  const per=0.1;
+  var pause=0;
+  var timer1 = localStorage.getItem('timer1');
+  var timer2 = localStorage.getItem('timer2');
 
-  document.getElementById('start1').value = timer1.toString()+' min'
-  var offset1 = timer1*60/per
+  document.getElementById('start1').value = timer1.toString()+' min';
+  var offset1 = timer1*60/per;
 
-  document.getElementById('start2').value = timer2.toString()+' min'
-  var offset2 = timer2*60/per
+  document.getElementById('start2').value = timer2.toString()+' min';
+  var offset2 = timer2*60/per;
 
   function offset(sec)
    {
      clearTimeout(t);
-     if (sec == '-1')
-     {
-       sec = (document.getElementById("offsetbox").value)*600
-     }
-     c = sec
+     c = sec;
+     document.getElementById('pause-resume').value="❚❚";
+     document.getElementById('pause-resume').disabled = false;
+     pause=0;
    }
+
   function timedCount()
    {
-    d=-(c%(2/per))
-    c=c-1
+    d=-(c%(2/per));
+    c=c-1;
     if (c<60/per){
-      document.getElementById('txt').style.color = "red"
+      document.getElementById('txt').style.color = "red";
     }
     else{
-      document.getElementById('txt').style.color = "black"
+      document.getElementById('txt').style.color = "black";
     }
-    if (c>0){
-      document.getElementById('txt').style.backgroundColor = "white"
+    if (Math.floor(c)>0){
+      document.getElementById('txt').style.backgroundColor = "white";
       var minutes = Math.floor(c / (60/per));
       var seconds = Math.floor((c % (60/per)) / (1/per));
     }
-    else if (c==0){
+    else if (Math.floor(c)==0){
       c=-1/per;
       var minutes = 0;
       var seconds = 0;
     }
     else{
-      if (d<10){
-        document.getElementById('txt').style.backgroundColor = "yellow"
+      if (d<1/per){
+        document.getElementById('txt').style.backgroundColor = "yellow";
+        document.getElementById('txt').style.color = "red";
       }
       else{
-        document.getElementById('txt').style.backgroundColor = "green"
+        document.getElementById('txt').style.backgroundColor = "red";
+        document.getElementById('txt').style.color = "yellow";
       }
       var minutes = Math.floor(-c / (60/per));
       var seconds = Math.floor((-c % (60/per)) / (1/per));
     }
     document.getElementById('txt').innerHTML= minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
-    document.getElementById('pause-resume').disabled = false
     if (pause == 0){
-      t=setTimeout("timedCount()",100)
+      t=setTimeout("timedCount()",100);
     }
     return false;
    }
+
   function timedStop()
   {
     clearTimeout(t);
-    document.getElementById('txt').innerHTML='00:00'
-    document.getElementById('txt').style.backgroundColor = "white"
-    document.getElementById('txt').style.color = "black"
-    c = 0
-    d = 0
-    pause = 0
-    document.getElementById('pause-resume').value="►"
-    document.getElementById('pause-resume').disabled = true
+    document.getElementById('txt').innerHTML='00:00';
+    document.getElementById('txt').style.backgroundColor = "white";
+    document.getElementById('txt').style.color = "black";
+    c = 0;
+    d = 0;
+    pause = 0;
+    document.getElementById('pause-resume').value="❚❚";
+    document.getElementById('pause-resume').disabled = true;
   }
+
   function timedPause()
   {
     if (pause == 0){
-      pause = 1
-      document.getElementById('pause-resume').value="►"
+      pause = 1;
+      document.getElementById('pause-resume').value="►";
     }
     else{
-      pause = 0
-      timedCount()
-      document.getElementById('pause-resume').value="❚❚"
+      pause = 0;
+      timedCount();
+      document.getElementById('pause-resume').value="❚❚";
     }
   }
 </script>
