@@ -52,10 +52,15 @@
     else{
       document.getElementById('txt').style.color = "black"
     }
-    if (c>=0){
+    if (c>0){
       document.getElementById('txt').style.backgroundColor = "white"
-      var minutes = Math.floor((c % (3600/per)) / (60/per));
+      var minutes = Math.floor(c / (60/per));
       var seconds = Math.floor((c % (60/per)) / (1/per));
+    }
+    else if (c==0){
+      c=-1/per;
+      var minutes = 0;
+      var seconds = 0;
     }
     else{
       if (d<10){
@@ -64,8 +69,8 @@
       else{
         document.getElementById('txt').style.backgroundColor = "green"
       }
-      var minutes = Math.floor((-c % (3600/per)) / (60/per));
-      var seconds = Math.floor((-c % (60/per)) / (1/per))+1;
+      var minutes = Math.floor(-c / (60/per));
+      var seconds = Math.floor((-c % (60/per)) / (1/per));
     }
     document.getElementById('txt').innerHTML= minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
     document.getElementById('pause-resume').disabled = false
