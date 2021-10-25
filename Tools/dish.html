@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>随机菜</h2>
+
+<p>随机到的菜是：</p>
+
+<p id="dishname" style="font-size:72px;"></p>
+
+<script>
+var dish = [
+    '响油鳝糊',
+    '葱烧海参',
+    '麻婆豆腐',
+    '腌笃鲜',
+    '麻酱凉面',
+    '凉皮肉夹馍',
+    'Haggis',
+    'Goulash',
+    '草头圈子',
+    '贵州牛肉粉',
+    '煎饼馃子',
+    '鱼香肉丝',
+    '罾蹦鲤鱼',
+    '八珍豆腐',
+    '红菜汤',
+    '榛蘑炖小鸡',
+    '猪肉炖粉条',
+    '酸菜血肠',
+    '鲅鱼饺子',
+    '泡菜炒五花肉',
+    '口水鸡',
+    '老爆三',
+    '爆三样',
+    '黄焖鸡'
+    ];
+document.getElementById("dishname").innerHTML = dish[Math.floor(Math.random()*dish.length)];
+</script>
+
+</body>
+</html>
