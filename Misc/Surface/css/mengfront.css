@@ -1,0 +1,39 @@
+div.news {
+    box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)
+}
+
+header,
+footer {
+    padding:0.01em 16px;
+    color:#000!important;
+    background-color:#9e9e9e!important
+}
+
+main{
+    padding:0.01em 16px;
+}
+
+.grey_80{
+    color:#000!important;
+    background-color:#9e9e9e80!important
+}
+
+.meng-fading-fast{
+    animation:fading 10s infinite}@keyframes fading{0%{opacity:0}5%{opacity:1}90%{opacity:1}100%{opacity:0}
+}
+
+.meng-color-theme,.meng-hover-color-theme:hover{
+    color:#fff!important;
+    background-color:#8c0000!important
+}
+
+em{
+    font-style: normal;
+    font-weight: bold;
+    color: red
+  }
+
+code{
+    font-family: "courier", FangSong;
+    background-color: lightgray
+}

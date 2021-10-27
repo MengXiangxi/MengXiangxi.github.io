@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/w3.css">
+    <link rel="stylesheet" href="./css/mengfront.css">
+    <title>出售Surface Pro</title>
+  </head>
+
+
+<body>
+    <div class = "w3-display-topmiddle w3-mobile">
+        <div class = "w3-container w3-center">
+          <h1>Surface Pro 6待售</h1>
+          <p>详细图片</p>
+        </div>
+  
+        <!-- contents -->
+        <div class='w3-content w3-display-container w3-center'>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/abrasion.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              键盘边缘的磨损
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/back.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              后盖全貌
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/cooling.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              散热器安装触点
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/front.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              正面效果
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+              <img src="./img/frontcam.jpg" style="width:100%">
+              <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+                前置摄像头
+              </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/frontcam2.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              前置摄像头有点进灰
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/incline.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              键盘盖背面
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/isoproject.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              从这个角度还挺好看
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/kickstand.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              支架还完好
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/logo.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              微软的Logo闪闪发光
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/logo2.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              然而周围仔细看是有划痕的
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/mic.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              当今时代非常重要的3.5 mm耳机孔
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/potrait.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              竖过来也很好
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/rearcam.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              完美的后置摄像头
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/verticle.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              合上盖子之后就这样
+            </div>
+          </div>
+          <div class="w3-display-container mySlides meng-fading-fast ">
+            <img src="./img/volume.jpg" style="width:100%">
+            <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+              电源和音量键
+            </div>
+          </div>
+          <!--New slides here-->
+          <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+          <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+        </div>
+        <script>
+          var slideIndex = 1;
+          showDivs(slideIndex);
+          carousel();
+  
+          function plusDivs(n) {
+            showDivs(slideIndex += n);
+          }
+  
+          function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            if (n > x.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = x.length}
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none";  
+            }
+            x[slideIndex-1].style.display = "block"; 
+          }
+          
+          function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+              x[i].style.display = "none"; 
+            }
+            slideIndex++;
+            if (slideIndex > x.length) {slideIndex = 1} 
+            x[slideIndex-1].style.display = "block"; 
+            setTimeout(carousel, 10000); // Change image every 2 seconds
+          }
+        </script>
+</body>
+
+<div class="w3-container w3-center">
+    <hr>
+    <a href="./surface.html">返回主页</a>
+</div>
+
+</html>
