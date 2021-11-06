@@ -6,16 +6,20 @@
     <link rel="stylesheet" href="../css/mengfront.css">
     <title>Presentation Timer</title>
 </head>
+
 <body>
-    <div class="w3-display-topmiddle">
-        <div class = "w3-center">
+    <div class="w3-display-topmiddle w3-mobile">
+        <div class = "w3-container w3-center">
             <h1>Specific activity of carrier-free radionuclide</h1>
             <p>Created by Xiangxi Meng, Beijing Cancer Hospital</p>
         </div>
-        <hr/>
-    </div>
+        <div class = "w3-mobile w3-center meng-color-theme">
+            <a href="#" class="w3-bar-item w3-button">On specific activity</a>
+            <a href="https://www.wikiwand.com/en/Specific_activity" target="_blank" class="w3-bar-item w3-button">Wikipedia entry</a>
+        </div>
+    <!-- </div>
 
-    <div class="w3-display-middle">
+    <div class="w3-display-topmiddle w3-mobile"> -->
         <div class="w3-container w3-padding">
             This is a calculator for analyzing the specific activity of carrier-free radionuclides. You can specify various input parameters and calculate the theoretical values for the parameters of interest.
         </div>
@@ -30,7 +34,14 @@
                             <option value="C11">C-11</option>
                             <option value="F18" selected>F-18</option>
                             <option value="Cu64">Cu-64</option>
+                            <option value="Ga68">Ga-68</option>
+                            <option value="Y90">Y-90</option>
+                            <option value="Zr89">Zr-89</option>
+                            <option value="Tc99m">Tc-99m</option>
                             <option value="I124">I-124</option>
+                            <option value="I125">I-125</option>
+                            <option value="I131">I-131</option>
+                            <option value="Lu177">Lu-177</option>
                         </select>
                     </div>
                     <div class="w3-container w3-padding">
@@ -136,8 +147,29 @@
             case 'Cu64':
                 setNuclide(0,0,12.7801,0,0,63.929764,true);
                 break;
+            case 'Ga68':
+                setNuclide(0,0,0,67.71,0,67.92798,true);
+                break;
+            case 'Tc99m':
+                setNuclide(0,0,6.0067,0,0,98.9063,true);
+                break;
+            case 'Y90':
+                setNuclide(0,0,64.6,0,0,89.9071519,true);
+                break;
+            case 'Zr89':
+                setNuclide(0,0,78.41,0,0,88.908890,true);
+                break;
             case 'I124':
                 setNuclide(0,4.176,0,0,0,123.9062099,true);
+                break;
+            case 'I125':
+                setNuclide(0,59.49,0,0,0,124.9046302,true);
+                break;
+            case 'I131':
+                setNuclide(0,8.0197,0,0,0,130.9061246,true);
+                break;
+            case 'Lu177':
+                setNuclide(0,6.6475,0,0,0,176.9437581,true);
                 break;
             case 'Specify':
                 setNuclide(0,0,0,0,0,0,false);
@@ -251,7 +283,7 @@
                 mass=activity/sa*au*1e6;
                 break;
             case 'mg':
-                mass=activity/sa*au*3;
+                mass=activity/sa*au*1e3;
                 break;
             case 'g':
                 mass=activity/sa*au;
