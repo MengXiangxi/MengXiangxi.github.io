@@ -30,6 +30,7 @@
                             <option value="C11">C-11</option>
                             <option value="F18" selected>F-18</option>
                             <option value="Cu64">Cu-64</option>
+                            <option value="I124">I-124</option>
                         </select>
                     </div>
                     <div class="w3-container w3-padding">
@@ -134,6 +135,9 @@
                 break;
             case 'Cu64':
                 setNuclide(0,0,12.7801,0,0,63.929764,true);
+                break;
+            case 'I124':
+                setNuclide(0,4.176,0,0,0,123.9062099,true);
                 break;
             case 'Specify':
                 setNuclide(0,0,0,0,0,0,false);
