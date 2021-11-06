@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../css/w3.css">
+    <link rel="stylesheet" href="../css/mengfront.css">
+    <title>Presentation Timer</title>
+</head>
+<body>
+    <div class="w3-display-topmiddle">
+        <div class = "w3-center">
+            <h1>Specific activity of carrier-free radionuclide</h1>
+            <p>Created by Xiangxi Meng, Beijing Cancer Hospital</p>
+        </div>
+        <hr/>
+    </div>
+
+    <div class="w3-display-middle">
+        <div class="w3-container w3-padding">
+            This is a calculator for analyzing the specific activity of carrier-free radionuclides. You can specify various input parameters and calculate the theoretical values for the parameters of interest.
+        </div>
+        <div class="w3-container">
+            <form>
+                <div class="w3-card w3-padding">
+                    <h3>Input the nuclide information</h3>
+                    <div class="w3-container w3-padding">
+                        <label for="NuclideType">Nuclide type:</label><br/>
+                        <select name="NuclideType" id="NuclideType" onchange="dispNuclide()">
+                            <option value="Specify">Custom</option>
+                            <option value="C11">C-11</option>
+                            <option value="F18" selected>F-18</option>
+                            <option value="Cu64">Cu-64</option>
+                        </select>
+                    </div>
+                    <div class="w3-container w3-padding">
+                        <label for="HalfLife">Half-life of the selected nuclide:</label><br/>
+                        <fieldset id="HalfLife" disabled style="border: 0px;">
+                            <input type="number" id="Year" value=0 />Year(s)<br />
+                            <input type="number" id="Day" value=0 />Day(s)<br />
+                            <input type="number" id="Hour" value=0 />h<br />
+                            <input type="number" id="Min" value=109.771 />min<br />
+                            <input type="number" id="Sec" value=0 />s<br />
+                        </fieldset>
+                    </div>
+                    <div class="w3-container">
+                        <select name="awORmw" id="awORmw" onclick="dispMolMass()">
+                            <option value="Atomic" selected>Pure radioisotope</option>
+                            <option value="Compound">Labeled Compound</option>
+                        </select><br />
+                        <label for="MolarMass">Molar mass:</label><br />
+                        <input type="number" id="AtomicWeight" value="18" disabled/> g/mol
+                    </div>
+                    <div class="w3-container w3-padding">
+                        <label for="Radioactivity">Radioactivity:</label><br />
+                        <input type="number" id="Radioactivity" value="1"/>
+                        <select name="RadioUnit" id="RadioUnit">
+                            <option value="Bq">Bq</option>
+                            <option value="kBq">kBq</option>
+                            <option value="MBq">MBq</option>
+                            <option value="GBq">GBq</option>
+                            <option value="TBq">TBq</option>
+                            <option value="muCi">μCi</option>
+                            <option value="mCi" selected>mCi</option>
+                            <option value="Ci">Ci</option>
+                        </select>
+                    </div>
+                    <button type="button" onclick="calculateAmount()" class="w3-padding">Get mass and molar amount</button><br />
+                </div>
+                <div id="Result" class="w3-card w3-padding">
+                    <h3>The results</h3>
+                    <label id="SAResult">95.16193699073287</label>
+                    <select name="SAUnit1" id="SAUnit1" onclick="calculateAmount()">
+                        <option value="Bq">Bq</option>
+                        <option value="kBq">kBq</option>
+                        <option value="MBq">MBq</option>
+                        <option value="GBq">GBq</option>
+                        <option value="TBq">TBq</option>
+                        <option value="muCi">μCi</option>
+                        <option value="mCi" selected>mCi</option>
+                        <option value="Ci">Ci</option>
+                    </select>
+                    /
+                    <select name="SAUnit2" id="SAUnit2" onclick="calculateAmount()">
+                        <option value="pg">pg</option>
+                        <option value="ng" selected>ng</option>
+                        <option value="mug">μg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                        <option value="fmol">fmol</option>
+                        <option value="pmol">pmol</option>
+                        <option value="nmol">nmol</option>
+                        <option value="mumol">μmol</option>
+                        <option value="mmol">mmol</option>
+                        <option value="mol">mol</option>
+                    </select><br />
+                    <label id="MoleResult">10.508403166461216</label>
+                    <select name="MoleUnit" id="MoleUnit" onclick="calculateAmount()">
+                        <option value="fmol">fmol</option>
+                        <option value="pmol" selected>pmol</option>
+                        <option value="nmol">nmol</option>
+                        <option value="mumol">μmol</option>
+                        <option value="mmol">mmol</option>
+                        <option value="mol">mol</option>
+                    </select><br />
+                    <label id="MassResult">189.1512569963019</label>
+                    <select name="MassUnit" id="MassUnit" onclick="calculateAmount()">
+                        <option value="pg" selected>pg</option>
+                        <option value="ng">ng</option>
+                        <option value="mug">μg</option>
+                        <option value="mg">mg</option>
+                        <option value="g">g</option>
+                    </select>
+                </div>
+            </form>
+        </div>
+	</div>
+
+    <div class = "w3-display-bottommiddle w3-center" sytle="font-size:9px">
+        <hr />
+        Meng Xiangxi, 20211107
+    </div>
+    
+	
+</body>
+<script>
+    function dispNuclide(){
+        var nuclide=document.getElementById("NuclideType").value
+		switch(nuclide){
+            case 'C11':
+                setNuclide(0,0,0,20.38,0,11.01,true);
+                break;
+            case 'F18':
+                setNuclide(0,0,0,109.771,0,18.00,true);
+                break;
+            case 'Cu64':
+                setNuclide(0,0,12.7801,0,0,63.929764,true);
+                break;
+            case 'Specify':
+                setNuclide(0,0,0,0,0,0,false);
+                break;
+        }
+	}
+
+    function dispMolMass(){
+        var masstype=document.getElementById("awORmw").value;
+        switch(masstype){
+            case 'Atomic':
+                document.getElementById("AtomicWeight").disabled=true;
+                dispNuclide();
+                break;
+            case 'Compound':
+                document.getElementById("AtomicWeight").disabled=false;
+                break;
+        }
+    }
+
+    function setNuclide(year, day, hour, min, sec, au, edit=true){
+        document.getElementById("awORmw").value="Atomic";
+        document.getElementById("Year").value=year;
+        document.getElementById("Day").value=day;
+        document.getElementById("Hour").value=hour;
+        document.getElementById("Min").value=min;
+        document.getElementById("Sec").value=sec;
+        document.getElementById("AtomicWeight").value=au;
+        document.getElementById("HalfLife").disabled=edit;
+        document.getElementById("AtomicWeight").disabled=edit;
+    }
+
+    function calculateAmount(){
+        var iyear, iday, ihour, imin, isec, au, iactivity;
+        var unit_activity;
+        iyear=document.getElementById("Year").value;
+        iday=document.getElementById("Day").value;
+        ihour=document.getElementById("Hour").value;
+        imin=document.getElementById("Min").value;
+        isec=document.getElementById("Sec").value;
+        au=document.getElementById("AtomicWeight").value;
+        iactivity=document.getElementById("Radioactivity").value;
+        unit_activity=document.getElementById("RadioUnit").value;
+        
+        var halflife, activity;
+        halflife=iyear*31536000+iday*86400+ihour*3600+imin*60+isec;
+        switch(unit_activity){
+            case 'Bq':
+                activity=iactivity;
+                break;
+            case 'kBq':
+                activity=iactivity*1e3;
+                break;
+            case 'MBq':
+                activity=iactivity*1e6;
+                break;
+            case 'GBq':
+                activity=iactivity*1e9;
+                break;
+            case 'TBq':
+                activity=iactivity*1e12;
+                break;
+            case 'muCi':
+                activity=iactivity*3.7e4;
+                break;
+            case 'mCi':
+                activity=iactivity*3.7e7;
+                break;
+            case 'Ci':
+                activity=iactivity*3.7e10;
+                break;
+        }
+
+        var sa;
+        sa = (6.0221409e+23*Math.log(2))/(halflife*au);
+
+        var mole, mass, sa_disp, sa_factor1, sa_factor2;
+        var unit_mole, unit_mass, unit_sa1, unitsa2;
+        unit_mole=document.getElementById("MoleUnit").value;
+        unit_mass=document.getElementById("MassUnit").value;
+        unit_sa1=document.getElementById("SAUnit1").value;
+        unit_sa2=document.getElementById("SAUnit2").value;
+        switch(unit_mole){
+            case 'fmol':
+                mole=activity/sa*1e15;
+                break;
+            case 'pmol':
+                mole=activity/sa*1e12;
+                break;
+            case 'nmol':
+                mole=activity/sa*1e9;
+                break;
+            case 'mumol':
+                mole=activity/sa*1e6;
+                break;
+            case 'mmol':
+                mole=activity/sa*1e3;
+                break;
+            case 'mol':
+                mole=activity/sa;
+                break;
+        }
+        switch(unit_mass){
+            case 'pg':
+                mass=activity/sa*au*1e12;
+                break;
+            case 'ng':
+                mass=activity/sa*au*1e9;
+                break;
+            case 'mug':
+                mass=activity/sa*au*1e6;
+                break;
+            case 'mg':
+                mass=activity/sa*au*3;
+                break;
+            case 'g':
+                mass=activity/sa*au;
+                break;
+        }
+        switch(unit_sa1){
+            case 'Bq':
+                sa_factor1=1;
+                break;
+            case 'kBq':
+                sa_factor1=1e3;
+                break;
+            case 'MBq':
+                sa_factor1=1e6;
+                break;
+            case 'GBq':
+                sa_factor1=1e9;
+                break;
+            case 'TBq':
+                sa_factor1=1e12;
+                break;
+            case 'muCi':
+                sa_factor1=3.7e4;
+                break;
+            case 'mCi':
+                sa_factor1=3.7e7;
+                break;
+            case 'Ci':
+                sa_factor1=3.7e10;
+                break;
+        }
+        switch(unit_sa2){
+            case 'pg':
+                sa_factor2=1e-12;
+                break;
+            case 'ng':
+                sa_factor2=1e-9;
+                break;
+            case 'mug':
+                sa_factor2=1e-6;
+                break;
+            case 'mg':
+                sa_factor2=1e-3;
+                break;
+            case 'g':
+                sa_factor2=1;
+                break;
+            case 'fmol':
+                sa_factor2=au*1e-15;
+                break;
+            case 'pmol':
+                sa_factor2=au*1e-12;
+                break;
+            case 'nmol':
+                sa_factor2=au*1e-9;
+                break;
+            case 'mumol':
+                sa_factor2=au*1e-6;
+                break;
+            case 'mmol':
+                sa_factor2=au*1e-3;
+                break;
+            case 'mol':
+                sa_factor2=au;
+                break;
+        }
+
+        sa_disp = sa/sa_factor1*sa_factor2
+
+        document.getElementById("MoleResult").innerHTML=mole;
+        document.getElementById("MassResult").innerHTML=mass;
+        document.getElementById("SAResult").innerHTML=sa_disp;
+    }
+</script>
+</html>
