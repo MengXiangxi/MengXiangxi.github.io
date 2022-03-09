@@ -1,13 +1,17 @@
 <html>
+
 <head>
   <title>Presentation Timer</title>
   <style>
-    html, body, form {
+    html,
+    body,
+    form {
       border: 0px;
       margin: 0px;
     }
   </style>
 </head>
+
 <body onBlur="window.focus()">
   <div>
 
@@ -24,95 +28,91 @@
       </form>
     </div>
 
-    </div>
+  </div>
 </body>
 
 <script type="text/javascript">
-  var c=0;
-  var d=0;
+  var c = 0;
+  var d = 0;
   var t;
-  const per=0.1;
-  var pause=0;
+  const per = 0.1;
+  var pause = 0;
   var timer1 = localStorage.getItem('timer1');
   var timer2 = localStorage.getItem('timer2');
 
-  document.getElementById('start1').value = timer1.toString()+' min';
-  var offset1 = timer1*60/per;
+  document.getElementById('start1').value = timer1.toString() + ' min';
+  var offset1 = timer1 * 60 / per;
 
-  document.getElementById('start2').value = timer2.toString()+' min';
-  var offset2 = timer2*60/per;
+  document.getElementById('start2').value = timer2.toString() + ' min';
+  var offset2 = timer2 * 60 / per;
 
-  function offset(sec)
-   {
-     clearTimeout(t);
-     c = sec;
-     document.getElementById('pause-resume').value="❚❚";
-     document.getElementById('pause-resume').disabled = false;
-     pause=0;
-   }
+  function offset(sec) {
+    clearTimeout(t);
+    c = sec;
+    document.getElementById('pause-resume').value = "❚❚";
+    document.getElementById('pause-resume').disabled = false;
+    pause = 0;
+  }
 
-  function timedCount()
-   {
-    d=-(c%(2/per));
-    c=c-1;
-    if (c<60/per){
+  function timedCount() {
+    d = -(c % (2 / per));
+    c = c - 1;
+    if (c < 60 / per) {
       document.getElementById('txt').style.color = "red";
     }
-    else{
+    else {
       document.getElementById('txt').style.color = "black";
     }
-    if (Math.floor(c)>0){
+    if (Math.floor(c) > 0) {
       document.getElementById('txt').style.backgroundColor = "white";
-      var minutes = Math.floor(c / (60/per));
-      var seconds = Math.floor((c % (60/per)) / (1/per));
+      var minutes = Math.floor(c / (60 / per));
+      var seconds = Math.floor((c % (60 / per)) / (1 / per));
     }
-    else if (Math.floor(c)==0){
-      c=-1/per;
+    else if (Math.floor(c) == 0) {
+      c = -1 / per;
       var minutes = 0;
       var seconds = 0;
     }
-    else{
-      if (d<1/per){
+    else {
+      if (d < 1 / per) {
         document.getElementById('txt').style.backgroundColor = "yellow";
         document.getElementById('txt').style.color = "red";
       }
-      else{
+      else {
         document.getElementById('txt').style.backgroundColor = "red";
         document.getElementById('txt').style.color = "yellow";
       }
-      var minutes = Math.floor(-c / (60/per));
-      var seconds = Math.floor((-c % (60/per)) / (1/per));
+      var minutes = Math.floor(-c / (60 / per));
+      var seconds = Math.floor((-c % (60 / per)) / (1 / per));
     }
-    document.getElementById('txt').innerHTML= minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
-    if (pause == 0){
-      t=setTimeout("timedCount()",100);
+    document.getElementById('txt').innerHTML = minutes.toString().padStart(2, '0') + ":" + seconds.toString().padStart(2, '0');
+    if (pause == 0) {
+      t = setTimeout("timedCount()", 100);
     }
     return false;
-   }
+  }
 
-  function timedStop()
-  {
+  function timedStop() {
     clearTimeout(t);
-    document.getElementById('txt').innerHTML='00:00';
+    document.getElementById('txt').innerHTML = '00:00';
     document.getElementById('txt').style.backgroundColor = "white";
     document.getElementById('txt').style.color = "black";
     c = 0;
     d = 0;
     pause = 0;
-    document.getElementById('pause-resume').value="❚❚";
+    document.getElementById('pause-resume').value = "❚❚";
     document.getElementById('pause-resume').disabled = true;
   }
 
-  function timedPause()
-  {
-    if (pause == 0){
+  function timedPause() {
+    if (pause == 0) {
       pause = 1;
-      document.getElementById('pause-resume').value="►";
+      document.getElementById('pause-resume').value = "►";
     }
-    else{
+    else {
       pause = 0;
       timedCount();
-      document.getElementById('pause-resume').value="❚❚";
+      document.getElementById('pause-resume').value = "❚❚";
     }
   }
 </script>

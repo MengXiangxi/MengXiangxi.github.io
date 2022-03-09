@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/w3.css">
@@ -9,26 +10,29 @@
 
 <body>
     <div class="w3-display-topmiddle w3-mobile">
-        <div class = "w3-container w3-center">
+        <div class="w3-container w3-center">
             <h1>Specific activity of carrier-free radionuclide</h1>
             <p>Created by Xiangxi Meng, Beijing Cancer Hospital</p>
         </div>
-        <div class = "w3-mobile w3-center meng-color-theme">
-            <a href="https://mengxiangxi.info/BLOG/imaging/2021/11/07/Specific-activity.html" class="w3-bar-item w3-button">On specific activity</a>
-            <a href="https://www.wikiwand.com/en/Specific_activity" target="_blank" class="w3-bar-item w3-button">Wikipedia entry</a>
+        <div class="w3-mobile w3-center meng-color-theme">
+            <a href="https://mengxiangxi.info/BLOG/imaging/2021/11/07/Specific-activity.html"
+                class="w3-bar-item w3-button">On specific activity</a>
+            <a href="https://www.wikiwand.com/en/Specific_activity" target="_blank"
+                class="w3-bar-item w3-button">Wikipedia entry</a>
         </div>
-    <!-- </div>
+        <!-- </div>
 
     <div class="w3-display-topmiddle w3-mobile"> -->
         <div class="w3-container w3-padding">
-            This is a calculator for analyzing the specific activity of carrier-free radionuclides. You can specify various input parameters and calculate the theoretical values for the parameters of interest.
+            This is a calculator for analyzing the specific activity of carrier-free radionuclides. You can specify
+            various input parameters and calculate the theoretical values for the parameters of interest.
         </div>
         <div class="w3-container">
             <form>
                 <div class="w3-card w3-padding">
                     <h3>Input the nuclide information</h3>
                     <div class="w3-container w3-padding">
-                        <label for="NuclideType">Nuclide type:</label><br/>
+                        <label for="NuclideType">Nuclide type:</label><br />
                         <select name="NuclideType" id="NuclideType" onchange="dispNuclide()">
                             <option value="Specify">Custom</option>
                             <option value="C11">C-11</option>
@@ -45,7 +49,7 @@
                         </select>
                     </div>
                     <div class="w3-container w3-padding">
-                        <label for="HalfLife">Half-life of the selected nuclide:</label><br/>
+                        <label for="HalfLife">Half-life of the selected nuclide:</label><br />
                         <fieldset id="HalfLife" disabled style="border: 0px;">
                             <input type="number" id="Year" value=0 />Year(s)<br />
                             <input type="number" id="Day" value=0 />Day(s)<br />
@@ -60,11 +64,11 @@
                             <option value="Compound">Labeled Compound</option>
                         </select><br />
                         <label for="MolarMass">Molar mass:</label><br />
-                        <input type="number" id="AtomicWeight" value="18" disabled/> g/mol
+                        <input type="number" id="AtomicWeight" value="18" disabled /> g/mol
                     </div>
                     <div class="w3-container w3-padding">
                         <label for="Radioactivity">Radioactivity:</label><br />
-                        <input type="number" id="Radioactivity" value="1"/>
+                        <input type="number" id="Radioactivity" value="1" />
                         <select name="RadioUnit" id="RadioUnit">
                             <option value="Bq">Bq</option>
                             <option value="kBq">kBq</option>
@@ -76,7 +80,8 @@
                             <option value="Ci">Ci</option>
                         </select>
                     </div>
-                    <button type="button" onclick="calculateAmount()" class="w3-padding">Get mass and molar amount</button><br />
+                    <button type="button" onclick="calculateAmount()" class="w3-padding">Get mass and molar
+                        amount</button><br />
                 </div>
                 <div id="Result" class="w3-card w3-padding">
                     <h3>The results</h3>
@@ -125,9 +130,9 @@
                 </div>
             </form>
         </div>
-	
 
-        <div class = "w3-container w3-center" sytle="font-size:9px">
+
+        <div class="w3-container w3-center" sytle="font-size:9px">
             <hr />
             Meng Xiangxi, 20211107
         </div>
@@ -135,227 +140,228 @@
 
 </body>
 <script>
-    function dispNuclide(){
-        var nuclide=document.getElementById("NuclideType").value
-		switch(nuclide){
+    function dispNuclide() {
+        var nuclide = document.getElementById("NuclideType").value
+        switch (nuclide) {
             case 'C11':
-                setNuclide(0,0,0,20.38,0,11.01,true);
+                setNuclide(0, 0, 0, 20.38, 0, 11.01, true);
                 break;
             case 'F18':
-                setNuclide(0,0,0,109.771,0,18.00,true);
+                setNuclide(0, 0, 0, 109.771, 0, 18.00, true);
                 break;
             case 'Cu64':
-                setNuclide(0,0,12.7801,0,0,63.929764,true);
+                setNuclide(0, 0, 12.7801, 0, 0, 63.929764, true);
                 break;
             case 'Ga68':
-                setNuclide(0,0,0,67.71,0,67.92798,true);
+                setNuclide(0, 0, 0, 67.71, 0, 67.92798, true);
                 break;
             case 'Tc99m':
-                setNuclide(0,0,6.0067,0,0,98.9063,true);
+                setNuclide(0, 0, 6.0067, 0, 0, 98.9063, true);
                 break;
             case 'Y90':
-                setNuclide(0,0,64.6,0,0,89.9071519,true);
+                setNuclide(0, 0, 64.6, 0, 0, 89.9071519, true);
                 break;
             case 'Zr89':
-                setNuclide(0,0,78.41,0,0,88.908890,true);
+                setNuclide(0, 0, 78.41, 0, 0, 88.908890, true);
                 break;
             case 'I124':
-                setNuclide(0,4.176,0,0,0,123.9062099,true);
+                setNuclide(0, 4.176, 0, 0, 0, 123.9062099, true);
                 break;
             case 'I125':
-                setNuclide(0,59.49,0,0,0,124.9046302,true);
+                setNuclide(0, 59.49, 0, 0, 0, 124.9046302, true);
                 break;
             case 'I131':
-                setNuclide(0,8.0197,0,0,0,130.9061246,true);
+                setNuclide(0, 8.0197, 0, 0, 0, 130.9061246, true);
                 break;
             case 'Lu177':
-                setNuclide(0,6.6475,0,0,0,176.9437581,true);
+                setNuclide(0, 6.6475, 0, 0, 0, 176.9437581, true);
                 break;
             case 'Specify':
-                setNuclide(0,0,0,0,0,0,false);
+                setNuclide(0, 0, 0, 0, 0, 0, false);
                 break;
         }
-	}
+    }
 
-    function dispMolMass(){
-        var masstype=document.getElementById("awORmw").value;
-        switch(masstype){
+    function dispMolMass() {
+        var masstype = document.getElementById("awORmw").value;
+        switch (masstype) {
             case 'Atomic':
-                document.getElementById("AtomicWeight").disabled=true;
+                document.getElementById("AtomicWeight").disabled = true;
                 dispNuclide();
                 break;
             case 'Compound':
-                document.getElementById("AtomicWeight").disabled=false;
+                document.getElementById("AtomicWeight").disabled = false;
                 break;
         }
     }
 
-    function setNuclide(year, day, hour, min, sec, au, edit=true){
-        document.getElementById("awORmw").value="Atomic";
-        document.getElementById("Year").value=year;
-        document.getElementById("Day").value=day;
-        document.getElementById("Hour").value=hour;
-        document.getElementById("Min").value=min;
-        document.getElementById("Sec").value=sec;
-        document.getElementById("AtomicWeight").value=au;
-        document.getElementById("HalfLife").disabled=edit;
-        document.getElementById("AtomicWeight").disabled=edit;
+    function setNuclide(year, day, hour, min, sec, au, edit = true) {
+        document.getElementById("awORmw").value = "Atomic";
+        document.getElementById("Year").value = year;
+        document.getElementById("Day").value = day;
+        document.getElementById("Hour").value = hour;
+        document.getElementById("Min").value = min;
+        document.getElementById("Sec").value = sec;
+        document.getElementById("AtomicWeight").value = au;
+        document.getElementById("HalfLife").disabled = edit;
+        document.getElementById("AtomicWeight").disabled = edit;
     }
 
-    function calculateAmount(){
+    function calculateAmount() {
         var iyear, iday, ihour, imin, isec, au, iactivity;
         var unit_activity;
-        iyear=document.getElementById("Year").value;
-        iday=document.getElementById("Day").value;
-        ihour=document.getElementById("Hour").value;
-        imin=document.getElementById("Min").value;
-        isec=document.getElementById("Sec").value;
-        au=document.getElementById("AtomicWeight").value;
-        iactivity=document.getElementById("Radioactivity").value;
-        unit_activity=document.getElementById("RadioUnit").value;
-        
+        iyear = document.getElementById("Year").value;
+        iday = document.getElementById("Day").value;
+        ihour = document.getElementById("Hour").value;
+        imin = document.getElementById("Min").value;
+        isec = document.getElementById("Sec").value;
+        au = document.getElementById("AtomicWeight").value;
+        iactivity = document.getElementById("Radioactivity").value;
+        unit_activity = document.getElementById("RadioUnit").value;
+
         var halflife, activity;
-        halflife=iyear*31536000+iday*86400+ihour*3600+imin*60+isec;
-        switch(unit_activity){
+        halflife = iyear * 31536000 + iday * 86400 + ihour * 3600 + imin * 60 + isec;
+        switch (unit_activity) {
             case 'Bq':
-                activity=iactivity;
+                activity = iactivity;
                 break;
             case 'kBq':
-                activity=iactivity*1e3;
+                activity = iactivity * 1e3;
                 break;
             case 'MBq':
-                activity=iactivity*1e6;
+                activity = iactivity * 1e6;
                 break;
             case 'GBq':
-                activity=iactivity*1e9;
+                activity = iactivity * 1e9;
                 break;
             case 'TBq':
-                activity=iactivity*1e12;
+                activity = iactivity * 1e12;
                 break;
             case 'muCi':
-                activity=iactivity*3.7e4;
+                activity = iactivity * 3.7e4;
                 break;
             case 'mCi':
-                activity=iactivity*3.7e7;
+                activity = iactivity * 3.7e7;
                 break;
             case 'Ci':
-                activity=iactivity*3.7e10;
+                activity = iactivity * 3.7e10;
                 break;
         }
 
         var sa;
-        sa = (6.0221409e+23*Math.log(2))/(halflife*au);
+        sa = (6.0221409e+23 * Math.log(2)) / (halflife * au);
 
         var mole, mass, sa_disp, sa_factor1, sa_factor2;
         var unit_mole, unit_mass, unit_sa1, unitsa2;
-        unit_mole=document.getElementById("MoleUnit").value;
-        unit_mass=document.getElementById("MassUnit").value;
-        unit_sa1=document.getElementById("SAUnit1").value;
-        unit_sa2=document.getElementById("SAUnit2").value;
-        switch(unit_mole){
+        unit_mole = document.getElementById("MoleUnit").value;
+        unit_mass = document.getElementById("MassUnit").value;
+        unit_sa1 = document.getElementById("SAUnit1").value;
+        unit_sa2 = document.getElementById("SAUnit2").value;
+        switch (unit_mole) {
             case 'fmol':
-                mole=activity/sa*1e15;
+                mole = activity / sa * 1e15;
                 break;
             case 'pmol':
-                mole=activity/sa*1e12;
+                mole = activity / sa * 1e12;
                 break;
             case 'nmol':
-                mole=activity/sa*1e9;
+                mole = activity / sa * 1e9;
                 break;
             case 'mumol':
-                mole=activity/sa*1e6;
+                mole = activity / sa * 1e6;
                 break;
             case 'mmol':
-                mole=activity/sa*1e3;
+                mole = activity / sa * 1e3;
                 break;
             case 'mol':
-                mole=activity/sa;
+                mole = activity / sa;
                 break;
         }
-        switch(unit_mass){
+        switch (unit_mass) {
             case 'pg':
-                mass=activity/sa*au*1e12;
+                mass = activity / sa * au * 1e12;
                 break;
             case 'ng':
-                mass=activity/sa*au*1e9;
+                mass = activity / sa * au * 1e9;
                 break;
             case 'mug':
-                mass=activity/sa*au*1e6;
+                mass = activity / sa * au * 1e6;
                 break;
             case 'mg':
-                mass=activity/sa*au*1e3;
+                mass = activity / sa * au * 1e3;
                 break;
             case 'g':
-                mass=activity/sa*au;
+                mass = activity / sa * au;
                 break;
         }
-        switch(unit_sa1){
+        switch (unit_sa1) {
             case 'Bq':
-                sa_factor1=1;
+                sa_factor1 = 1;
                 break;
             case 'kBq':
-                sa_factor1=1e3;
+                sa_factor1 = 1e3;
                 break;
             case 'MBq':
-                sa_factor1=1e6;
+                sa_factor1 = 1e6;
                 break;
             case 'GBq':
-                sa_factor1=1e9;
+                sa_factor1 = 1e9;
                 break;
             case 'TBq':
-                sa_factor1=1e12;
+                sa_factor1 = 1e12;
                 break;
             case 'muCi':
-                sa_factor1=3.7e4;
+                sa_factor1 = 3.7e4;
                 break;
             case 'mCi':
-                sa_factor1=3.7e7;
+                sa_factor1 = 3.7e7;
                 break;
             case 'Ci':
-                sa_factor1=3.7e10;
+                sa_factor1 = 3.7e10;
                 break;
         }
-        switch(unit_sa2){
+        switch (unit_sa2) {
             case 'pg':
-                sa_factor2=1e-12;
+                sa_factor2 = 1e-12;
                 break;
             case 'ng':
-                sa_factor2=1e-9;
+                sa_factor2 = 1e-9;
                 break;
             case 'mug':
-                sa_factor2=1e-6;
+                sa_factor2 = 1e-6;
                 break;
             case 'mg':
-                sa_factor2=1e-3;
+                sa_factor2 = 1e-3;
                 break;
             case 'g':
-                sa_factor2=1;
+                sa_factor2 = 1;
                 break;
             case 'fmol':
-                sa_factor2=au*1e-15;
+                sa_factor2 = au * 1e-15;
                 break;
             case 'pmol':
-                sa_factor2=au*1e-12;
+                sa_factor2 = au * 1e-12;
                 break;
             case 'nmol':
-                sa_factor2=au*1e-9;
+                sa_factor2 = au * 1e-9;
                 break;
             case 'mumol':
-                sa_factor2=au*1e-6;
+                sa_factor2 = au * 1e-6;
                 break;
             case 'mmol':
-                sa_factor2=au*1e-3;
+                sa_factor2 = au * 1e-3;
                 break;
             case 'mol':
-                sa_factor2=au;
+                sa_factor2 = au;
                 break;
         }
 
-        sa_disp = sa/sa_factor1*sa_factor2
+        sa_disp = sa / sa_factor1 * sa_factor2
 
-        document.getElementById("MoleResult").innerHTML=mole;
-        document.getElementById("MassResult").innerHTML=mass;
-        document.getElementById("SAResult").innerHTML=sa_disp;
+        document.getElementById("MoleResult").innerHTML = mole;
+        document.getElementById("MassResult").innerHTML = mass;
+        document.getElementById("SAResult").innerHTML = sa_disp;
     }
 </script>
+
 </html>
