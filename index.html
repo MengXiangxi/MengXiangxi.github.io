@@ -1,213 +1,235 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/w3.css">
-    <link rel="stylesheet" href="./css/mengfront.css">
-    <title>Meng, Xiangxi</title>
-  </head>
 
-  <body>
-    <!-- top -->
-    <div class = "w3-display-topmiddle w3-mobile">
-      <div class = "w3-container w3-center">
-        <h1>Meng, Xiangxi</h1>
-        <p>孟祥溪</p>
-      </div>
-      <div class = "w3-mobile w3-center meng-color-theme">
-        <a href="#" class="w3-bar-item w3-button">Home</a>
-        <a href="./publications.html" class="w3-bar-item w3-button">Publications</a>
-        <a href="./link.html" class="w3-bar-item w3-button">Link</a>
-        <a href="./BLOG/" class="w3-bar-item w3-button">BLOG</a>
-      </div>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./css/w3.css">
+  <link rel="stylesheet" href="./css/mengfront.css">
+  <title>Meng, Xiangxi</title>
+</head>
 
-      <!-- contents -->
-      <div class='w3-content w3-display-container w3-center'>
-        <div class="w3-display-container mySlides meng-fading-fast ">
-          <img src="./Upload/titlefig/MC_property.png" style="width:100%">
-          <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
-            <a href="https://github.com/MengXiangxi/Intralipid_optical_parameters", target="_blank">Optical parameters of intralipids</a>
-          </div>
-        </div>
-        <div class="w3-display-container mySlides meng-fading-fast ">
-          <img src="./Upload/titlefig/electroplating_explode.png" style="width:100%">
-          <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
-            <a href="https://patents.google.com/patent/CN206143337U", target="_blank">Electroplating device design</a>
-          </div>
-        </div>
-        <div class="w3-display-container mySlides meng-fading-fast ">
-          <img src="./Upload/titlefig/Trajectory.png" style="width:100%">
-          <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
-            <a href="https://github.com/MengXiangxi/PMRMC", target="_blank">PMRMC, simulates positron in magnetic field</a>
-          </div>
-        </div>
-        <!--New slides here-->
-        <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
-        <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
-      </div>
-      <script>
-        var slideIndex = 1;
-        showDivs(slideIndex);
-        carousel();
-
-        function plusDivs(n) {
-          showDivs(slideIndex += n);
-        }
-
-        function showDivs(n) {
-          var i;
-          var x = document.getElementsByClassName("mySlides");
-          if (n > x.length) {slideIndex = 1}    
-          if (n < 1) {slideIndex = x.length}
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
-          }
-          x[slideIndex-1].style.display = "block"; 
-        }
-        
-        function carousel() {
-          var i;
-          var x = document.getElementsByClassName("mySlides");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none"; 
-          }
-          slideIndex++;
-          if (slideIndex > x.length) {slideIndex = 1} 
-          x[slideIndex-1].style.display = "block"; 
-          setTimeout(carousel, 10000); // Change image every 2 seconds
-        }
-      </script>
-
-      <div class="w3-container w3-white">
-        <h2>Meng, Xiangxi PhD.</h2>
-        Research Assistant Professor,<br />
-        <table>
-          <tr><td  valign="top">  </td><td>Key Laboratory of Carcinogenesis and Translational Research (Ministry of Education/Beijing),</td></tr>
-          <tr><td></td><td>Key Laboratory for Research and Evaluation of Radiopharmaceuticals (National Medical Products Administration)</td></tr>
-          <tr><td></td><td>Department of Nuclear Medicine,</td></tr>
-          <tr><td></td><td>Peking University Cancer Hospital & Institute</td></tr>
-          <!-- <tr><td  valign="top">2. </td><td>Key Laboratory for Research and Evaluation of Radiopharmaceuticals (National Medical Products Administration)</td></tr> -->
-        </table>
-        <a href="./Misc/affiliations.html" target="_blank">&#60;Affiliations&#62;</a>
-      </div>
-      <div class="w3-container w3-white">
-        <h2>Research</h2>
-        <p>I am currently developing clinical-oriented medical technologies for nuclear medicine and molecular imaging.</p>
-        <p>The areas of interest include: 
-        <ul>
-          <li>PET/MR applications,</li>
-          <li>near-infrared preclinical imaging,</li>
-          <li>multimodality imaging,</li>
-          <li>automatic synthesis module development,</li>
-          <li>deep learning of medical imaging,</li>
-          <li>novel radioisotopes and radiopharmaceuticals.</li>
-        </ul>
-      </div>
-      <div  class="w3-container w3-white">
-        <h2>Work</h2>
-        <table class = "w3-table">
-          <tr>
-            <th>Year</th>
-            <th>Institution</th>
-            <th>Position</th>
-          </tr>
-          <tr>
-            <td>2019-2021</td>
-            <td>Beijing Cancer Hospital</td>
-            <td>Postdoctoral Research Fellow</td>
-          </tr>
-          <tr>
-            <td>2021-</td>
-            <td></td>
-            <td>Research Assistant Professor</td>
-          </tr>
-          
-        </table>
-        <h2>Education</h2>
-        <table class = "w3-table">
-          <tr>
-            <th>Year</th>
-            <th>Institution</th>
-            <th>Degree Awarded<th>
-          </tr>
-          <tr>
-            <td>2009-2013</td>
-            <td>Nankai University</td>
-            <td>B.S.</td>
-          </tr>
-          <tr>
-            <td> </td>
-            <td>Tianjin University</td>
-            <td>B.Eng.</td>
-          </tr>
-          <tr>
-            <td>2013-2019</td>
-            <td>Peking University</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Emory University</td>
-            <td>PhD</td>
-          </tr>
-          <tr>
-            <td></td>
-            <td>Georgia Institute of Technology</td>
-            <td></td>
-          </tr>
-        </table>
-      </div>
-
-      <div class = "w3-container w3-white">
-        <h2>Memberships</h2>
-        <table class = "w3-table">
-          <tr>
-            <th>Year</th>
-            <th>Society</th>
-            <th>Membership<th>
-          </tr>
-          <tr>
-            <td>2018-2019</td>
-            <td>Chinese Chemical Society</td>
-            <td>Student member</td>
-          </tr>
-          <tr>
-            <td>2018-</td>
-            <td>Chinese Nuclear Society</td>
-            <td>Member</td>
-          </tr>
-          <tr>
-            <td>2017-2018</td>
-            <td>IEEE (Nuclear and Plasma Sciences)</td>
-            <td>Member</td>
-          </tr>
-          <tr>
-            <td>2015-</td>
-            <td>SNMMI</td>
-            <td>Member</td>
-          </tr>
-          <tr>
-            <td>2013-2014</td>
-            <td>Beijing Society Biomedical Engineering</td>
-            <td>Student member</td>
-          </tr>
-
-        </table>
-      </div>
-
-      <div class="w3-container w3-white">
-        <h2>Contact</h2>
-        Email: <code class="w3-codespan">echo bWVuZ3hpYW5neGlAcGt1LmVkdS5jbg0K | base64 --decode</code><br/>
-        Leave a message: <a href="./link.html#comments">Comment widget</a><br />
-        Direction: <a href="https://www.google.com/maps/place/%E5%8C%97%E4%BA%AC%E8%82%BF%E7%98%A4%E5%8C%BB%E9%99%A2/@39.923288,116.2873973,17z/data=!3m1!4b1!4m5!3m4!1s0x35f051d0b3c0bed7:0x14f9a36ad5798cf9!8m2!3d39.923288!4d116.289586" 
-        target="_blank">Beijing Cancer Hospital, 52nd Fucheng Road, Beijing, China</a>
-      </div>
-
-      <!-- Bottom -->
-      <hr />
-      <div class = "w3-container w3-center" sytle="font-size:9px">
-        Meng Xiangxi, 20190717; Updated: 20210803.
-      </div>
+<body>
+  <!-- top -->
+  <div class="w3-display-topmiddle w3-mobile">
+    <div class="w3-container w3-center">
+      <h1>Meng, Xiangxi</h1>
+      <p>孟祥溪</p>
     </div>
-  </body>
+    <div class="w3-mobile w3-center meng-color-theme">
+      <a href="#" class="w3-bar-item w3-button">Home</a>
+      <a href="./research.html" class="w3-bar-item w3-button">Research</a>
+      <a href="./publications.html" class="w3-bar-item w3-button">Publications</a>
+      <a href="./link.html" class="w3-bar-item w3-button">Link</a>
+      <a href="./BLOG/" class="w3-bar-item w3-button">BLOG</a>
+    </div>
+
+    <!-- contents -->
+    <div class='w3-content w3-display-container w3-center'>
+      <div class="w3-display-container mySlides meng-fading-fast ">
+        <img src="./Upload/titlefig/MC_property.png" style="width:100%">
+        <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+          <a href="https://github.com/MengXiangxi/Intralipid_optical_parameters" , target="_blank">Optical parameters of
+            intralipids</a>
+        </div>
+      </div>
+      <div class="w3-display-container mySlides meng-fading-fast ">
+        <img src="./Upload/titlefig/electroplating_explode.png" style="width:100%">
+        <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+          <a href="https://patents.google.com/patent/CN206143337U" , target="_blank">Electroplating device design</a>
+        </div>
+      </div>
+      <div class="w3-display-container mySlides meng-fading-fast ">
+        <img src="./Upload/titlefig/Trajectory.png" style="width:100%">
+        <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
+          <a href="https://github.com/MengXiangxi/PMRMC" , target="_blank">PMRMC, simulates positron in magnetic
+            field</a>
+        </div>
+      </div>
+      <!--New slides here-->
+      <button class="w3-button w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+      <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
+    </div>
+    <script>
+      var slideIndex = 1;
+      showDivs(slideIndex);
+      carousel();
+
+      function plusDivs(n) {
+        showDivs(slideIndex += n);
+      }
+
+      function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length }
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+      }
+
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) { slideIndex = 1 }
+        x[slideIndex - 1].style.display = "block";
+        setTimeout(carousel, 10000); // Change image every 2 seconds
+      }
+    </script>
+
+    <div class="w3-container w3-white">
+      <h2>Meng, Xiangxi PhD.</h2>
+      Research Assistant Professor,<br />
+      <table>
+        <tr>
+          <td valign="top"> </td>
+          <td>Key Laboratory of Carcinogenesis and Translational Research (Ministry of Education/Beijing),</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Key Laboratory for Research and Evaluation of Radiopharmaceuticals (National Medical Products
+            Administration)</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Department of Nuclear Medicine,</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Peking University Cancer Hospital & Institute</td>
+        </tr>
+        <!-- <tr><td  valign="top">2. </td><td>Key Laboratory for Research and Evaluation of Radiopharmaceuticals (National Medical Products Administration)</td></tr> -->
+      </table>
+      <a href="./Misc/affiliations.html" target="_blank">&#60;Affiliations&#62;</a>
+    </div>
+    <div class="w3-container w3-white">
+      <h2><a href="/research.html" style="text-decoration: none;">Research</a></h2>
+      <p>I am currently developing clinical-oriented medical technologies for nuclear medicine and molecular imaging.
+      </p>
+      <p>The areas of interest include:
+      <ul>
+        <li>PET/MR applications,</li>
+        <li>near-infrared preclinical imaging,</li>
+        <li>multimodality imaging,</li>
+        <li>automatic synthesis module development,</li>
+        <li>deep learning of medical imaging,</li>
+        <li>novel radioisotopes and radiopharmaceuticals.</li>
+      </ul>
+    </div>
+    <div class="w3-container w3-white">
+      <h2>Work</h2>
+      <table class="w3-table">
+        <tr>
+          <th>Year</th>
+          <th>Institution</th>
+          <th>Position</th>
+        </tr>
+        <tr>
+          <td>2019-2021</td>
+          <td>Beijing Cancer Hospital</td>
+          <td>Postdoctoral Research Fellow</td>
+        </tr>
+        <tr>
+          <td>2021-</td>
+          <td></td>
+          <td>Research Assistant Professor</td>
+        </tr>
+
+      </table>
+      <h2>Education</h2>
+      <table class="w3-table">
+        <tr>
+          <th>Year</th>
+          <th>Institution</th>
+          <th>Degree Awarded
+          <th>
+        </tr>
+        <tr>
+          <td>2009-2013</td>
+          <td>Nankai University</td>
+          <td>B.S.</td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td>Tianjin University</td>
+          <td>B.Eng.</td>
+        </tr>
+        <tr>
+          <td>2013-2019</td>
+          <td>Peking University</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Emory University</td>
+          <td>PhD</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Georgia Institute of Technology</td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="w3-container w3-white">
+      <h2>Memberships</h2>
+      <table class="w3-table">
+        <tr>
+          <th>Year</th>
+          <th>Society</th>
+          <th>Membership
+          <th>
+        </tr>
+        <tr>
+          <td>2018-2019</td>
+          <td>Chinese Chemical Society</td>
+          <td>Student member</td>
+        </tr>
+        <tr>
+          <td>2018-</td>
+          <td>Chinese Nuclear Society</td>
+          <td>Member</td>
+        </tr>
+        <tr>
+          <td>2017-2018</td>
+          <td>IEEE (Nuclear and Plasma Sciences)</td>
+          <td>Member</td>
+        </tr>
+        <tr>
+          <td>2015-</td>
+          <td>SNMMI</td>
+          <td>Member</td>
+        </tr>
+        <tr>
+          <td>2013-2014</td>
+          <td>Beijing Society Biomedical Engineering</td>
+          <td>Student member</td>
+        </tr>
+
+      </table>
+    </div>
+
+    <div class="w3-container w3-white">
+      <h2>Contact</h2>
+      Email: <code class="w3-codespan">echo bWVuZ3hpYW5neGlAcGt1LmVkdS5jbg0K | base64 --decode</code><br />
+      Leave a message: <a href="./link.html#comments">Comment widget</a><br />
+      Direction: <a
+        href="https://www.google.com/maps/place/%E5%8C%97%E4%BA%AC%E8%82%BF%E7%98%A4%E5%8C%BB%E9%99%A2/@39.923288,116.2873973,17z/data=!3m1!4b1!4m5!3m4!1s0x35f051d0b3c0bed7:0x14f9a36ad5798cf9!8m2!3d39.923288!4d116.289586"
+        target="_blank">Beijing Cancer Hospital, 52nd Fucheng Road, Beijing, China</a>
+    </div>
+
+    <!-- Bottom -->
+    <hr />
+    <footer class="w3-container w3-center" sytle="font-size:9px">
+      Meng Xiangxi, Since 20180101; Updated: 20220310.
+    </footer>
+  </div>
+</body>
+
 </html>

@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <body>
 
-<h2>PKU Cafeteria Selector with Javascript</h2>
+    <h2>PKU Cafeteria Selector with Javascript</h2>
 
-<p>The cafeteria selected is:</p>
+    <p>The cafeteria selected is:</p>
 
-<p id="cafe" style="font-size:72px;"></p>
+    <p id="cafe" style="font-size:72px;"></p>
 
-<script>
-// var cafe = ['shao', 'yi', 'nong', 'song', '1', 'chang', 'yan', 'wu'];
-var cafe = ['1', 'jia1', 'jia2', 'jia3', 'jia4', '5', 'yan', 'shao', 'song', 'chang', 'nong', 'zhong', 'cheng'];
-document.getElementById("cafe").innerHTML = cafe[Math.floor(Math.random()*cafe.length)];
-</script>
+    <script>
+        // var cafe = ['shao', 'yi', 'nong', 'song', '1', 'chang', 'yan', 'wu'];
+        var cafe = ['1', 'jia1', 'jia2', 'jia3', 'jia4', '5', 'yan', 'shao', 'song', 'chang', 'nong', 'zhong', 'cheng'];
+        document.getElementById("cafe").innerHTML = cafe[Math.floor(Math.random() * cafe.length)];
+    </script>
 
 </body>
+
 </html>

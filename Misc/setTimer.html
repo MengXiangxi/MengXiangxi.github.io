@@ -1,51 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Presentation Timer</title>
+	<title>Presentation Timer</title>
 </head>
+
 <body>
 	<div>
 		<form>
-			<label for="timer1">Coutdown 1:</label><br/>
-			<input type="text" id="timer1" value="15"> min<br/>
-			<label for="timer2">Coutdown 2:</label><br/>
-			<input type="text" id="timer2" value="3"> min<br/>
+			<label for="timer1">Coutdown 1:</label><br />
+			<input type="text" id="timer1" value="15"> min<br />
+			<label for="timer2">Coutdown 2:</label><br />
+			<input type="text" id="timer2" value="3"> min<br />
 			<input type="button" value="Countdown Timer" onclick="startTimer()">
 		</form>
 	</div>
 
-<div>
-	<hr>
-	<h1>Presentation Timer</h1>
-	<p>X. Meng, Beijing Cancer Hospital, mengxiangxi_#_pku.edu.cn</p>
-	
-	<ol>
-		<li>
-			The package contains two html files, <code>setTimer.html</code> and <code>preTimer.html</code>.
-		</li>
-		<li>
-			To make sure that the timer always stays on the top, a freeware called <a href="https://www.windowtop.info/" target="_blank">WindowTop</a> could be used.
-		</li>
-		<li>
-			Two countdown timers could be set, by typing the duration in minutes in the input box above.
-		</li>
-		<li>
-			When the button above is clicked, a new window will popup. This window could be pinned at the top via <code>WindowTop</code> software.
-		</li>
-		<li>
-			If the countdown time is more than 1 min, the background will be white and the text will be black; in the last minute, the text turns red; after the set duration passed, the background flashes.
-		</li>
-	</ol>
-	
-	Updated: 20201223
-</div>
-	
+	<div>
+		<hr>
+		<h1>Presentation Timer</h1>
+		<p>X. Meng, Beijing Cancer Hospital, mengxiangxi_#_pku.edu.cn</p>
+
+		<ol>
+			<li>
+				The package contains two html files, <code>setTimer.html</code> and <code>preTimer.html</code>.
+			</li>
+			<li>
+				To make sure that the timer always stays on the top, a freeware called <a
+					href="https://www.windowtop.info/" target="_blank">WindowTop</a> could be used.
+			</li>
+			<li>
+				Two countdown timers could be set, by typing the duration in minutes in the input box above.
+			</li>
+			<li>
+				When the button above is clicked, a new window will popup. This window could be pinned at the top via
+				<code>WindowTop</code> software.
+			</li>
+			<li>
+				If the countdown time is more than 1 min, the background will be white and the text will be black; in
+				the last minute, the text turns red; after the set duration passed, the background flashes.
+			</li>
+		</ol>
+
+		Updated: 20201223
+	</div>
+
 </body>
 <script>
-	function startTimer(){
+	function startTimer() {
 		localStorage.setItem('timer1', document.getElementById('timer1').value);
 		localStorage.setItem('timer2', document.getElementById('timer2').value);
-		window.open("./preTimer.html","popup","width=230, height=131, scrollbars=no");
+		window.open("./preTimer.html", "popup", "width=230, height=131, scrollbars=no");
 	}
 </script>
+
 </html>

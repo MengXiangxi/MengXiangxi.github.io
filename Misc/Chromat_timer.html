@@ -1,117 +1,115 @@
 <html>
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="../css/w3.css">
-  <link rel="stylesheet" href="../css/mengfront.css">  
+  <link rel="stylesheet" href="../css/mengfront.css">
   <title>Chromat Timer</title>
   <script type="text/javascript">
-  var c=0
-  var d=0
-  var t
-  var per=0.1
-  var alOffset=0
-  function offset(sec)
-   {
-     clearTimeout(t);
-     if (sec == '-1')
-     {
-       sec = (document.getElementById("offsetbox").value)*600
-     }
-     c = sec
-     d = sec%(per*600)
-   }
-  function changeColor()
-  {
-    var bgcolor = document.getElementById('txt').style.backgroundColor
-    //var x = alert(bgcolor)
-    if (bgcolor != "green"){
-      document.getElementById('txt').style.backgroundColor = "green"
+    var c = 0
+    var d = 0
+    var t
+    var per = 0.1
+    var alOffset = 0
+    function offset(sec) {
+      clearTimeout(t);
+      if (sec == '-1') {
+        sec = (document.getElementById("offsetbox").value) * 600
+      }
+      c = sec
+      d = sec % (per * 600)
     }
-    else
-    {
-      document.getElementById('txt').style.backgroundColor = "yellow"
+    function changeColor() {
+      var bgcolor = document.getElementById('txt').style.backgroundColor
+      //var x = alert(bgcolor)
+      if (bgcolor != "green") {
+        document.getElementById('txt').style.backgroundColor = "green"
+      }
+      else {
+        document.getElementById('txt').style.backgroundColor = "yellow"
+      }
     }
-  }
-  function timedCount()
-   {
-   document.getElementById('txt').innerHTML=(c/600).toFixed(3)
-   d=d+1
-   c=c+1
-   t=setTimeout("timedCount()",100)
-   if (d>=per*600){
-     changeColor()
-     d = 0
-   }
-   return false;
-   }
-  function timedStop()
-  {
-    clearTimeout(t);
-    document.getElementById('txt').innerHTML=0
-  }
-  function setAlert()
-  {
-    per = document.getElementById("alPerBox").value
-    alOffset = document.getElementById("alOffsetBox").value
-    d = alOffset*600
-  }
+    function timedCount() {
+      document.getElementById('txt').innerHTML = (c / 600).toFixed(3)
+      d = d + 1
+      c = c + 1
+      t = setTimeout("timedCount()", 100)
+      if (d >= per * 600) {
+        changeColor()
+        d = 0
+      }
+      return false;
+    }
+    function timedStop() {
+      clearTimeout(t);
+      document.getElementById('txt').innerHTML = 0
+    }
+    function setAlert() {
+      per = document.getElementById("alPerBox").value
+      alOffset = document.getElementById("alOffsetBox").value
+      d = alOffset * 600
+    }
   </script>
 </head>
+
 <body>
   <!--Top-->
-  <div class = "w3-display-topmiddle  w3-mobile">
-  <div class = "w3-container w3-center">
-    <h1>Meng, Xiangxi</h1>
-    <p>孟祥溪</p>
-  </div>
-  <div class = "w3-mobile w3-center meng-color-theme">
-    <a href="../" class="w3-bar-item w3-button">Home</a>
-    <a href="../link.html" class="w3-bar-item w3-button">Link</a>
-  </div>
-  <!--Contents-->
-  <div class="w3-container">
-    <h2>Chromat Timer</h2>
-    <p>A javascript timer to aid the manual collection of HPLC eluents. It is being run on a very old workstation.</p>
-    <p>May need to turn off the safety filter.</p>
-  </div>
-  <div class="w3-container w3-right-align">
-    [<a href="
-    ../Misc/Chromat_timer_popup.html"   target="popup"   onclick="window.open('../Misc/Chromat_timer_popup.html','popup','width=450,height=395'); return false;">Open in Popup</a>]
-  </div>
-  <div class="w3-card-4 w3-padding-24">
-    <form>
-    <div class = "w3-container">
-      <input type="button" value="0 sec" onClick="offset(0); timedCount()">
-      <input type="button" value="5 sec" onClick="offset(50); timedCount()">
-      <input type="button" value="0.1 min" onClick="offset(60); timedCount()">
-      <input type="button" value="stop" onClick="timedStop()">
+  <div class="w3-display-topmiddle  w3-mobile">
+    <div class="w3-container w3-center">
+      <h1>Meng, Xiangxi</h1>
+      <p>孟祥溪</p>
     </div>
+    <div class="w3-mobile w3-center meng-color-theme">
+      <a href="../" class="w3-bar-item w3-button">Home</a>
+      <a href="../link.html" class="w3-bar-item w3-button">Link</a>
+    </div>
+    <!--Contents-->
     <div class="w3-container">
-      <div id="txt" style="color:red;font-size:100px">
-      0
-      </div>
+      <h2>Chromat Timer</h2>
+      <p>A javascript timer to aid the manual collection of HPLC eluents. It is being run on a very old workstation.</p>
+      <p>May need to turn off the safety filter.</p>
     </div>
-    <div class = "w3-container">
-    <input type="button" value="Start at" onClick="offset(-1); timedCount()" id="offsetbutton">
-    <input type="text" id="offsetbox" value="0.5" size="3"> min
+    <div class="w3-container w3-right-align">
+      [<a href="
+    ../Misc/Chromat_timer_popup.html" target="popup"
+        onclick="window.open('../Misc/Chromat_timer_popup.html','popup','width=450,height=395'); return false;">Open in
+        Popup</a>]
     </div>
+    <div class="w3-card-4 w3-padding-24">
+      <form>
+        <div class="w3-container">
+          <input type="button" value="0 sec" onClick="offset(0); timedCount()">
+          <input type="button" value="5 sec" onClick="offset(50); timedCount()">
+          <input type="button" value="0.1 min" onClick="offset(60); timedCount()">
+          <input type="button" value="stop" onClick="timedStop()">
+        </div>
+        <div class="w3-container">
+          <div id="txt" style="color:red;font-size:100px">
+            0
+          </div>
+        </div>
+        <div class="w3-container">
+          <input type="button" value="Start at" onClick="offset(-1); timedCount()" id="offsetbutton">
+          <input type="text" id="offsetbox" value="0.5" size="3"> min
+        </div>
+        <hr />
+        <div class="w3-container">
+          <input type="button" value="Set Alert" onClick="setAlert()">
+          <br />
+          Period:
+          <input type="text" id="alPerBox" value="0.1" size="1.5"> min
+          <br />
+          Offset:
+          <input type="text" id="alOffsetBox" value="0" size="1.5"> min
+        </div>
+        <br />
+    </div>
+    <!--Bottom-->
     <hr />
-    <div class = "w3-container">
-    <input type="button" value="Set Alert" onClick="setAlert()">
-    <br />
-    Period:
-    <input type="text" id="alPerBox" value="0.1" size="1.5"> min
-    <br />
-    Offset:
-    <input type="text" id="alOffsetBox" value="0" size="1.5"> min
+    <div class="w3-container w3-center" sytle="font-size:9px">
+      Meng Xiangxi, 20180106
     </div>
-    <br />
   </div>
-  <!--Bottom-->
-  <hr />
-  <div class = "w3-container w3-center" sytle="font-size:9px">
-  Meng Xiangxi, 20180106
-  </div>
-</div>
 </body>
+
 </html>
