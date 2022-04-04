@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/w3.css">
+    <link rel="stylesheet" href="/css/mengfront.css">
+    <title>Meng, Xiangxi</title>
+</head>
+
+<body>
+    <!-- top -->
+    <div class="w3-display-topmiddle w3-mobile">
+        <div class="w3-container w3-center">
+            <h1>Meng, Xiangxi</h1>
+            <p>孟祥溪</p>
+        </div>
+        <div class="w3-mobile w3-center meng-color-theme">
+            <a href="/" class="w3-bar-item w3-button">Home</a>
+            <a href="/link.html" class="w3-bar-item w3-button">Link</a>
+        </div>
+
+        <!-- contents -->
+        <div class='w3-content w3-display-container' id="bib_list_uExplorer">
+            <div class="w3-container">
+                <h1>Publications Related to UIH uExplorer PET Scanner</h1>
+                <p>This is a webpage collecting publications related to a specific product, i.e. United Imaging Healthcare uExplorer total body PET scanner. I am not an official source, so the list only reflects my personal opinion. I would appreciate it if anyone is willing to participate and <a href="#contribute">contribute</a> to this list.</p>
+                <hr>
+                <h2 style="text-align: center;">Publications</h2>
+
+                <div class="w3-container w3-padding-24" style="text-align: center;">
+                    <div class="w3-card">
+                        <header class="w3-container w3-gray">
+                            <h2  style=" font-weight: bolder;">WARNING</h2>
+                        </header>
+                        <div class="w3-container" style="font-size: x-large;">
+                            Contents Under Construction
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- bibtex_template is the format of the entries -->
+            <div class="bibtex_template">
+                <span>
+                    <div style="font-weight: bold; margin-top:2%; text-indent:-1em; padding-left:1em;">
+                        • <span class="title"></span>
+                    </div>
+                </span>
+                <span class="if BIBTEXTYPEKEY==ARTICLE">
+                    <div class="if author" style="margin-left:1em; margin-bottom:5px;">
+                        <span class="author"></span>.
+                        <span class="journal" style="font-style:italic;"></span>,
+                        <span class="if volume">
+                            <span class="volume" style="font-weight:bold;"></span>
+                        </span>
+                        <span class="if number">
+                            (<span class="number"></span>)
+                        </span>
+                        : <span class="pages"></span>
+                    </div>
+                </span>
+                <span class="if BIBTEXTYPEKEY==INPROCEEDINGS">
+                    <div class="if author" style="margin-left:1em; margin-bottom:5px;">
+                        <span class="author"></span>.
+                        <span class="journal" style="font-style:italic;"></span>,
+                        <span class="if volume">
+                            <span class="volume" style="font-weight:bold;"></span>
+                        </span>
+                        <span class="if number">
+                            (<span class="number"></span>)
+                        </span>
+                        : <span class="pages"></span>
+                    </div>
+                </span>
+                <span class>
+                    <div style="margin-left: 2em; font-size: 10px;">
+                        <span class="if doi">
+                            [<a class="bibtexVar" href="http://dx.doi.org/+DOI+" extra="doi" style="color: blue;"
+                                target="_blank">doi
+                                link</a>]
+                        </span>
+                        <span class="if url">
+                            [<a class="url" style="color:blue; font-size:10px" target="_blank">related link</a>]
+                        </span>
+                        <span class="if category">
+                            | <span class="category" style="color:indianred; font-size:10px"></span>
+                        </span>
+                        <span class="if institution">
+                            | <span class="institution" style="color:rgb(19, 99, 9); font-size:10px"></span>
+                        </span>
+                        <span class="if keywords">
+                            | <span style="font-size:10px; font-weight:bold">Tag:</span> 
+                            <span class="keywords" style="color:rgb(99, 75, 9); font-size:10px; font-style:italic;"></span>
+                        </span>
+                    </div>
+                </span>
+            </div>
+
+            <!-- bibtex_structure defines the organization of entry list -->
+            <div class="bibtex_structure w3-container">
+                <div class="group year" extra="DESC number">
+                    <h3 class="title"></h3>
+                    <div class="templates"></div>
+                    <div style="text-align:right"><a href="#bib_search">[top]</a></div>
+                </div>
+            </div>
+
+            <!-- search -->
+            <div class="w3-container grey_80 w3-padding-small" id="bib_search">
+                <select class="bibtex_search bibtex_generate_author" search="author" style="width: 150px;height: 24px;">
+                    <option value="">Search author</option>
+                </select>
+                <select class="bibtex_search bibtex_generate_journal" search="journal" style="width: 150px;height: 24px;" >
+                    <option value="">Search journal</option>
+                </select>
+                <select class="bibtex_search bibtex_generate_category" search="category" bibtex_split_by="; " style="width: 150px;height: 24px;">
+                    <option value="">Search category</option>
+                </select>
+                <select class="bibtex_search bibtex_generate_institution" search="institution" bibtex_split_by="; " style="width: 150px;height: 24px;">
+                    <option value="">Search institution</option>
+                </select>
+                <select class="bibtex_search bibtex_generate_keywords" search="keywords" bibtex_split_by="; " style="width: 150px;height: 24px;">
+                    <option value="">Search tag</option>
+                </select>
+                <input type="text" class="bibtex_search" id="searchbar" placeholder="Search All Fields" style="width: 200px; height: 24px;"/>
+                <button type="button" onclick="reset()">Reset</button>
+            </div>
+
+            <!-- RENDER HERE -->
+            <div class="bibtex_display" id="bib_list"></div>
+
+            <hr>
+        </div>
+
+        <div class="w3-container" id="contribute">
+            <h2>Contribution</h2>
+            <p>The list above is automatically generated from a manually-maintained BibTeX file. I rely on notifications from <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>, <a href="https://www.webofscience.com/" target="_blank">Web of Science</a>, and <a href="https://www.scopus.com/" target="_blank">Scopus</a>. Currently, I am keeping the BibTeX file private, but if anyone is interested, I might put it on a Git repository to receive pull requests.</p>
+            <p>For now, please contact me if you think there is a new (or missed) article involving uExplorer, and I will add it here after verification.</p>
+            <p>The template for the BibTeX entry is like this:</p>
+            <div class="w3-code">
+                @article{BIBKEY,<br>
+                    title={Title},<br>
+                    author={Author list as appears in publication},<br>
+                    journal={Journal},<br>
+                    volume={},<br>
+                    number={},<br>
+                    pages={},<br>
+                    year={},<br>
+                    doi={10.xxxx/xxxx/xxxx},<br>
+                    url={especially if no DOI}<br>
+                    institution={Insitution1; Insitution2},<br>
+                    category={#Category1; #Category2},<br>
+                    keywords={Tag1; Tag2}<br>
+                  }
+            </div>
+            There are some conventions to observe:
+            <ul>
+                <li>The BIBKEY is recommended to be <span class="w3-codespan">AUTHOR+YEAR+KEYWORD</span>, like <span class="w3-codespan">leung2021quantitative</span>.</li>
+                <li>The title shall be in sentence case. The superscript and subscript shall follow the original publication and marked by  <span class="w3-codespan">&lt;sup&gt;&lt;/sup&gt;</span> or <span class="w3-codespan">&lt;sub&gt;&lt;/sub&gt;</span>.</li>
+                <li>The author name shall be recorded as-is, without any omission.</li>
+                <li>Journal name is usually in title case and fully spelt. But there might be exceptions, such as <i>Nuclear Instruments and Methods in Physics Research, A</i>.</li>
+                <li>If there is a DOI, supply this field. If not, at least supply the URL.</li>
+                <li>Only the leading institution and/or the institution with the uExplorer scanner shall be included. Different institutions are separated with a semicolon.</li>
+                <li>One or more (separated by a semicolon) categories can be defined for each entry. The category starts with a hashtag "#".</li>
+                <li>If necessary, tags can be added in the <span class="w3-codespan">keywords</span>field. Tags are separated by a semicolon.</li>
+            </ul>
+        </div>
+
+        <!-- Bottom -->
+        <hr />
+        <footer class="w3-container w3-center" sytle="font-size:9px">
+            Meng Xiangxi, 20220403
+        </footer>
+    </div>
+</body>
+
+<script src="/javascript/bibtex_js.js"></script>
+<bibtex src="/bibliography/uExplorer.bib"></bibtex>
+<script>
+    function reset() {
+        $("select").each(function () {
+          localStorage.setItem($(this).attr("id"),"");
+          $(this).val("");
+        }); 
+        $("#searchbar").val("");
+        $("#searchbar").trigger('change');
+    }
+</script>
+
+</html>
