@@ -30,10 +30,10 @@
 
                 <div class="w3-container w3-padding-24" style="text-align: center;">
                     <div class="w3-card">
-                        <header class="w3-container w3-gray">
-                            <h2  style=" font-weight: bolder;">WARNING</h2>
+                        <header class="w3-container" style="background-color:red!important">
+                            <h2  style="font-weight: bolder; color: white;">WARNING</h2>
                         </header>
-                        <div class="w3-container" style="font-size: x-large;">
+                        <div class="w3-container" style="font-size: x-large; color: red;">
                             Contents Under Construction
                         </div>
                     </div>
@@ -138,6 +138,7 @@
             <h2>Contribution</h2>
             <p>The list above is automatically generated from a manually-maintained BibTeX file. I rely on notifications from <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>, <a href="https://www.webofscience.com/" target="_blank">Web of Science</a>, and <a href="https://www.scopus.com/" target="_blank">Scopus</a>. Currently, I am keeping the BibTeX file private, but if anyone is interested, I might put it on a Git repository to receive pull requests.</p>
             <p>For now, please contact me if you think there is a new (or missed) article involving uExplorer, and I will add it here after verification.</p>
+            <h3>BibTeX template</h3>
             <p>The template for the BibTeX entry is like this:</p>
             <div class="w3-code">
                 @article{BIBKEY,<br>
@@ -166,6 +167,30 @@
                 <li>One or more (separated by a semicolon) categories can be defined for each entry. The category starts with a hashtag "#".</li>
                 <li>If necessary, tags can be added in the <span class="w3-codespan">keywords</span>field. Tags are separated by a semicolon.</li>
             </ul>
+
+            <h3>Checklist</h3>
+            <ul>
+                <li>BIBKEY: correct format, uniqueness.</li>
+                <li>Title: sentence case, superscript and subscript, special characters.</li>
+                <li>Authors: completeness (Google Scholar always add "and others"), special characters.</li>
+                <li>Journal: case, uniqueness.</li>
+                <li>Pages: if multiple pages, use double dash "--".</li>
+                <li>DOI: not doi link (<del>https://doi.org/</del>).</li>
+                <li>URL: link to related resources, if no DOI, provide the online article link.</li>
+                <li>Institution: uniqueness. Institution name shall be succinct.</li>
+                <li>Category: currently categories include #Algorithm, #Hardware, #Clinical, #Physiological, and #Others. If more than one category, use semicolon to separate.</li>
+                <li>Keywords: check for uniqueness, lower case.</li>
+                <ul>
+                    <li>Involving novel tracers: add tracer name</li>
+                    <li>Check for editorial materials (editorial), reviews (review), and conference abstract (conference name)</li>
+                    <li>Check for the following: dynamic imaging, dosimetry, deep learning, reconstruction, low dose</li>
+                </ul>
+            </ul>
+
+            <h3>Known problems</h3>
+            <ul>
+                <li>The search function adopts a partial match fashion, resulting in the augmented search results. See <a href="https://github.com/pcooksey/bibtex-js/issues/66" target="_blank">this issue</a> for an example.</li>
+            </ul>
         </div>
 
         <!-- Bottom -->
@@ -179,7 +204,7 @@
 <script src="/javascript/bibtex_js.js"></script>
 <bibtex src="/bibliography/uExplorer.bib"></bibtex>
 <script>
-    function reset() {
+    window.onload=function reset() {
         $("select").each(function () {
           localStorage.setItem($(this).attr("id"),"");
           $(this).val("");
@@ -188,5 +213,4 @@
         $("#searchbar").trigger('change');
     }
 </script>
-
 </html>
