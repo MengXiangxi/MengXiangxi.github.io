@@ -150,7 +150,7 @@
                     pages={},<br>
                     year={},<br>
                     doi={10.xxxx/xxxx/xxxx},<br>
-                    url={especially if no DOI}<br>
+                    url={especially if no DOI},<br>
                     institution={Insitution1; Insitution2},<br>
                     category={#Category1; #Category2},<br>
                     keywords={Tag1; Tag2}<br>
@@ -204,7 +204,7 @@
 <script src="/javascript/bibtex_js.js"></script>
 <bibtex src="/bibliography/uExplorer.bib"></bibtex>
 <script>
-    window.onload=function reset() {
+    function reset() {
         $("select").each(function () {
           localStorage.setItem($(this).attr("id"),"");
           $(this).val("");
@@ -212,5 +212,8 @@
         $("#searchbar").val("");
         $("#searchbar").trigger('change');
     }
+</script>
+<script>
+    window.onload=reset;
 </script>
 </html>
