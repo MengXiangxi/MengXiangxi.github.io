@@ -82,6 +82,10 @@
                                 target="_blank">doi
                                 link</a>]
                         </span>
+                        <span class="if pmid">
+                            [<a class="bibtexVar" href="https://pubmed.ncbi.nlm.nih.gov/+PMID+" extra="pmid" style="color: blue;"
+                            target="_blank">PubMed</a>]
+                        </span>
                         <span class="if url">
                             [<a class="url" style="color:blue; font-size:10px" target="_blank">related link</a>]
                         </span>
@@ -102,9 +106,11 @@
             <!-- bibtex_structure defines the organization of entry list -->
             <div class="bibtex_structure w3-container">
                 <div class="group year" extra="DESC number">
-                    <h3 class="title"></h3>
-                    <div class="templates"></div>
-                    <div style="text-align:right"><a href="#bib_search">[top]</a></div>
+                    <div class="sort string" extra="DESC number">
+                        <h3 class="title"></h3>
+                        <div class="templates"></div>
+                        <div style="text-align:right"><a href="#bib_search">[top]</a></div>
+                    </div>
                 </div>
             </div>
 
@@ -152,6 +158,7 @@
                     year={},<br>
                     doi={10.xxxx/xxxx/xxxx},<br>
                     url={especially if no DOI},<br>
+                    pmid={if applicable},
                     institution={Insitution1; Insitution2},<br>
                     category={#Category1; #Category2},<br>
                     keywords={Tag1; Tag2}<br>
@@ -164,6 +171,7 @@
                 <li>The author name shall be recorded as-is, without any omission.</li>
                 <li>Journal name is usually in title case and fully spelt. But there might be exceptions, such as <i>Nuclear Instruments and Methods in Physics Research, A</i>.</li>
                 <li>If there is a DOI, supply this field. If not, at least supply the URL.</li>
+                <li>If there is a PMID, supply this field. If not, remove it.</li>
                 <li>Only the leading institution and/or the institution with the uExplorer scanner shall be included. Different institutions are separated with a semicolon.</li>
                 <li>One or more (separated by a semicolon) categories can be defined for each entry. The category starts with a hashtag "#".</li>
                 <li>If necessary, tags can be added in the <span class="w3-codespan">keywords</span>field. Tags are separated by a semicolon.</li>
@@ -177,6 +185,7 @@
                 <li>Journal: case, uniqueness.</li>
                 <li>Pages: if multiple pages, use double dash "--".</li>
                 <li>DOI: not doi link (<del>https://doi.org/</del>).</li>
+                <li>PMID: check the numbering.</li>
                 <li>URL: link to related resources, if no DOI, provide the online article link.</li>
                 <li>Institution: uniqueness. Institution name shall be succinct.</li>
                 <li>Category: currently categories include #Algorithm, #Hardware, #Clinical, #Physiological, and #Others. If more than one category, use semicolon to separate.</li>
