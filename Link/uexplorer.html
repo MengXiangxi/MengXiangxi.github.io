@@ -10,7 +10,7 @@
 
 <body>
     <!-- top -->
-    <div class="w3-display-topmiddle w3-mobile">
+    <div class="w3-auto w3-mobile">
         <div class="w3-container w3-center">
             <h1>Meng, Xiangxi</h1>
             <p>孟祥溪</p>
@@ -21,27 +21,15 @@
         </div>
 
         <!-- contents -->
-        <div class='w3-content w3-display-container' id="bib_list_uExplorer">
+        <div class='w3-auto w3-container' id="bib_list_uExplorer">
             <div class="w3-container">
                 <h1>Publications Related to UIH uExplorer PET Scanner</h1>
                 <p>This is a webpage collecting publications related to a specific product, i.e. United Imaging Healthcare uExplorer total body PET scanner. These publications are peer-reviewed journal articles and conference abstracts which involved the uExplorer and its product line, or those directly discussing such equipment.</p>
                 <p>I am not an official source, so the list only reflects my personal opinion. I would appreciate it if anyone is willing to participate and <a href="#contribute">contribute</a> to this list.</p>
                 <hr>
                 <h2 style="text-align: center;">Publications</h2>
-
-                <div class="w3-container w3-padding-24" style="text-align: center;">
-                    <div class="w3-card">
-                        <header class="w3-container" style="background-color:red!important">
-                            <h2  style="font-weight: bolder; color: white;">WARNING</h2>
-                        </header>
-                        <div class="w3-container" style="font-size: x-large; color: red;">
-                            Contents Under Construction
-                        </div>
-                    </div>
-                </div>
-                
             </div>
-
+            
             <!-- bibtex_template is the format of the entries -->
             <div class="bibtex_template">
                 <span>
@@ -52,20 +40,30 @@
                 <span class="if BIBTEXTYPEKEY==ARTICLE">
                     <div class="if author" style="margin-left:1em; margin-bottom:5px;">
                         <span class="author"></span>.
-                        <span class="journal" style="font-style:italic;"></span>,
                         <span class="if volume">
+                            <span class="journal" style="font-style:italic;"></span>,
                             <span class="volume" style="font-weight:bold;"></span>
+                        </span>
+                        <span class="if !volume">
+                            <span class="journal" style="font-style:italic;"></span>
                         </span>
                         <span class="if number">
                             (<span class="number"></span>)
                         </span>
-                        : <span class="pages"></span>
+                        <span class="if pages">
+                            : <span class="pages"></span>
+                        </span>
                     </div>
                 </span>
                 <span class="if BIBTEXTYPEKEY==INPROCEEDINGS">
                     <div class="if author" style="margin-left:1em; margin-bottom:5px;">
                         <span class="author"></span>.
-                        <span class="journal" style="font-style:italic;"></span>,
+                        <span class="if journal">
+                            <span class="journal" style="font-style:italic;"></span>,
+                        </span>
+                        <span class="if !journal">
+                            <span class="booktitle" style="font-style:italic;"></span>,
+                        </span>
                         <span class="if volume">
                             <span class="volume" style="font-weight:bold;"></span>
                         </span>
