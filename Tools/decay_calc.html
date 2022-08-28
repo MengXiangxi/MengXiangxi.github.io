@@ -22,84 +22,166 @@
 
     <div class="w3-display-topmiddle w3-mobile"> -->
         <div class="w3-container w3-padding">
-            先凑合凑合。
+            <p>Yet another decay calculator. First choose the radionuclide, then fill in the corresponding information.</p>
+            <p>It is meant to be a handy tool, and basically no input data verification was implemented. Use care, and at your own risk. Have fun.</p>
         </div>
+
+        <div class="w3-container w3-padding">
+            <label for="NuclideType">Nuclide type:</label><br />
+                <select name="NuclideType" id="NuclideType" onchange="dispNuclide(); calculateInj(); calculateSimple(); calculateFT();">
+                    <option value="Specify">Custom</option>
+                    <option value="C11">C-11</option>
+                    <option value="F18" selected>F-18</option>
+                    <option value="Cu64">Cu-64</option>
+                    <option value="Ga68">Ga-68</option>
+                    <option value="Y90">Y-90</option>
+                    <option value="Zr89">Zr-89</option>
+                    <option value="Tc99m">Tc-99m</option>
+                    <option value="I124">I-124</option>
+                    <option value="I125">I-125</option>
+                    <option value="I131">I-131</option>
+                    <option value="Lu177">Lu-177</option>
+                </select><br />
+                <label for="HalfLife">Half-life of the selected nuclide:</label><br />
+                <fieldset id="HalfLife" disabled style="border: 0px;">
+                    <input type="number" id="Year" value=0 style="width: 6em;" />Year(s)
+                    <input type="number" id="Day" value=0 style="width: 6em;" />Day(s)<br />
+                    <input type="number" id="Hour" value=0 style="width: 6em;" />h
+                    <input type="number" id="Min" value=109.771 style="width: 6em;" />min
+                    <input type="number" id="Sec" value=0 style="width: 6em;" />s
+                    <button type="button" onclick="calculateInj(); calculateSimple();">Set custom</button><br />
+                </fieldset>
+        </div>
+
+        <hr />
+
         <div class="w3-container">
-            <form>
-                <div class="w3-card w3-padding">
-                    <h3>Calculate the injected amount</h3>
-                    <label for="CalculateUnit">Unit:</label><br />
-                    <select name="CalculateUnit" id="Unit" onchange="dispUnit(); calculateInj();">
-                        <option value="Bq">Bq</option>
-                        <option value="kBq">kBq</option>
-                        <option value="MBq">MBq</option>
-                        <option value="GBq">GBq</option>
-                        <option value="TBq">TBq</option>
-                        <option value="muCi">μCi</option>
-                        <option value="mCi" selected>mCi</option>
-                        <option value="Ci">Ci</option>
-                    </select><br />
-                    <label for="NuclideType">Nuclide type:</label><br />
-                    <select name="NuclideType" id="NuclideType" onchange="dispNuclide(); calculateInj();">
-                        <option value="Specify">Custom</option>
-                        <option value="C11">C-11</option>
-                        <option value="F18" selected>F-18</option>
-                        <option value="Cu64">Cu-64</option>
-                        <option value="Ga68">Ga-68</option>
-                        <option value="Y90">Y-90</option>
-                        <option value="Zr89">Zr-89</option>
-                        <option value="Tc99m">Tc-99m</option>
-                        <option value="I124">I-124</option>
-                        <option value="I125">I-125</option>
-                        <option value="I131">I-131</option>
-                        <option value="Lu177">Lu-177</option>
-                    </select>
-                    <label for="HalfLife">Half-life of the selected nuclide:</label><br />
-                    <fieldset id="HalfLife" disabled style="border: 0px;">
-                        <input type="number" id="Year" value=0 style="width: 6em;" />Year(s)
-                        <input type="number" id="Day" value=0 style="width: 6em;" />Day(s)<br />
-                        <input type="number" id="Hour" value=0 style="width: 6em;" />h
-                        <input type="number" id="Min" value=109.771 style="width: 6em;" />min
-                        <input type="number" id="Sec" value=0 style="width: 6em;" />s
-                    </fieldset>
-                    <hr />
-                    Measured<br />
-                    <label for="TimeMeasure">Time</label>
-                    <input type="datetime-local" value="1970-01-01T00:00:00" step="1" id="TimeMeasure" onchange="calculateInj()" />
-                    <label for="DoseMeasure">Dose</label>
-                    <input type="number" name="DoseMeasure" id="DoseMeasure" value="1" style="width: 6em;" onchange="calculateInj()" />
-                    <label for="DoseMeasure" id="UnitMeasure"> mCi</label><br />
-                    Injected<br />
-                    <label for="TimeInj">Time</label>
-                    <input type="datetime-local" value="1970-01-01T00:00:00" step="1" id="TimeInj" onchange="calculateInj()" />
-                    <label for="DoseInj">Dose</label>
-                    <input type="number" id="DoseInj" value="0" style="width: 6em;" disabled />
-                    <select name="InjUnit" id="InjUnit" onchange="calculateInj()">
-                        <option value="Bq">Bq</option>
-                        <option value="kBq">kBq</option>
-                        <option value="MBq">MBq</option>
-                        <option value="GBq">GBq</option>
-                        <option value="TBq">TBq</option>
-                        <option value="muCi">μCi</option>
-                        <option value="mCi" selected>mCi</option>
-                        <option value="Ci">Ci</option>
-                    </select><br />
-                    Residue<br />
-                    <label for="TimeRes">Time</label>
-                    <input type="datetime-local" value="1970-01-01T00:00:00" step="1" id="TimeRes" onchange="calculateInj()" />
-                    <label for="DoseRes">Dose</label>
-                    <input type="number" name="DoseMeasure" id="DoseRes" value="1" style="width: 6em;" onchange="calculateInj()" />
-                    <label for="DoseRes" id="UnitRes"> mCi</label>
-                    <hr />
-                    <button type="button" onclick="calculateInj()" class="w3-padding">Find Injected Dose</button><br />
-                </div>
-            </form>
+            <div class="w3-card w3-padding">
+                <h3>Calculate the injected amount</h3>
+                <label for="CalculateUnit">Unit:</label><br />
+                <select name="CalculateUnit" id="Unit" onchange="dispUnit(); calculateInj();">
+                    <option value="Bq">Bq</option>
+                    <option value="kBq">kBq</option>
+                    <option value="MBq">MBq</option>
+                    <option value="GBq">GBq</option>
+                    <option value="TBq">TBq</option>
+                    <option value="muCi">μCi</option>
+                    <option value="mCi" selected>mCi</option>
+                    <option value="Ci">Ci</option>
+                </select><br />
+                
+                Measured<br />
+                <label for="TimeMeasure">Time</label>
+                <input type="datetime-local" value="1970-01-01T00:00:00" step="1" id="TimeMeasure" onchange="calculateInj()" />
+                <label for="DoseMeasure">Dose</label>
+                <input type="number" name="DoseMeasure" id="DoseMeasure" value="1" style="width: 6em;" onchange="calculateInj()" />
+                <label for="DoseMeasure" id="UnitMeasure"> mCi</label><br />
+                Injected<br />
+                <label for="TimeInj">Time</label>
+                <input type="datetime-local" value="1970-01-01T00:00:00" step="1" id="TimeInj" onchange="calculateInj()" />
+                <label for="DoseInj">Dose</label>
+                <input type="number" id="DoseInj" value="1" style="width: 6em;" disabled />
+                <select name="InjUnit" id="InjUnit" onchange="calculateInj()">
+                    <option value="Bq">Bq</option>
+                    <option value="kBq">kBq</option>
+                    <option value="MBq">MBq</option>
+                    <option value="GBq">GBq</option>
+                    <option value="TBq">TBq</option>
+                    <option value="muCi">μCi</option>
+                    <option value="mCi" selected>mCi</option>
+                    <option value="Ci">Ci</option>
+                </select><br />
+                Residue<br />
+                <label for="TimeRes">Time</label>
+                <input type="datetime-local" value="1970-01-01T00:00:00" step="1" id="TimeRes" onchange="calculateInj()" />
+                <label for="DoseRes">Dose</label>
+                <input type="number" id="DoseRes" value="0" style="width: 6em;" onchange="calculateInj()" />
+                <label for="DoseRes" id="UnitRes"> mCi</label>
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="w3-container">
+            <div class="w3-card w3-padding">
+                <h3>Simple decay</h3>
+                Start
+                <button type="button" onclick="ImportInjSimp(); calculateSimple();">Import Injected</button><br />
+                <label for="TimeSimpStart">Time</label>
+                <input type="datetime-local" value="1970-01-01T00:00:00" step="1" id="TimeSimpStart" onchange="calculateSimple()" />
+                <label for="DoseSimpStart">Dose</label>
+                <input type="number" id="DoseSimpStart" value="1" style="width: 6em;" onchange="calculateSimple()" />
+                <select id="SimpleUnitStart" onchange="calculateSimple()">
+                    <option value="Bq">Bq</option>
+                    <option value="kBq">kBq</option>
+                    <option value="MBq">MBq</option>
+                    <option value="GBq">GBq</option>
+                    <option value="TBq">TBq</option>
+                    <option value="muCi">μCi</option>
+                    <option value="mCi" selected>mCi</option>
+                    <option value="Ci">Ci</option>
+                </select><br />
+                End<br />
+                <label for="TimeSimpEnd">Time</label>
+                <input type="datetime-local" value="1970-01-01T00:00:00" step="1" id="TimeSimpEnd" onchange="calculateSimple()" />
+                <label for="DoseSimpEnd">Dose</label>
+                <input type="number" id="DoseSimpEnd" value="1" style="width: 6em;" disabled/>
+                <select id="SimpleUnitEnd" onchange="calculateSimple()">
+                    <option value="Bq">Bq</option>
+                    <option value="kBq">kBq</option>
+                    <option value="MBq">MBq</option>
+                    <option value="GBq">GBq</option>
+                    <option value="TBq">TBq</option>
+                    <option value="muCi">μCi</option>
+                    <option value="mCi" selected>mCi</option>
+                    <option value="Ci">Ci</option>
+                </select><br />
+            </div>
+        </div>
+
+        <hr />
+
+        <div class="w3-container">
+            <div class="w3-card w3-padding">
+                <h3>Find time</h3>
+                Start
+                <button type="button" onclick="ImportFTSimp(); calculateFT();">Import Injected</button><br />
+                <label for="TimeFTStart">Time</label>
+                <input type="datetime-local" value="1970-01-01T00:00:00" step="1" id="TimeFTStart" onchange="calculateFT()" />
+                <label for="DoseFTStart">Dose</label>
+                <input type="number" id="DoseFTStart" value="1" style="width: 6em;" onchange="calculateFT()" />
+                <select id="FTUnitStart" onchange="calculateFT()">
+                    <option value="Bq">Bq</option>
+                    <option value="kBq">kBq</option>
+                    <option value="MBq">MBq</option>
+                    <option value="GBq">GBq</option>
+                    <option value="TBq">TBq</option>
+                    <option value="muCi">μCi</option>
+                    <option value="mCi" selected>mCi</option>
+                    <option value="Ci">Ci</option>
+                </select><br />
+                End<br />
+                <label for="TimeFTEnd">Time</label>
+                <input type="datetime-local" value="1970-01-01T00:00:00" step="1" id="TimeFTEnd" disabled/>
+                <label for="DoseFTEnd">Dose</label>
+                <input type="number" id="DoseFTEnd" value="1" style="width: 6em;" onchange="calculateFT()"/>
+                <select id="FTUnitEnd" onchange="calculateFT()">
+                    <option value="Bq">Bq</option>
+                    <option value="kBq">kBq</option>
+                    <option value="MBq">MBq</option>
+                    <option value="GBq">GBq</option>
+                    <option value="TBq">TBq</option>
+                    <option value="muCi">μCi</option>
+                    <option value="mCi" selected>mCi</option>
+                    <option value="Ci">Ci</option>
+                </select><br />
+            </div>
         </div>
 
 
         <div class="w3-container w3-center" sytle="font-size:9px">
             <hr />
-            Meng Xiangxi, 20211107
+            Meng Xiangxi, 20220828
         </div>
     </div>
 
@@ -123,6 +205,10 @@
     document.getElementById('TimeMeasure').value = currentDateTime();
     document.getElementById('TimeRes').value = currentDateTime();
     document.getElementById('TimeInj').value = currentDateTime();
+    document.getElementById('TimeSimpStart').value = currentDateTime();
+    document.getElementById('TimeSimpEnd').value = currentDateTime();
+    document.getElementById('TimeFTStart').value = currentDateTime();
+    document.getElementById('TimeFTEnd').value = currentDateTime();
 
     function dispUnit(){
         document.getElementById('UnitMeasure').textContent = document.getElementById('Unit').value;
@@ -211,6 +297,67 @@
         unit2 = document.getElementById('InjUnit').value;
         doseInj = dcdose*convert_factor(unit1)/convert_factor(unit2);
         document.getElementById('DoseInj').value = doseInj;
+    }
+
+    function ImportInjSimp(){
+        document.getElementById('TimeSimpStart').value = document.getElementById('TimeInj').value;
+        document.getElementById('DoseSimpStart').value = document.getElementById('DoseInj').value;
+    }
+
+    function ImportFTSimp(){
+        document.getElementById('TimeFTStart').value = document.getElementById('TimeInj').value;
+        document.getElementById('DoseFTStart').value = document.getElementById('DoseInj').value;
+    }
+
+    function calculateSimple(){
+        var doseStart, timeStart, timeEnd, dur;
+        doseStart = document.getElementById('DoseSimpStart').value;
+        timeStart= new Date(document.getElementById('TimeSimpStart').value);
+        timeEnd= new Date(document.getElementById('TimeSimpEnd').value);
+        dur = (timeEnd - timeStart)/1000;
+        
+        var iyear, iday, ihour, imin, isec, halflife;
+        iyear = document.getElementById("Year").value;
+        iday = document.getElementById("Day").value;
+        ihour = document.getElementById("Hour").value;
+        imin = document.getElementById("Min").value;
+        isec = document.getElementById("Sec").value;
+        halflife = iyear * 31536000 + iday * 86400 + ihour * 3600 + imin * 60 + isec;
+
+        var doseEnd;
+        doseEnd = decay(doseStart, halflife, dur);        
+
+        var unit1, unit2, dose;
+        unit1 = document.getElementById('SimpleUnitStart').value;
+        unit2 = document.getElementById('SimpleUnitEnd').value;
+        dose = doseEnd*convert_factor(unit1)/convert_factor(unit2);
+        document.getElementById('DoseSimpEnd').value = dose;
+    }
+
+    function calculateFT(){
+        var doseStart, timeStart, doseEnd;
+        doseStart = document.getElementById('DoseFTStart').value;
+        timeStart= Date.parse(document.getElementById('TimeFTStart').value);
+        doseEnd = document.getElementById('DoseFTEnd').value;
+
+        var iyear, iday, ihour, imin, isec, halflife;
+        iyear = document.getElementById("Year").value;
+        iday = document.getElementById("Day").value;
+        ihour = document.getElementById("Hour").value;
+        imin = document.getElementById("Min").value;
+        isec = document.getElementById("Sec").value;
+        halflife = iyear * 31536000 + iday * 86400 + ihour * 3600 + imin * 60 + isec;
+
+        var unit1, unit2, dose;
+        unit1 = document.getElementById('FTUnitStart').value;
+        unit2 = document.getElementById('FTUnitEnd').value;
+
+        var dur, final_time;
+        dur = Math.log2((doseStart*convert_factor(unit1))/(doseEnd*convert_factor(unit2)))*halflife*1000;
+        final_time = new Date(timeStart+dur);
+        document.getElementById('TimeFTEnd').value = new Date(final_time.toString().split('GMT')[0]+' UTC').toISOString().split('.')[0];
+
+        return dur
     }
 
     function decay(original, halflife, dur){
