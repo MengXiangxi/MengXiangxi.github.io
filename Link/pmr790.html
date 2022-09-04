@@ -17,17 +17,17 @@
         </div>
         <div class="w3-mobile w3-center meng-color-theme">
             <a href="/" class="w3-bar-item w3-button">Home</a>
-            <a href="./uexplorer_conference.html" class="w3-bar-item w3-button">In Conferences</a>
-            <a href="./pmr790.html" class="w3-bar-item w3-button">PET/MR 790</a>
+            <a href="./uexplorer.html" class="w3-bar-item w3-button">uEXPLORER</a>
             <a href="/link.html" class="w3-bar-item w3-button">Link</a>
         </div>
 
         <!-- contents -->
         <div class='w3-auto w3-container' id="bib_list_uExplorer">
             <div class="w3-container">
-                <h1>Publications Related to UIH uEXPLORER PET Scanner</h1>
-                <p>This is a webpage collecting publications related to a specific product, i.e. United Imaging Healthcare uEXPLORER total body PET scanner. These publications are peer-reviewed journal articles and conference abstracts which involved the uEXPLORER and its product line, or those directly discussing such equipment. For conference abstracts and proceedings, <a href="./uexplorer_conference.html" target="_blank">another webpage</a> was edited to keep a record.</p>
-                <p>I am not an official source, so the list only reflects my personal opinion. I would appreciate it if anyone is willing to participate and <a href="#contribute">contribute</a> to this list.</p>
+                <h1>Publications Related to UIH uPMR790 PET/MR Scanner</h1>
+                <p>This is a webpage collecting publications related to a specific product, i.e. United Imaging Healthcare uPMR790 PET/MR scanner. These publications are peer-reviewed journal articles and conference abstracts which involved the uPMR790 and its product line, or those directly discussing such equipment.
+                <p>I am running the webpage along with <a href="https://scholar.google.co.uk/citations?user=M9XQ7UgAAAAJ" target="_blank">Dr. Jianmin Yuan</a> from United Imaging. I would appreciate it if anyone is willing to participate and <a href="./uexplorer.html#contribute">contribute</a> to this list.</p>
+                <p>First 200 lines have been updated.</p>
                 <hr>
                 <h2 style="text-align: center;">Publications</h2>
             </div>
@@ -140,80 +140,16 @@
 
             <hr>
         </div>
-
-        <div class="w3-container" id="contribute">
-            <h2>Contribution</h2>
-            <p>The list above is automatically generated from a manually-maintained BibTeX file. I rely on notifications from <a href="https://scholar.google.com/" target="_blank">Google Scholar</a>, <a href="https://www.webofscience.com/" target="_blank">Web of Science</a>, and <a href="https://www.scopus.com/" target="_blank">Scopus</a>. Currently, I am keeping the BibTeX file private, but if anyone is interested, I might put it on a Git repository to receive pull requests.</p>
-            <p>For now, please contact me if you think there is a new (or missed) article involving uEXPLORER, and I will add it here after verification.</p>
-            <h3>BibTeX template</h3>
-            <p>The template for the BibTeX entry is like this:</p>
-            <div class="w3-code">
-                @article{BIBKEY,<br>
-                    title={Title},<br>
-                    author={Author list as appears in publication},<br>
-                    journal={Journal},<br>
-                    volume={},<br>
-                    number={},<br>
-                    pages={},<br>
-                    year={},<br>
-                    doi={10.xxxx/xxxx/xxxx},<br>
-                    url={especially if no DOI},<br>
-                    pmid={if applicable},<br>
-                    institution={Insitution1; Insitution2},<br>
-                    category={#Category1; #Category2},<br>
-                    keywords={Tag1; Tag2}<br>
-                  }
-            </div>
-            There are some conventions to observe:
-            <ul>
-                <li>The BIBKEY is recommended to be <span class="w3-codespan">AUTHOR+YEAR+KEYWORD</span>, like <span class="w3-codespan">leung2021quantitative</span>.</li>
-                <li>The title shall be in sentence case. The superscript and subscript shall follow the original publication and marked by  <span class="w3-codespan">&lt;sup&gt;&lt;/sup&gt;</span> or <span class="w3-codespan">&lt;sub&gt;&lt;/sub&gt;</span>.</li>
-                <li>The author names shall be consistent, like <span class="w3-codespan">Last, First M</span>, where <span class="w3-codespan">M</span> stands for the middle initial. Different authors are connected with <span class="w3-codespan">and</span>. The full author list shall be recorded, which means "et al" or "others" are not acceptable. Hint: a lot of manual adjustment may be required in this field.</li>
-                <li>Journal name is usually in title case and fully spelt. But there might be exceptions, such as <i>Nuclear Instruments and Methods in Physics Research, A</i>.</li>
-                <li>If there is a DOI, supply this field. If not, at least supply the URL.</li>
-                <li>If there is a PMID, supply this field. If not, remove it.</li>
-                <li>Only the leading institution and/or the institution with the uEXPLORER scanner shall be included. Different institutions are separated with a semicolon.</li>
-                <li>One or more (separated by a semicolon) categories can be defined for each entry. The category starts with a hashtag "#".</li>
-                <li>If necessary, tags can be added in the <span class="w3-codespan">keywords</span>field. Tags are separated by a semicolon.</li>
-            </ul>
-
-            <h3>Checklist</h3>
-            <ul>
-                <li>BIBKEY: correct format, uniqueness.</li>
-                <li>Title: sentence case, superscript and subscript, special characters.</li>
-                <li>Authors: completeness (Google Scholar always add "and others"), special characters.</li>
-                <li>Journal: case, uniqueness.</li>
-                <li>Year: If early-access, use "Just Accepted".</li>
-                <li>Pages: if multiple pages, use double dash "--".</li>
-                <li>DOI: not doi link (<del>https://doi.org/</del>).</li>
-                <li>PMID: check the numbering.</li>
-                <li>URL: link to related resources, if no DOI, provide the online article link.</li>
-                <li>Institution: uniqueness. Institution name shall be succinct.</li>
-                <li>Category: currently categories include #Algorithm, #Hardware, #Clinical, #Physiological, and #Others. If more than one category, use semicolon to separate.</li>
-                <li>Keywords: check for uniqueness, lower case.</li>
-                <ul>
-                    <li>Involving novel tracers: add tracer name</li>
-                    <li>Check for editorial materials (editorial), reviews (review), and conference abstract (conference name)</li>
-                    <li>Check for the following: dynamic imaging, dosimetry, deep learning, reconstruction, low dose</li>
-                </ul>
-            </ul>
-
-            <h3>Known problems</h3>
-            <ul>
-                <li>The search function adopts a partial match fashion, resulting in the augmented search results. See <a href="https://github.com/pcooksey/bibtex-js/issues/66" target="_blank">this issue</a> for an example. To avoid ambiguity, the journal name of <i>Journal of Nuclear Medicine</i> is thus abbreviated as <i>J. Nucl. Med.</i></li>
-            </ul>
-        </div>
-
         <!-- Bottom -->
         <hr />
         <footer class="w3-container w3-center" sytle="font-size:9px">
-            Meng Xiangxi, 20220403
+            Meng Xiangxi, 20220903
         </footer>
     </div>
 </body>
 
 <script src="/javascript/bibtex_js.js"></script>
-<bibtex src="/bibliography/uExplorer.bib"></bibtex>
+<bibtex src="/bibliography/upmr790.bib"></bibtex>
 <script>
     function reset() {
         $("select").each(function () {
