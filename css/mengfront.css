@@ -43,13 +43,13 @@ main {
 .meng-color-theme,
 .meng-hover-color-theme:hover {
     color: #fff !important;
-    /* background-color: #8c0000 !important */
-    background-color: #000000 !important;
+    background-color: #8c0000 !important;
+    /* background-color: #000000 !important; */
 }
 
 .meng-box-shadow {
-    /* color:#fff!important;background-color:#607d8b!important*/
-    color:#fff!important;background-color:#888!important;
+    color:#fff!important;background-color:#607d8b!important
+    /* color:#fff!important;background-color:#888!important; */
 }
 
 em {
@@ -97,4 +97,8 @@ code {
 .zoom3:hover {
     transform: scale(3);
     transform-origin: bottom
+}
+
+html {
+    filter: grayscale(1)
 }
