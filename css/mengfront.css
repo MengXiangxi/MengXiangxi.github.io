@@ -99,6 +99,8 @@ code {
     transform-origin: bottom
 }
 
-html {
+/* Gray out */
+
+/* html {
     filter: grayscale(1)
-}
+} */
