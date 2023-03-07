@@ -285,7 +285,7 @@
         ihour = document.getElementById("Hour").value;
         imin = document.getElementById("Min").value;
         isec = document.getElementById("Sec").value;
-        halflife = iyear * 31536000 + iday * 86400 + ihour * 3600 + imin * 60 + isec;
+        halflife = iyear * 31536000 + iday * 86400 + ihour * 3600 + imin * 60 + isec * 1;
 
         var dcdose, dcMeasure, dcRes;
         dcMeasure = decay(doseMeasure, halflife, durMeasure);
@@ -324,7 +324,7 @@
         ihour = document.getElementById("Hour").value;
         imin = document.getElementById("Min").value;
         isec = document.getElementById("Sec").value;
-        halflife = iyear * 31536000 + iday * 86400 + ihour * 3600 + imin * 60 + isec;
+        halflife = iyear * 31536000 + iday * 86400 + ihour * 3600 + imin * 60 + isec * 1;
 
         var doseEnd;
         doseEnd = decay(doseStart, halflife, dur);        
@@ -348,7 +348,7 @@
         ihour = document.getElementById("Hour").value;
         imin = document.getElementById("Min").value;
         isec = document.getElementById("Sec").value;
-        halflife = iyear * 31536000 + iday * 86400 + ihour * 3600 + imin * 60 + isec;
+        halflife = iyear * 31536000 + iday * 86400 + ihour * 3600 + imin * 60 + isec * 1;
 
         var unit1, unit2, dose;
         unit1 = document.getElementById('FTUnitStart').value;
