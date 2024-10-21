@@ -129,7 +129,7 @@
             <div class="bibtex_structure w3-container">
                 <div class="group year" extra="DESC string">
                     <div class="sort string" extra="DESC number" >
-                        <h3 class="title" style="position:sticky; top:auto; z-index: 2000; background-color:white; padding:10px; border-bottom: 1px solid #ccc;" id="year_title"></h3>
+                        <h3 class="title year_title" style="position:sticky; top:auto; z-index: 1; background-color:white; padding:10px; border-bottom: 1px solid #ccc;" id="year_title"></h3>
                         <div class="templates"></div>
                         <div style="text-align:right; position:sticky; bottom:0; z-index:9999; background-color:white"><a href="#top">[top]</a></div>
                     </div>
@@ -279,13 +279,23 @@
     window.onload=reset;
 </script>
 <script>
+    let previousWidth = window.innerWidth
     function adjustStickyPosition() {
-      const sticky1 = document.getElementById('bib_search');
-      const sticky2 = document.getElementById('year_title');
-      const sticky1Height = sticky1.offsetHeight;
-      sticky2.style.top = sticky1Height + 'px';
+        const sticky1 = document.getElementById('bib_search');
+        const sticky2Elements = document.getElementsByClassName('year_title');
+        const sticky1Height = sticky1.offsetHeight;
+        for (let i = 0; i < sticky2Elements.length; i++) {
+            sticky2Elements[i].style.top = sticky1Height + 'px';
+    }
+    }
+    function onWindowResize() {
+        const currentWidth = window.innerWidth;
+        if (currentWidth !== previousWidth) {
+            adjustStickyPosition();
+            previousWidth = currentWidth;  // Update previous width
+        }
     }
     adjustStickyPosition();
-    window.addEventListener('resize', adjustStickyPosition);
+    window.addEventListener('resize', onWindowResize);
   </script>
 </html>
