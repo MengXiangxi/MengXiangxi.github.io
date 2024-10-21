@@ -17,8 +17,8 @@
         </div>
         <div class="w3-mobile w3-center meng-color-theme">
             <a href="/" class="w3-bar-item w3-button">Home</a>
-            <a href="./uexplorer_conference.html" class="w3-bar-item w3-button">In Conferences</a>
-            <a href="./pmr790.html" class="w3-bar-item w3-button">PET/MR 790</a>
+            <!-- <a href="./uexplorer_conference.html" class="w3-bar-item w3-button">In Conferences</a>
+            <a href="./pmr790.html" class="w3-bar-item w3-button">PET/MR 790</a> -->
             <a href="/link.html" class="w3-bar-item w3-button">Link</a>
         </div>
 
@@ -51,7 +51,7 @@
                     </div>
                 </div> -->
                 <hr>
-                <h2 style="text-align: center;">Publications</h2>
+                <h2 style="text-align: center" id="top">Publications</h2>
             </div>
             
             <!-- bibtex_template is the format of the entries -->
@@ -111,8 +111,8 @@
                         <span class="if url">
                             [<a class="url" style="color:blue; font-size:10px" target="_blank">related link</a>]
                         </span>
-                        <span class="if category">
-                            | <span class="category" style="color:indianred; font-size:10px"></span>
+                        <span class="if year">
+                            <span class="year" style="display: none"></span>
                         </span>
                         <span class="if institution">
                             | <span class="institution" style="color:rgb(19, 99, 9); font-size:10px"></span>
@@ -128,25 +128,25 @@
             <!-- bibtex_structure defines the organization of entry list -->
             <div class="bibtex_structure w3-container">
                 <div class="group year" extra="DESC string">
-                    <div class="sort string" extra="DESC number">
-                        <h3 class="title"></h3>
+                    <div class="sort string" extra="DESC number" >
+                        <h3 class="title" style="position:sticky; top:auto; z-index: 2000; background-color:white; padding:10px; border-bottom: 1px solid #ccc;" id="year_title"></h3>
                         <div class="templates"></div>
-                        <div style="text-align:right"><a href="#bib_search">[top]</a></div>
+                        <div style="text-align:right; position:sticky; bottom:0; z-index:9999; background-color:white"><a href="#top">[top]</a></div>
                     </div>
                 </div>
             </div>
 
             <!-- search -->
-            <div class="w3-container grey_80 w3-padding-small" id="bib_search">
+            <div class="w3-container grey_100 w3-padding-small" id="bib_search" style="position:sticky; top:0; z-index: 1000">
+                <select class="bibtex_search bibtex_generate_year" search="year" style="width: 150px;height: 24px;">
+                    <option value="">Search year</option>
+                </select>
                 <select class="bibtex_search bibtex_generate_author" search="author" style="width: 150px;height: 24px;">
                     <option value="">Search author</option>
                 </select>
                 <select class="bibtex_search bibtex_generate_journal" search="journal" style="width: 150px;height: 24px;" >
                     <option value="">Search journal</option>
                 </select>
-                <!-- <select class="bibtex_search bibtex_generate_category" search="category" bibtex_split_by="; " style="width: 150px;height: 24px;">
-                    <option value="">Search category</option>
-                </select> -->
                 <select class="bibtex_search bibtex_generate_institution" search="institution" bibtex_split_by="; " style="width: 150px;height: 24px;">
                     <option value="">Search institution</option>
                 </select>
@@ -179,10 +179,10 @@
                     pages={},<br>
                     year={},<br>
                     doi={10.xxxx/xxxx/xxxx},<br>
-                    url={especially if no DOI},<br>
+                    <!-- url={especially if no DOI},<br> -->
                     pmid={if applicable},<br>
                     institution={Insitution1; Insitution2},<br>
-                    category={#Category1; #Category2},<br>
+                    <!-- category={#Category1; #Category2},<br> -->
                     keywords={Tag1; Tag2}<br>
                   }
             </div>
@@ -207,11 +207,11 @@
                 <li>Journal: case, uniqueness.</li>
                 <li>Year: If early-access, use "Just Accepted".</li>
                 <li>Pages: if multiple pages, use double dash "--".</li>
-                <li>DOI: not doi link (<del>https://doi.org/</del>).</li>
+                <!-- <li>DOI: not doi link (<del>https://doi.org/</del>).</li> -->
                 <li>PMID: check the numbering.</li>
                 <li>URL: link to related resources, if no DOI, provide the online article link.</li>
                 <li>Institution: uniqueness. Institution name shall be succinct.</li>
-                <li>Category: currently categories include #Algorithm, #Hardware, #Clinical, #Physiological, and #Others. If more than one category, use semicolon to separate.</li>
+                <!-- <li>Category: currently categories include #Algorithm, #Hardware, #Clinical, #Physiological, and #Others. If more than one category, use semicolon to separate.</li> -->
                 <li>Keywords: check for uniqueness, lower case.</li>
                 <ul>
                     <li>Involving novel tracers: add tracer name</li>
@@ -229,7 +229,7 @@
         <!-- Bottom -->
         <hr />
         <footer class="w3-container w3-center" sytle="font-size:9px">
-            Meng Xiangxi, 20220403
+            Meng Xiangxi, 20241021
         </footer>
     </div>
 </body>
@@ -246,7 +246,7 @@
         $("#searchbar").trigger('change');
     }
 </script>
-<style type="text/css">
+<!-- <style type="text/css">
     #groupsio_embed_signup input {border:1px solid #999; -webkit-appearance:none;}
     #groupsio_embed_signup label {display:block; font-size:16px; padding-bottom:10px; font-weight:bold;}
     #groupsio_embed_signup .email {display:block; padding:8px 0; margin:0 4% 10px 0; text-indent:5px; width:58%; min-width:130px;}
@@ -274,8 +274,18 @@
     white-space: nowrap;
     vertical-align: middle;
     }
-</style>
+</style> -->
 <script>
     window.onload=reset;
 </script>
+<script>
+    function adjustStickyPosition() {
+      const sticky1 = document.getElementById('bib_search');
+      const sticky2 = document.getElementById('year_title');
+      const sticky1Height = sticky1.offsetHeight;
+      sticky2.style.top = sticky1Height + 'px';
+    }
+    adjustStickyPosition();
+    window.addEventListener('resize', adjustStickyPosition);
+  </script>
 </html>

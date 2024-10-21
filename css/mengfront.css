@@ -18,6 +18,11 @@ main {
     background-color: #9e9e9e80 !important
 }
 
+.grey_100 {
+    color: #000 !important;
+    background-color: #cfcfcf !important
+}
+
 .meng-fading-fast {
     animation: fading 10s infinite
 }
