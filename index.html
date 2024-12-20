@@ -25,20 +25,19 @@
 
     <!-- contents -->
     <div class='w3-content w3-display-container w3-center'>
-      <div class="w3-display-container mySlides meng-fading-fast ">
-        <img src="./Upload/titlefig/MC_property.png" style="width:100%">
+      <div class="w3-display-container mySlides meng-fading-fast">
+        <img src="./Upload/titlefig/PETBlood.png" style="width:100%">
         <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
-          <a href="https://github.com/MengXiangxi/Intralipid_optical_parameters" , target="_blank">Optical parameters of
-            intralipids</a>
+          <a href="https://jnm.snmjournals.org/content/65/Supplement_1/46S" , target="_blank">Role of total body PET in drug development</a>
         </div>
       </div>
-      <div class="w3-display-container mySlides meng-fading-fast ">
+      <div class="w3-display-container mySlides meng-fading-fast">
         <img src="./Upload/titlefig/electroplating_explode.png" style="width:100%">
         <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
           <a href="https://patents.google.com/patent/CN206143337U" , target="_blank">Electroplating device design</a>
         </div>
       </div>
-      <div class="w3-display-container mySlides meng-fading-fast ">
+      <div class="w3-display-container mySlides meng-fading-fast">
         <img src="./Upload/titlefig/Trajectory.png" style="width:100%">
         <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
           <a href="https://github.com/MengXiangxi/PMRMC" , target="_blank">PMRMC, simulates positron in magnetic
@@ -46,7 +45,7 @@
         </div>
       </div>
       <!--New slides here-->
-      <div class="w3-display-container mySlides meng-fading-fast ">
+      <div class="w3-display-container mySlides meng-fading-fast">
         <img src="./Upload/titlefig/uexplorer_inventory.png" style="width:100%">
         <div class="w3-display-bottomright w3-container w3-padding-16 grey_80">
           <a href="https://mengxiangxi.info/Link/uexplorer.html" , target="_blank">Have a look at the uEXPLORER publication list!</a>
@@ -56,6 +55,11 @@
       <button class="w3-button w3-display-right" onclick="plusDivs(+1)">&#10095;</button>
     </div>
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          showDivs(slideIndex);
+          carousel(); // Start carousel only after the DOM is fully loaded
+      });
+
       var slideIndex = 1;
       showDivs(slideIndex);
       carousel();
@@ -84,7 +88,7 @@
         slideIndex++;
         if (slideIndex > x.length) { slideIndex = 1 }
         x[slideIndex - 1].style.display = "block";
-        setTimeout(carousel, 10000); // Change image every 2 seconds
+        setTimeout(carousel, 10000); // Ensure timing allows for proper display
       }
     </script>
 
