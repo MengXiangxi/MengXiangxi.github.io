@@ -46,6 +46,7 @@
                     <option value="Sr89">Sr-89</option>
                     <option value="Zr89">Zr-89</option>
                     <option value="Y90">Y-90</option>
+                    <option value="Mo99">Mo-99</option>
                     <option value="Tc99m">Tc-99m</option>
                     <option value="In111">In-111</option>
                     <option value="I123">I-123</option>
@@ -54,6 +55,7 @@
                     <option value="I131">I-131</option>
                     <option value="Sm153">Sm-153</option>
                     <option value="Tb161">Tb-161</option>
+                    <option value="Ho166">Ho-166</option>
                     <option value="Lu177">Lu-177</option>
                     <option value="Re186">Re-186</option>
                     <option value="Re188">Re-188</option>
@@ -248,25 +250,25 @@
                 setNuclide(0, 0, 0, 9.965, 0, 13.0057386, true);
                 break;
             case 'O15':
-                setNuclide(0, 0, 0, 122.24, 0, 15.003065, true);
+                setNuclide(0, 0, 0, 0, 122.24, 15.003065, true);
                 break;
             case 'F18':
                 setNuclide(0, 0, 0, 109.771, 0, 18.00, true);
                 break;
             case 'Na22':
-                setNuclide(0, 0, 2.60290, 0, 0, 21.99443742, true);
+                setNuclide(2.60290, 0, 0, 0, 0, 21.99443742, true);
                 break;
             case 'P32':
-                setNuclide(0, 0, 0, 14.290, 0, 31.973907, true);
+                setNuclide(0, 14.290, 0, 0, 0, 31.973907, true);
                 break;
             case 'Sc47':
-                setNuclide(0, 0, 3.3492, 0, 0, 46.952408, true);
+                setNuclide(0, 3.3492, 0, 0, 0, 46.952408, true);
                 break;
             case 'Co57':
-                setNuclide(0, 0, 271.79, 0, 0, 56.936296, true);
+                setNuclide(0, 271.79, 0, 0, 0, 56.936296, true);
                 break;
             case 'Co60':
-                setNuclide(0, 0, 1925.1, 0, 0, 59.933822, true);
+                setNuclide(0, 1925.1, 0, 0, 0, 59.933822, true);
                 break;
             case 'Cu64':
                 setNuclide(0, 0, 12.7801, 0, 0, 63.929764, true);
@@ -281,10 +283,7 @@
                 setNuclide(0, 0, 0, 0, 76.38, 81.918208, true);
                 break;
             case 'Sr89':
-                setNuclide(0, 0, 0, 50.53, 0, 88.907453, true);
-                break;
-            case 'Tc99m':
-                setNuclide(0, 0, 6.0067, 0, 0, 98.9063, true);
+                setNuclide(0, 50.563, 0, 0, 0, 88.907453, true);
                 break;
             case 'Zr89':
                 setNuclide(0, 0, 78.41, 0, 0, 88.908890, true);
@@ -292,11 +291,17 @@
             case 'Y90':
                 setNuclide(0, 0, 64.6, 0, 0, 89.9071519, true);
                 break;
+            case 'Mo99':
+                setNuclide(0, 0, 66.02, 0, 0, 98.907707, true);
+                break;
+            case 'Tc99m':
+                setNuclide(0, 0, 6.0067, 0, 0, 98.9063, true);
+                break;
             case 'In111':
-                setNuclide(0, 0, 2.8047, 0, 0, 110.905111, true);
+                setNuclide(0, 2.8047, 0, 0, 0, 110.905111, true);
                 break;
             case 'I123':
-                setNuclide(0, 13.2232, 0, 0, 0, 122.9055898, true);
+                setNuclide(0, 0, 13.2232, 0, 0, 122.9055898, true);
                 break;
             case 'I124':
                 setNuclide(0, 4.176, 0, 0, 0, 123.9062099, true);
@@ -308,10 +313,13 @@
                 setNuclide(0, 8.0197, 0, 0, 0, 130.9061246, true);
                 break;
             case 'Sm153':
-                setNuclide(0, 0, 0, 46.284, 0, 152.922094, true);
+                setNuclide(0, 0, 46.284, 0, 0, 152.922094, true);
                 break;
             case 'Tb161':
                 setNuclide(0, 6.967, 0, 0, 0, 160.9275663, true);
+                break;
+            case 'Ho166':
+                setNuclide(0, 0, 26.763, 0, 0, 165.9322813, true);
                 break;
             case 'Lu177':
                 setNuclide(0, 6.6475, 0, 0, 0, 176.9437581, true);
@@ -322,20 +330,20 @@
             case 'Re188':
                 setNuclide(0, 0, 17.005, 0, 0, 187.958112, true);
                 break;
-                case 'Tl201':
+            case 'Tl201':
                 setNuclide(0, 0, 73.1, 0, 0, 200.9708, true);
                 break;
             case 'At211':
-                setNuclide(0, 7.216, 0, 0, 0, 210.987496271, true);
+                setNuclide(0, 0, 7.216, 0, 0, 210.987496271, true);
                 break;
             case 'Pb212':
-                setNuclide(0, 10.64, 0, 0, 0, 212.0008, true);
+                setNuclide(0, 0, 10.64, 0, 0, 212.0008, true);
                 break;
             case 'Bi213':
-                setNuclide(0, 45.65, 0, 0, 0, 212.9943748, true);
+                setNuclide(0, 0, 0, 45.65, 0, 212.9943748, true);
                 break;
             case 'Ra223':
-                setNuclide(0, 0, 11.43, 0, 0, 223.019731, true);
+                setNuclide(0, 11.43, 0, 0, 0, 223.019731, true);
                 break;
             case 'Ac225':
                 setNuclide(0, 9.92, 0, 0, 0, 225.023229, true);
