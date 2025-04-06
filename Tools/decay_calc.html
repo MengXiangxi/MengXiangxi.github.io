@@ -31,17 +31,38 @@
                 <select name="NuclideType" id="NuclideType" onchange="dispNuclide(); calculateInj(); calculateSimple(); calculateFT();">
                     <option value="Specify">Custom</option>
                     <option value="C11">C-11</option>
+                    <option value="N13">N-13</option>
+                    <option value="O15">O-15</option>
                     <option value="F18" selected>F-18</option>
+                    <option value="Na22">Na-22</option>
+                    <option value="P32">P-32</option>
+                    <option value="Sc47">Sc-47</option>
+                    <option value="Co57">Co-57</option>
+                    <option value="Co60">Co-60</option>
                     <option value="Cu64">Cu-64</option>
                     <option value="Ga68">Ga-68</option>
                     <option value="Ge68">Ge-68</option>
-                    <option value="Y90">Y-90</option>
+                    <option value="Rb82">Rb-82</option>
+                    <option value="Sr89">Sr-89</option>
                     <option value="Zr89">Zr-89</option>
+                    <option value="Y90">Y-90</option>
                     <option value="Tc99m">Tc-99m</option>
+                    <option value="In111">In-111</option>
+                    <option value="I123">I-123</option>
                     <option value="I124">I-124</option>
                     <option value="I125">I-125</option>
                     <option value="I131">I-131</option>
+                    <option value="Sm153">Sm-153</option>
+                    <option value="Tb161">Tb-161</option>
                     <option value="Lu177">Lu-177</option>
+                    <option value="Re186">Re-186</option>
+                    <option value="Re188">Re-188</option>
+                    <option value="Tl201">Tl-201</option>
+                    <option value="At211">At-211</option>
+                    <option value="Pb212">Pb-212</option>
+                    <option value="Bi213">Bi-213</option>
+                    <option value="Ra223">Ra-223</option>
+                    <option value="Ac225">Ac-225</option>
                 </select><br />
                 <label for="HalfLife">Half-life of the selected nuclide:</label><br />
                 <fieldset id="HalfLife" disabled style="border: 0px;">
@@ -223,8 +244,29 @@
             case 'C11':
                 setNuclide(0, 0, 0, 20.38, 0, 11.01, true);
                 break;
+            case 'N13':
+                setNuclide(0, 0, 0, 9.965, 0, 13.0057386, true);
+                break;
+            case 'O15':
+                setNuclide(0, 0, 0, 122.24, 0, 15.003065, true);
+                break;
             case 'F18':
                 setNuclide(0, 0, 0, 109.771, 0, 18.00, true);
+                break;
+            case 'Na22':
+                setNuclide(0, 0, 2.60290, 0, 0, 21.99443742, true);
+                break;
+            case 'P32':
+                setNuclide(0, 0, 0, 14.290, 0, 31.973907, true);
+                break;
+            case 'Sc47':
+                setNuclide(0, 0, 3.3492, 0, 0, 46.952408, true);
+                break;
+            case 'Co57':
+                setNuclide(0, 0, 271.79, 0, 0, 56.936296, true);
+                break;
+            case 'Co60':
+                setNuclide(0, 0, 1925.1, 0, 0, 59.933822, true);
                 break;
             case 'Cu64':
                 setNuclide(0, 0, 12.7801, 0, 0, 63.929764, true);
@@ -235,14 +277,26 @@
             case 'Ge68':
                 setNuclide(0, 271.05, 0, 0, 0, 67.928094, true);
                 break;
+            case 'Rb82':
+                setNuclide(0, 0, 0, 0, 76.38, 81.918208, true);
+                break;
+            case 'Sr89':
+                setNuclide(0, 0, 0, 50.53, 0, 88.907453, true);
+                break;
             case 'Tc99m':
                 setNuclide(0, 0, 6.0067, 0, 0, 98.9063, true);
+                break;
+            case 'Zr89':
+                setNuclide(0, 0, 78.41, 0, 0, 88.908890, true);
                 break;
             case 'Y90':
                 setNuclide(0, 0, 64.6, 0, 0, 89.9071519, true);
                 break;
-            case 'Zr89':
-                setNuclide(0, 0, 78.41, 0, 0, 88.908890, true);
+            case 'In111':
+                setNuclide(0, 0, 2.8047, 0, 0, 110.905111, true);
+                break;
+            case 'I123':
+                setNuclide(0, 13.2232, 0, 0, 0, 122.9055898, true);
                 break;
             case 'I124':
                 setNuclide(0, 4.176, 0, 0, 0, 123.9062099, true);
@@ -253,8 +307,38 @@
             case 'I131':
                 setNuclide(0, 8.0197, 0, 0, 0, 130.9061246, true);
                 break;
+            case 'Sm153':
+                setNuclide(0, 0, 0, 46.284, 0, 152.922094, true);
+                break;
+            case 'Tb161':
+                setNuclide(0, 6.967, 0, 0, 0, 160.9275663, true);
+                break;
             case 'Lu177':
                 setNuclide(0, 6.6475, 0, 0, 0, 176.9437581, true);
+                break;
+            case 'Re186':
+                setNuclide(0, 3.7183, 0, 0, 0, 185.954987, true);
+                break;
+            case 'Re188':
+                setNuclide(0, 0, 17.005, 0, 0, 187.958112, true);
+                break;
+                case 'Tl201':
+                setNuclide(0, 0, 73.1, 0, 0, 200.9708, true);
+                break;
+            case 'At211':
+                setNuclide(0, 7.216, 0, 0, 0, 210.987496271, true);
+                break;
+            case 'Pb212':
+                setNuclide(0, 10.64, 0, 0, 0, 212.0008, true);
+                break;
+            case 'Bi213':
+                setNuclide(0, 45.65, 0, 0, 0, 212.9943748, true);
+                break;
+            case 'Ra223':
+                setNuclide(0, 0, 11.43, 0, 0, 223.019731, true);
+                break;
+            case 'Ac225':
+                setNuclide(0, 9.92, 0, 0, 0, 225.023229, true);
                 break;
             case 'Specify':
                 setNuclide(0, 0, 0, 0, 0, 0, false);
