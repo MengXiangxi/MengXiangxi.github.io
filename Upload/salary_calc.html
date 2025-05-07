@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实时工资计算器</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #111827;
+            --light: #f9fafb;
+            --gray: #9ca3af;
+            --text: #374151;
+            --border: #e2e8f0;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e9f0fb 100%);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .calculator {
+            background-color: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 25px rgba(100, 116, 139, 0.1);
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .calculator::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--success));
+        }
+        
+        h1 {
+            color: var(--dark);
+            margin-bottom: 25px;
+            font-size: 1.8rem;
+            text-align: center;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        h1::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .input-wrapper {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+        
+        .input-group {
+            margin-bottom: 18px;
+            position: relative;
+        }
+        
+        .input-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .input-icon {
+            position: absolute;
+            left: 15px;
+            top: 41px;
+            color: var(--primary);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 0.95rem;
+        }
+        
+        input {
+            width: 100%;
+            padding: 14px 14px 14px 40px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+            background-color: white;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+        
+        button {
+            background: linear-gradient(to right, var(--primary), var(--primary-dark));
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(79, 70, 229, 0.4);
+        }
+        
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(79, 70, 229, 0.2);
+        }
+        
+        .result {
+            margin-top: 25px;
+            background-color: var(--light);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px var(--shadow);
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .result-item {
+            margin-bottom: 15px;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .result-item:last-child {
+            margin-bottom: 0;
+            padding-top: 10px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .highlight {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .real-time-wrapper {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            padding: 25px;
+            border-radius: 12px;
+            color: white;
+            text-align: center;
+            margin: 25px 0;
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        .real-time-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .real-time-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .currency {
+            font-size: 1.2rem;
+            margin-left: 3px;
+            opacity: 0.9;
+        }
+
+        .milk-tea-icon {
+            margin-right: 10px;
+            color: var(--warning);
+        }
+        
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .timer-button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        #timerButton {
+            background: linear-gradient(to right, var(--warning), #fb923c);
+            box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+        }
+        
+        #timerButton:hover {
+            box-shadow: 0 6px 15px rgba(245, 158, 11, 0.4);
+        }
+        
+        #resetButton {
+            background: linear-gradient(to right, var(--danger), #f87171);
+            box-shadow: 0 4px 10px rgba(239, 68, 68, 0.3);
+        }
+        
+        #resetButton:hover {
+            box-shadow: 0 6px 15px rgba(239, 68, 68, 0.4);
+        }
+        
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+        
+        .explanation {
+            margin-top: 20px;
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.6;
+            padding: 15px;
+            border-left: 3px solid var(--primary);
+            background-color: rgba(79, 70, 229, 0.05);
+            border-radius: 0 5px 5px 0;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(79, 70, 229, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(79, 70, 229, 0);
+            }
+        }
+
+        /* 增加一些响应式设计 */
+        @media (max-width: 480px) {
+            .calculator {
+                padding: 20px;
+            }
+            
+            .input-wrapper {
+                padding: 20px;
+            }
+            
+            .real-time-value {
+                font-size: 1.8rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* 银币下落动画 */
+        .coin-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .coin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #fbbf24;
+            border-radius: 50%;
+            top: -20px;
+            opacity: 0;
+            animation: fallCoin 4s linear infinite;
+            box-shadow: inset 0 0 0 2px #f59e0b, inset 0 0 0 4px rgba(245, 158, 11, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>实时工资计算器</h1>
+        
+        <div class="input-wrapper">
+            <div class="input-group">
+                <label for="monthlySalary">月工资 (元)</label>
+                <i class="input-icon fas fa-money-bill-wave"></i>
+                <input type="number" id="monthlySalary" placeholder="请输入您的月工资" min="0" step="100">
+            </div>
+            
+            <div class="input-group">
+                <label for="workDays">月工作天数 (天)</label>
+                <i class="input-icon fas fa-calendar-alt"></i>
+                <input type="number" id="workDays" placeholder="请输入月工作天数" value="22" min="1" max="31">
+            </div>
+            
+            <div class="input-group">
+                <label for="hoursPerDay">日工作时长 (小时)</label>
+                <i class="input-icon fas fa-clock"></i>
+                <input type="number" id="hoursPerDay" placeholder="请输入每天工作小时数" value="8" min="0" max="24" step="0.5">
+            </div>
+        </div>
+        
+        <button onclick="calculate()">
+            <i class="fas fa-calculator"></i>
+            开始计算
+        </button>
+        
+        <div class="real-time-wrapper" id="realTimeDisplay" style="display: none;">
+            <div class="coin-animation" id="coinContainer"></div>
+            <div class="real-time-label">当前已赚取</div>
+            <div class="real-time-value">
+                <span id="currentSalary">0.00</span>
+                <span class="currency">元</span>
+            </div>
+        </div>
+        
+        <div class="result" id="resultDisplay" style="display: none;">
+            <div class="result-item">
+                <span>每分钟赚取:</span>
+                <span class="highlight"><span id="salaryPerMinute">0.00</span> 元</span>
+            </div>
+            <div class="result-item">
+                <span><i class="fas fa-mug-hot milk-tea-icon"></i>一杯奶茶 (15元) 需要工作:</span>
+                <span class="highlight"><span id="milkTeaTime">0</span> 分钟</span>
+            </div>
+        </div>
+        
+        <div class="timer-controls" id="timer" style="display: none;">
+            <button id="timerButton" class="timer-button" onclick="toggleTimer()">
+                <i class="fas fa-pause"></i>
+                暂停计时
+            </button>
+            <button id="resetButton" class="timer-button" onclick="resetTimerAndCalculate()">
+                <i class="fas fa-redo-alt"></i>
+                重置
+            </button>
+        </div>
+        
+        <div class="explanation">
+            <p>说明: 该计算器基于您输入的月工资、工作天数和每日工作时长，实时显示您的工资累积情况。数据仅在本地计算，不会被上传或存储。</p>
+        </div>
+    </div>
+
+    <script>
+        let timerInterval;
+        let isTimerRunning = false;
+        let startTime;
+        let elapsedSeconds = 0;
+        let salaryPerSecond = 0;
+        let coinInterval;
+        
+        function calculate() {
+            // 获取输入值
+            const monthlySalary = parseFloat(document.getElementById('monthlySalary').value);
+            const workDays = parseInt(document.getElementById('workDays').value);
+            const hoursPerDay = parseFloat(document.getElementById('hoursPerDay').value);
+            
+            // 验证输入
+            if (isNaN(monthlySalary) || isNaN(workDays) || isNaN(hoursPerDay)) {
+                alert('请填写所有必填字段！');
+                return;
+            }
+            
+            if (monthlySalary <= 0 || workDays <= 0 || hoursPerDay <= 0) {
+                alert('所有输入值必须大于零！');
+                return;
+            }
+            
+            // 计算每分钟工资
+            const totalWorkHours = workDays * hoursPerDay;
+            const totalWorkMinutes = totalWorkHours * 60;
+            const salaryPerMinute = monthlySalary / totalWorkMinutes;
+            salaryPerSecond = salaryPerMinute / 60;
+            
+            // 计算喝一杯奶茶需要工作的分钟数
+            const milkTeaPrice = 15; // 奶茶价格15元
+            const minutesForMilkTea = milkTeaPrice / salaryPerMinute;
+            
+            // 显示结果
+            document.getElementById('salaryPerMinute').textContent = salaryPerMinute.toFixed(2);
+            document.getElementById('milkTeaTime').textContent = Math.ceil(minutesForMilkTea);
+            document.getElementById('resultDisplay').style.display = 'block';
+            document.getElementById('realTimeDisplay').style.display = 'block';
+            document.getElementById('timer').style.display = 'flex';
+            
+            // 添加脉冲动画
+            document.getElementById('realTimeDisplay').classList.add('pulse');
+            
+            // 重置并启动计时器
+            resetTimer();
+            startTimer();
+            
+            // 启动金币动画
+            startCoinAnimation();
+        }
+        
+        function startTimer() {
+            if (!isTimerRunning) {
+                startTime = new Date().getTime() - (elapsedSeconds * 1000);
+                timerInterval = setInterval(updateTimer, 100); // 每0.1秒更新一次
+                isTimerRunning = true;
+                document.getElementById('timerButton').innerHTML = '<i class="fas fa-pause"></i> 暂停计时';
+            }
+        }
+        
+        function pauseTimer() {
+            if (isTimerRunning) {
+                clearInterval(timerInterval);
+                isTimerRunning = false;
+                document.getElementById('timerButton').innerHTML = '<i class="fas fa-play"></i> 继续计时';
+            }
+        }
+        
+        function resetTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            if (coinInterval) {
+                clearInterval(coinInterval);
+            }
+            elapsedSeconds = 0;
+            document.getElementById('currentSalary').textContent = '0.00';
+            isTimerRunning = false;
+            
+            // 清除所有金币
+            const coinContainer = document.getElementById('coinContainer');
+            while (coinContainer.firstChild) {
+                coinContainer.removeChild(coinContainer.firstChild);
+            }
+        }
+        
+        function resetTimerAndCalculate() {
+            resetTimer();
+            document.getElementById('timerButton').innerHTML = '<i class="fas fa-pause"></i> 暂停计时';
+            startTimer();
+            startCoinAnimation();
+        }
+        
+        function toggleTimer() {
+            if (isTimerRunning) {
+                pauseTimer();
+            } else {
+                startTimer();
+            }
+        }
+        
+        function updateTimer() {
+            const currentTime = new Date().getTime();
+            elapsedSeconds = (currentTime - startTime) / 1000;
+            const earnedSalary = elapsedSeconds * salaryPerSecond;
+            document.getElementById('currentSalary').textContent = earnedSalary.toFixed(2);
+        }
+        
+        function startCoinAnimation() {
+            const coinContainer = document.getElementById('coinContainer');
+            
+            // 创建金币下落动画
+            coinInterval = setInterval(() => {
+                if (isTimerRunning) {
+                    createCoin(coinContainer);
+                }
+            }, 800);
+        }
+        
+        function createCoin(container) {
+            const coin = document.createElement('div');
+            coin.className = 'coin';
+            
+            // 随机位置
+            const left = Math.random() * 100;
+            const size = Math.random() * 8 + 12; // 12-20px
+            const duration = Math.random() * 2 + 3; // 3-5秒
+            const delay = Math.random() * 2;
+            
+            coin.style.left = `${left}%`;
+            coin.style.width = `${size}px`;
+            coin.style.height = `${size}px`;
+            coin.style.animationDuration = `${duration}s`;
+            coin.style.animationDelay = `${delay}s`;
+            
+            container.appendChild(coin);
+            
+            // 动画结束后移除金币
+            setTimeout(() => {
+                if (container.contains(coin)) {
+                    container.removeChild(coin);
+                }
+            }, (duration + delay) * 1000);
+        }
+        
+        // 添加金币下落动画
+        document.styleSheets[0].insertRule(`
+            @keyframes fallCoin {
+                0% {
+                    top: -20px;
+                    opacity: 0;
+                    transform: translateY(0) rotate(0deg);
+                }
+                10% {
+                    opacity: 1;
+                }
+                90% {
+                    opacity: 1;
+                }
+                100% {
+                    top: 100%;
+                    opacity: 0;
+                    transform: translateY(0) rotate(360deg);
+                }
+            }
+        `, document.styleSheets[0].cssRules.length);
+        
+        // 为输入框添加焦点效果
+        const inputs = document.querySelectorAll('input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentNode.querySelector('.input-icon').style.color = 'var(--primary-dark)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentNode.querySelector('.input-icon').style.color = 'var(--primary)';
+            });
+        });
+    </script>
+</body>
+</html>
