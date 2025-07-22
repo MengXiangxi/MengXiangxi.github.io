@@ -6,6 +6,39 @@
     <link rel="stylesheet" href="../css/w3.css">
     <link rel="stylesheet" href="../css/mengfront.css">
     <title>Radioactive decay Calculator</title>
+    <style>
+        .wechat-tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .wechat-tooltip .tooltip-image {
+            visibility: hidden;
+            position: absolute;
+            z-index: 1000;
+            bottom: -500;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: white;
+            border: 2px solid #ccc;
+            border-radius: 6px;
+            padding: 5px;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .wechat-tooltip .tooltip-image img {
+            width: 200px;
+            height: auto;
+            display: block;
+        }
+        
+        .wechat-tooltip:hover .tooltip-image {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,7 +59,14 @@
             <p>It is meant to be a handy tool, and basically no input data verification was implemented. Use care, and at your own risk. Have fun.</p>
         </div>
 
-        <div class="w3-container w3-center w3-padding"><a href="../Upload/weappQRcode.jpg" id="wechat-button" class="w3-button w3-green">Check out my new Wechat Mini Program!</a></div>
+        <div class="w3-container w3-center w3-padding">
+            <div class="wechat-tooltip">
+                <a href="../Upload/weappQRcode.jpg" id="wechat-button" class="w3-button w3-green">Check out my new Wechat Mini Program!</a>
+                <div class="tooltip-image">
+                    <img src="../Upload/weappQRcode.jpg" alt="WeChat Mini Program QR Code">
+                </div>
+            </div>
+        </div>
 
         <div class="w3-container w3-padding">
             <label for="NuclideType">Nuclide type:</label><br />
@@ -83,7 +123,7 @@
 
         <div class="w3-container">
             <div class="w3-card w3-padding">
-                <h3>Calculate the injected amount</h3>
+                <h3>Calculate the injected amount (<span id="nuclideDisplay1" style="font-weight: normal; color: #0000ff;">F-18</span>)</h3>
                 <label for="CalculateUnit">Unit:</label><br />
                 <select name="CalculateUnit" id="Unit" onchange="dispUnit(); calculateInj();">
                     <option value="Bq">Bq</option>
@@ -130,7 +170,7 @@
 
         <div class="w3-container">
             <div class="w3-card w3-padding">
-                <h3>Simple decay</h3>
+                <h3>Simple decay (<span id="nuclideDisplay2" style="font-weight: normal; color: #0000ff;">F-18</span>)</h3>
                 Start
                 <button type="button" onclick="ImportInjSimp(); calculateSimple();">Import Injected</button><br />
                 <label for="TimeSimpStart">Time</label>
@@ -169,7 +209,7 @@
 
         <div class="w3-container">
             <div class="w3-card w3-padding">
-                <h3>Find time</h3>
+                <h3>Find time (<span id="nuclideDisplay3" style="font-weight: normal; color: #0000ff;">F-18</span>)</h3>
                 Start
                 <button type="button" onclick="ImportFTSimp(); calculateFT();">Import Injected</button><br />
                 <label for="TimeFTStart">Time</label>
@@ -244,6 +284,14 @@
 
     function dispNuclide() {
         var nuclide = document.getElementById("NuclideType").value;
+        
+        // Update nuclide name displays - get the text of the selected option
+        var selectElement = document.getElementById("NuclideType");
+        var displayText = selectElement.options[selectElement.selectedIndex].text;
+        document.getElementById("nuclideDisplay1").textContent = displayText;
+        document.getElementById("nuclideDisplay2").textContent = displayText;
+        document.getElementById("nuclideDisplay3").textContent = displayText;
+        
         switch (nuclide) {
             case 'C11':
                 setNuclide(0, 0, 0, 20.38, 0, 11.01, true);
