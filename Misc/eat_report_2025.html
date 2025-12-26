@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>午餐年度报告 2025</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-card h3 {
+            color: #667eea;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .stat-unit {
+            font-size: 1rem;
+            color: #666;
+            margin-left: 5px;
+        }
+
+        .chart-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .chart-section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .charts-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .restaurant-list {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .restaurant-list h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .restaurant-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: #f8f9fa;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .restaurant-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .restaurant-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .restaurant-stats {
+            display: flex;
+            gap: 20px;
+            color: #666;
+        }
+
+        .rating {
+            color: #ffc107;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 40px 0;
+            opacity: 0.9;
+        }
+
+        canvas {
+            max-height: 300px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .charts-row {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>午餐年度报告</h1>
+            <p class="subtitle">2025年11月 - 12月</p>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>总用餐次数</h3>
+                <div class="stat-value">33<span class="stat-unit">次</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>总花费</h3>
+                <div class="stat-value">754.12<span class="stat-unit">元</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>平均花费</h3>
+                <div class="stat-value">30.57<span class="stat-unit">元/餐</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>平均评分</h3>
+                <div class="stat-value">3.15<span class="stat-unit">/ 5.0</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>美食探索指数</h3>
+                <div class="stat-value" id="explorationIndex">-<span class="stat-unit">家</span></div>
+            </div>
+            <div class="stat-card">
+                <h3>免费午餐占比</h3>
+                <div class="stat-value" id="freeMealRatio">-<span class="stat-unit">%</span></div>
+            </div>
+        </div>
+
+        <div class="restaurant-list">
+            <h2>深度分析</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <div class="restaurant-item" style="flex-direction: column; align-items: flex-start;">
+                    <h3 style="color: #667eea; margin-bottom: 10px;">最奢侈的一餐</h3>
+                    <div id="mostExpensive"></div>
+                </div>
+                <div class="restaurant-item" style="flex-direction: column; align-items: flex-start;">
+                    <h3 style="color: #667eea; margin-bottom: 10px;">最节俭的一餐</h3>
+                    <div id="leastExpensive"></div>
+                </div>
+                <div class="restaurant-item" style="flex-direction: column; align-items: flex-start;">
+                    <h3 style="color: #667eea; margin-bottom: 10px;">性价比之王</h3>
+                    <div id="bestValue"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-section">
+                <h2>月度花费趋势</h2>
+                <canvas id="monthlyChart"></canvas>
+            </div>
+            <div class="chart-section">
+                <h2>评分分布</h2>
+                <canvas id="ratingChart"></canvas>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-section">
+                <h2>最常光顾的餐厅 TOP 5</h2>
+                <canvas id="topRestaurantsChart"></canvas>
+            </div>
+            <div class="chart-section">
+                <h2>价格分布</h2>
+                <canvas id="priceDistChart"></canvas>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-section">
+                <h2>价格-评分相关性</h2>
+                <canvas id="priceRatingScatter"></canvas>
+            </div>
+            <div class="chart-section">
+                <h2>每周用餐频率</h2>
+                <canvas id="weeklyFrequency"></canvas>
+            </div>
+        </div>
+
+        <div class="restaurant-list">
+            <h2>高分餐厅推荐</h2>
+            <div id="topRatedRestaurants"></div>
+        </div>
+
+        <footer>
+            <p>感谢这一年的美食相伴</p>
+            <p>期待下一年的更多美味探索</p>
+        </footer>
+    </div>
+
+    <script>
+        // 解析CSV数据
+        const csvData = `date,order,price,rate,image
+251226,外婆家,0.0,3.0,
+251224,阿森烤翅（到店）,43.5,3.5,
+251223,水果酸奶,0.0,3.0,
+251222,兰轩盒饭,0.0,2.5,
+251219,麻辣拌,26.0,4.0,
+251218,黄焖鸡米饭,22.0,3.5,
+251217,家园食堂,0.0,2.5,
+251216,紫光园,22.5,3.5,
+251215,一家低脂的茶香牛肉饭,25.0,4.0,
+251212,炒饼老头儿,11.5,3.0,
+251211,KFC,24.0,3.0,
+251210,黄饷・咖喱蛋包饭（花园桥店）,29.6,4.0,
+251209,必胜客,0.0,4.0,
+251208,鸭血粉丝汤,19.08,3.0,
+251205,食堂,18.0,3.0,
+251204,食堂-餐车,20.0,3.0,
+251203,食堂,24.78,3.0,
+251202,食堂,23.61,3.0,
+251201,食堂,20.0,3.0,
+251128,松荣鮨（嘉定日月光）,16.27,3.0,
+251127,艺园二楼,0.0,3.0,
+251125,食堂,19.83,3.0,
+251121,食堂,22.39,3.0,
+251120,KFC,40.0,4.0,
+251119,Timefor牛排,37.8,3.0,
+251118,农耕记,25.0,3.0,
+251117,松鹤楼,43.0,3.0,
+251114,火炉火拌饭,0.0,4.0,
+251113,米村拌饭,0.0,3.0,
+251112,上海本帮现炒浇头面,36.2,2.0,
+251111,农耕记,28.0,4.0,
+251110,口水鸡,37.0,1.0,
+251225,食堂,25.0,3.0,`;
+
+        // 解析数据
+        const lines = csvData.trim().split('\n').slice(1); // 跳过标题行
+        const meals = lines.map(line => {
+            const [date, order, price, rate] = line.split(',');
+            return {
+                date: date,
+                order: order,
+                price: parseFloat(price),
+                rate: parseFloat(rate),
+                month: date.substring(2, 4) // 提取月份
+            };
+        });
+
+        // 统计数据
+        const totalMeals = meals.length;
+        const totalSpent = meals.reduce((sum, meal) => sum + meal.price, 0);
+        const avgSpent = totalSpent / meals.filter(m => m.price > 0).length;
+        const avgRating = meals.reduce((sum, meal) => sum + meal.rate, 0) / totalMeals;
+
+        // 月度花费统计
+        const monthlyData = {};
+        meals.forEach(meal => {
+            if (!monthlyData[meal.month]) {
+                monthlyData[meal.month] = 0;
+            }
+            monthlyData[meal.month] += meal.price;
+        });
+
+        // 月度趋势图
+        new Chart(document.getElementById('monthlyChart'), {
+            type: 'line',
+            data: {
+                labels: ['11月', '12月'],
+                datasets: [{
+                    label: '花费金额（元）',
+                    data: [monthlyData['11'] || 0, monthlyData['12'] || 0],
+                    borderColor: '#667eea',
+                    backgroundColor: 'rgba(102, 126, 234, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // 评分分布
+        const ratingCount = {};
+        meals.forEach(meal => {
+            const rating = meal.rate.toString();
+            ratingCount[rating] = (ratingCount[rating] || 0) + 1;
+        });
+
+        new Chart(document.getElementById('ratingChart'), {
+            type: 'bar',
+            data: {
+                labels: Object.keys(ratingCount).sort().map(r => r + '分'),
+                datasets: [{
+                    label: '用餐次数',
+                    data: Object.keys(ratingCount).sort().map(k => ratingCount[k]),
+                    backgroundColor: '#667eea',
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+
+        // 最常去的餐厅
+        const restaurantCount = {};
+        meals.forEach(meal => {
+            restaurantCount[meal.order] = (restaurantCount[meal.order] || 0) + 1;
+        });
+
+        const topRestaurants = Object.entries(restaurantCount)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 5);
+
+        new Chart(document.getElementById('topRestaurantsChart'), {
+            type: 'bar',
+            data: {
+                labels: topRestaurants.map(r => r[0]),
+                datasets: [{
+                    label: '次数',
+                    data: topRestaurants.map(r => r[1]),
+                    backgroundColor: '#667eea'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+        // 价格分布
+        const priceRanges = {
+            '0元(免费)': 0,
+            '1-20元': 0,
+            '21-30元': 0,
+            '31-40元': 0,
+            '41元以上': 0
+        };
+
+        meals.forEach(meal => {
+            if (meal.price === 0) priceRanges['0元(免费)']++;
+            else if (meal.price <= 20) priceRanges['1-20元']++;
+            else if (meal.price <= 30) priceRanges['21-30元']++;
+            else if (meal.price <= 40) priceRanges['31-40元']++;
+            else priceRanges['41元以上']++;
+        });
+
+        new Chart(document.getElementById('priceDistChart'), {
+            type: 'pie',
+            data: {
+                labels: Object.keys(priceRanges),
+                datasets: [{
+                    data: Object.values(priceRanges),
+                    backgroundColor: [
+                        '#4bc0c0',
+                        '#36a2eb',
+                        '#ffce56',
+                        '#ff9f40',
+                        '#ff6384'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true
+            }
+        });
+
+        // 高分餐厅列表
+        const topRated = meals
+            .filter(m => m.rate >= 3.5)
+            .sort((a, b) => b.rate - a.rate);
+
+        const topRatedHtml = topRated.map(meal => `
+            <div class="restaurant-item">
+                <span class="restaurant-name">${meal.order}</span>
+                <div class="restaurant-stats">
+                    <span class="rating">${'★'.repeat(Math.floor(meal.rate))} ${meal.rate}</span>
+                    <span>${meal.price > 0 ? meal.price + '元' : '免费'}</span>
+                </div>
+            </div>
+        `).join('');
+
+        document.getElementById('topRatedRestaurants').innerHTML = topRatedHtml;
+
+        // 美食探索指数 - 不同餐厅数量
+        const uniqueRestaurants = new Set(meals.map(m => m.order)).size;
+        document.getElementById('explorationIndex').innerHTML = uniqueRestaurants + '<span class="stat-unit">家</span>';
+
+        // 免费午餐占比
+        const freeMeals = meals.filter(m => m.price === 0).length;
+        const freeMealPercentage = ((freeMeals / totalMeals) * 100).toFixed(1);
+        document.getElementById('freeMealRatio').innerHTML = freeMealPercentage + '<span class="stat-unit">%</span>';
+
+        // 最奢侈的一餐
+        const mostExpensive = meals.filter(m => m.price > 0).sort((a, b) => b.price - a.price)[0];
+        document.getElementById('mostExpensive').innerHTML = `
+            <div><strong>${mostExpensive.order}</strong></div>
+            <div style="color: #666; margin-top: 5px;">花费：${mostExpensive.price}元 | 评分：${'★'.repeat(Math.floor(mostExpensive.rate))} ${mostExpensive.rate}</div>
+        `;
+
+        // 最节俭的一餐
+        const leastExpensive = meals.filter(m => m.price > 0).sort((a, b) => a.price - b.price)[0];
+        document.getElementById('leastExpensive').innerHTML = `
+            <div><strong>${leastExpensive.order}</strong></div>
+            <div style="color: #666; margin-top: 5px;">花费：${leastExpensive.price}元 | 评分：${'★'.repeat(Math.floor(leastExpensive.rate))} ${leastExpensive.rate}</div>
+        `;
+
+        // 性价比之王 - 评分/价格比最高
+        const bestValue = meals
+            .filter(m => m.price > 0)
+            .map(m => ({...m, valueScore: m.rate / m.price}))
+            .sort((a, b) => b.valueScore - a.valueScore)[0];
+        document.getElementById('bestValue').innerHTML = `
+            <div><strong>${bestValue.order}</strong></div>
+            <div style="color: #666; margin-top: 5px;">花费：${bestValue.price}元 | 评分：${'★'.repeat(Math.floor(bestValue.rate))} ${bestValue.rate}</div>
+            <div style="color: #667eea; margin-top: 5px; font-size: 0.9rem;">性价比指数：${(bestValue.valueScore * 10).toFixed(2)}</div>
+        `;
+
+        // 价格-评分相关性散点图
+        const paidMeals = meals.filter(m => m.price > 0);
+        new Chart(document.getElementById('priceRatingScatter'), {
+            type: 'scatter',
+            data: {
+                datasets: [{
+                    label: '每餐数据',
+                    data: paidMeals.map(m => ({x: m.price, y: m.rate})),
+                    backgroundColor: 'rgba(102, 126, 234, 0.6)',
+                    borderColor: '#667eea',
+                    borderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `价格: ${context.parsed.x}元, 评分: ${context.parsed.y}`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: '价格 (元)'
+                        },
+                        beginAtZero: true
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: '评分'
+                        },
+                        min: 0,
+                        max: 5
+                    }
+                }
+            }
+        });
+
+        // 每周用餐频率
+        const weeklyFreq = {};
+        meals.forEach(meal => {
+            const dateStr = '2025-' + meal.date.substring(2, 4) + '-' + meal.date.substring(4, 6);
+            const date = new Date(dateStr);
+            const weekNum = Math.ceil((date.getDate() + new Date(date.getFullYear(), date.getMonth(), 1).getDay()) / 7);
+            const weekKey = date.getMonth() + 1 + '月第' + weekNum + '周';
+            weeklyFreq[weekKey] = (weeklyFreq[weekKey] || 0) + 1;
+        });
+
+        const weekLabels = Object.keys(weeklyFreq).sort();
+        new Chart(document.getElementById('weeklyFrequency'), {
+            type: 'line',
+            data: {
+                labels: weekLabels,
+                datasets: [{
+                    label: '用餐次数',
+                    data: weekLabels.map(w => weeklyFreq[w]),
+                    borderColor: '#764ba2',
+                    backgroundColor: 'rgba(118, 75, 162, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    borderWidth: 3,
+                    pointRadius: 5,
+                    pointBackgroundColor: '#764ba2'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
