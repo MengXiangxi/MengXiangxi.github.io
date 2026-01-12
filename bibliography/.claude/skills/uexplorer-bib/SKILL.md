@@ -1,0 +1,58 @@
+---
+name: uexplorer-bib
+description: This skill generates properly formatted BibTeX citation entries for academic articles. It should be used when the user provides links to academic papers and needs BibTeX entries with specific formatting rules including citekeys, sentence-case titles, full author names, institution mapping, and keyword selection from predefined lists.
+---
+
+# uexplorer-bib
+
+Generate BibTeX citation entries for academic articles from provided links or sources.
+
+## Tools
+
+- Use `@browsermcp` to retrieve full citation details from provided links
+- Use the pubmed tool only if necessary (e.g., to determine PMID). Do not use it to look up PubMed links directly—use browser tool instead
+
+## Process
+
+1. Fetch the article from the provided link
+2. Extract: title, authors, journal, year, volume, number, pages, DOI, PMID, institutions, keywords
+3. Generate citekey: `<first author last name><year><2-3 keywords from title>`
+4. Format title in sentence case with `<sup>` and `<sub>` tags for superscripts/subscripts
+5. Ensure full given names for authors (middle names may use initials without periods)
+6. Use full journal names in title case (exception: "J. Nucl. Med." for Journal of Nuclear Medicine)
+7. Map institutions to the standard list in `references/lists.md`
+8. Select keywords from the predefined list in `references/lists.md`
+9. For "Just Accepted" articles: set `year={Just Accepted}` and remove `volume`, `number`, `pages` fields
+10. Always include `doi`, `pmid`, `institution` fields (may be blank but never omitted)
+11. After obtaining all details, format into BibTeX entry, and go back through the previous steps to verify accuracy
+12. append it to the beginning of `uExplorer.bib`
+
+## BibTeX Format
+
+```bibtex
+@article{citekey,
+title={Sentence case title with <sup>18</sup>F tags},
+author={Last, First and Last2, First2 M},
+journal={Full Journal Name},
+volume={X},
+number={Y},
+pages={123--456},
+year={2024},
+doi={10.xxxx/xxxxx},
+pmid={12345678},
+institution={Institution Name},
+keywords={keyword1; keyword2; keyword3}
+}
+```
+
+No leading spaces. Minimal spacing. No tabs.
+
+## Special Rules
+
+- Institution: Use most important institution only. Omit universities if affiliated hospital exists. Keep succinct.
+- Keywords: Include tracer (except FDG), diseases, specialties. Avoid "total body" or "PET". Use semicolons between keywords. For new tracers, use EANM-recommended names and include tracer family (PSMA, DOTATATE, FAPI, etc.). Use "novel tracer" for uncommon tracers.
+- Institution replacement: "The First Affiliated Hospital of Shandong First Medical University" → "Qianfoshan Hospital"
+
+## Reference
+
+See `references/lists.md` for institution and keyword lists.

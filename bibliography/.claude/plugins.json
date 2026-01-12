@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "lastUpdated": 1768241471190,
+  "plugins": [
+    {
+      "filename": "uexplorer-bib",
+      "type": "skill",
+      "metadata": {
+        "sourcePath": "skills\\uexplorer-bib",
+        "filename": "uexplorer-bib",
+        "name": "uexplorer-bib",
+        "description": "This skill generates properly formatted BibTeX citation entries for academic articles. It should be used when the user provides links to academic papers and needs BibTeX entries with specific formatting rules including citekeys, sentence-case titles, full author names, institution mapping, and keyword selection from predefined lists.",
+        "category": "skills",
+        "type": "skill",
+        "size": 6784,
+        "contentHash": "6f9ef280d3a0ecb17cb941d4e8ff9737f4f2b6d43f88b0d39f66e7dd9bd62182"
+      }
+    }
+  ]
+}
