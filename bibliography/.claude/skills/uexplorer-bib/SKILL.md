@@ -20,14 +20,20 @@ Generate BibTeX citation entries for academic articles from provided links or so
 4. Format title in sentence case with `<sup>` and `<sub>` tags for superscripts/subscripts
 5. Ensure full given names for authors (middle names may use initials without periods)
 6. Use full journal names in title case (exception: "J. Nucl. Med." for Journal of Nuclear Medicine)
-7. Map institutions to the standard list in `references/lists.md`
+7. Map institutions to the standard list in `references/lists.md`. Include:
+   - Institutions of main authors (first author, corresponding authors)
+   - The institution that performs the PET scan (usually the hospital equipped with the uExplorer PET)
+   - Typically 1-3 institutions, separated by semicolons
 8. Select keywords from the predefined list in `references/lists.md`
-9. For "Just Accepted" articles: set `year={Just Accepted}` and remove `volume`, `number`, `pages` fields
-10. Always include `doi`, `pmid`, `institution` fields (may be blank but never omitted)
-11. After obtaining all details, format into BibTeX entry, and go back through the previous steps to verify accuracy
-12. append it to the beginning of `uExplorer.bib`
+9. Identify "Just Accepted" articles: Look for "Online ahead of print", "Just Accepted", or missing volume/number/page information
+   - For "Just Accepted" papers: set `year={Just Accepted}` and **completely remove** `volume`, `number`, `pages` fields (do not leave empty)
+   - Always include `doi`, `pmid`, `institution` fields
+10. Append entry to the beginning of `uExplorer.bib`
+11. Output a short summary of the paper describing its major ideas
 
 ## BibTeX Format
+
+**Standard article:**
 
 ```bibtex
 @article{citekey,
@@ -45,13 +51,32 @@ keywords={keyword1; keyword2; keyword3}
 }
 ```
 
+**Just Accepted article (volume/number/pages fields removed):**
+
+```bibtex
+@article{citekey,
+title={Sentence case title with <sup>18</sup>F tags},
+author={Last, First and Last2, First2 M},
+journal={Full Journal Name},
+year={Just Accepted},
+doi={10.xxxx/xxxxx},
+pmid={12345678},
+institution={Institution Name},
+keywords={keyword1; keyword2; keyword3}
+}
+```
+
 No leading spaces. Minimal spacing. No tabs.
 
 ## Special Rules
 
-- Institution: Use most important institution only. Omit universities if affiliated hospital exists. Keep succinct.
-- Keywords: Include tracer (except FDG), diseases, specialties. Avoid "total body" or "PET". Use semicolons between keywords. For new tracers, use EANM-recommended names and include tracer family (PSMA, DOTATATE, FAPI, etc.). Use "novel tracer" for uncommon tracers.
-- Institution replacement: "The First Affiliated Hospital of Shandong First Medical University" → "Qianfoshan Hospital"
+- **Institution:** Include 1-3 institutions:
+  - Institutions of main authors (first author, corresponding authors)
+  - The institution that performs the PET scan (usually the hospital with uExplorer PET)
+  - Omit universities if affiliated hospital exists. Keep succinct.
+  - Use semicolons to separate multiple institutions (e.g., "SIAT, CAS; Qianfoshan Hospital")
+- **Institution replacement:** "The First Affiliated Hospital of Shandong First Medical University" → "Qianfoshan Hospital"
+- **Keywords:** Include tracer (except FDG), diseases, specialties. Avoid "total body" or "PET". Use semicolons between keywords. For new tracers, use EANM-recommended names and include tracer family (PSMA, DOTATATE, FAPI, etc.). Use "novel tracer" for uncommon tracers.
 
 ## Reference
 
