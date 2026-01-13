@@ -9,7 +9,7 @@ Generate BibTeX citation entries for academic articles from provided links or so
 
 ## Tools
 
-- Use `@browsermcp` to retrieve full citation details from provided links
+- Use `@browsermcp` to retrieve full citation details from provided links. If the output is too long, truncate from the beginning.
 - Use the pubmed tool only if necessary (e.g., to determine PMID). Do not use it to look up PubMed links directly—use browser tool instead
 
 ## Process
