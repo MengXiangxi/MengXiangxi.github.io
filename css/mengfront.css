@@ -1,3 +1,73 @@
+:root {
+    --font-body: "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", "Heiti SC", "Segoe UI", sans-serif;
+    --font-display: "Noto Sans CJK SC", "Source Han Sans SC", "PingFang SC", "Microsoft YaHei", "Heiti SC", "Segoe UI", sans-serif;
+    --font-mono: "Cascadia Mono", "Consolas", "Menlo", "Courier New", monospace;
+    --color-ink: #1f1f1f;
+    --color-muted: #5a5a5a;
+    --color-accent: #8c0000;
+    --color-accent-dark: #5f0000;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    line-height: 1.7;
+    font-size: 16.5px;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-display);
+    letter-spacing: 0.2px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0 0 var(--space-3);
+}
+
+h1 {
+    font-size: 2.05rem;
+}
+
+h2 {
+    font-size: 1.55rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    margin: 0 0 var(--space-3);
+}
+
+ul,
+ol {
+    margin: 0 0 var(--space-4);
+    padding-left: 1.25rem;
+}
+
+li {
+    margin: 0 0 var(--space-2);
+}
+
+a {
+    color: var(--color-accent);
+}
+
+a:hover {
+    color: var(--color-accent-dark);
+}
+
 div.news {
     box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19)
 }
@@ -48,12 +118,13 @@ main {
 .meng-color-theme,
 .meng-hover-color-theme:hover {
     color: #fff !important;
-    background-color: #8c0000 !important;
+    background-color: var(--color-accent) !important;
     /* background-color: #000000 !important; */
 }
 
 .meng-box-shadow {
-    color:#fff!important;background-color:#607d8b!important
+    color: #fff !important;
+    background-color: #607d8b !important;
     /* color:#fff!important;background-color:#888!important; */
 }
 
@@ -64,7 +135,7 @@ em {
 }
 
 code {
-    font-family: "courier", FangSong;
+    font-family: var(--font-mono);
     background-color: lightgray
 }
 
