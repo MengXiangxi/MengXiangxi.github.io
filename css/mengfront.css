@@ -180,3 +180,24 @@ code {
 /* html {
     filter: grayscale(1)
 } */
+
+/* Navigation buttons styling */
+#contents .w3-button {
+    background-color: #f8f9fa;
+    color: var(--color-ink);
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+#contents .w3-button:hover {
+    background-color: var(--color-accent);
+    color: #fff;
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(140, 0, 0, 0.2);
+}

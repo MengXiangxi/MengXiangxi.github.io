@@ -18,7 +18,7 @@
     </div>
     <div class="w3-mobile w3-center meng-color-theme">
       <a href="./" class="w3-bar-item w3-button">Home</a>
-      <a href="#" class="w3-bar-item w3-button">Research</a>
+      <a href="./research.html" class="w3-bar-item w3-button">Research</a>
       <a href="./publications.html" class="w3-bar-item w3-button">Publications</a>
       <a href="./link.html" class="w3-bar-item w3-button">Link</a>
       <a href="./BLOG/" class="w3-bar-item w3-button">BLOG</a>
@@ -28,254 +28,182 @@
 
     <div class="w3-container" id="summary">
       <h1>Research</h1>
-      <p>Generally, I am interested in the engineering aspects of molecular imaging. I was initially trained to be a
-        chemist and chemical engineer, but gradually got interested in the interdisciplinary frontier of molecular
-        imaging. Trained as an engineer, I am especially interested in the engineering perspective. This includes the
-        construction, modification, and evaluation of imaging systems; development of new imaging strategies; analysis
-        and utilization of imaging data; and other engineering problems encountered in the molecular imaging research.
-      </p>
-      <p>I am willing to work with people of different backgrounds, including physicians, chemists, data engineers,
-        mathematicians, electrical engineers, and so many other team members and collaborators. Together we can put more
-        intelligence into molecular imaging.</p>
+      <p>I am an interdisciplinary researcher working at the intersection of nuclear medicine, molecular imaging, and biomedical engineering. My research focuses on advancing PET imaging technology, developing novel molecular probes, and applying data science to clinical imaging problems. I am particularly interested in the engineering aspects of molecular imaging—including imaging system construction, radiotracer development, and quantitative imaging analysis.</p>
+      <p>I collaborate closely with physicians, chemists, data scientists, and engineers to translate imaging innovations from bench to bedside, with the ultimate goal of improving patient care through better imaging tools and techniques.</p>
     </div>
 
     <hr />
 
     <div class="w3-container" id="contents">
       <h3>Navigation</h3>
-      <table align="left">
-        <tr>
-          <th><a href="#PETPreclinical">PET-Preclinical</a></th>
-          <td><a href="#PETImagingPhysics">PET imaging physics</a> | <a href="#Radiotracers">Radiotracers</a></td>
-        </tr>
-        <tr>
-          <th><a href="#PETClinical">PET-Clinical</a></th>
-          <td><a href="#PETData">Clinical data</a> | <a href="#DynamicPET">Dynamic PET</a></td>
-        </tr>
-        <tr>
-          <th><a href="#OpticalImaging">Optical Imaging</a></th>
-          <td><a href="#NIRII">NIR-II imaging</a> | <a href="#Cherenkov">Cherenkov imaging</a></td>
-        </tr>
-      </table>
+      <div class="w3-row-padding w3-margin-bottom">
+        <div class="w3-col m6 s12">
+          <a href="#DrugDevelopment" class="w3-button w3-block w3-left-align w3-hover-light-grey">Total-body PET for drug</a>
+        </div>
+        <div class="w3-col m6 s12">
+          <a href="#NovelRadionuclides" class="w3-button w3-block w3-left-align w3-hover-light-grey">PET physics & Instrumentation</a>
+        </div>
+        <div class="w3-col m6 s12">
+          <a href="#DynamicPET" class="w3-button w3-block w3-left-align w3-hover-light-grey">Dynamic PET</a>
+        </div>
+        <div class="w3-col m6 s12">
+          <a href="#Radiomics" class="w3-button w3-block w3-left-align w3-hover-light-grey">PET diagnostic automation</a>
+        </div>
+        <div class="w3-col m12 s12">
+          <a href="#Nanobodies" class="w3-button w3-block w3-left-align w3-hover-light-grey">Probes and tracers</a>
+        </div>
+      </div>
     </div>
 
     <hr />
 
-    <div class="w3-container">
-      <h2 id="PETPreclinical">Preclinical Research on PET and Nuclear Medicine</h2>
+    <div class="w3-container w3-padding" id="DrugDevelopment">
+      <div class="w3-card">
+        <header class="w3-container meng-box-shadow">
+          <h3>Total-body PET imaging for pharmaceutical research</h3>
+        </header>
+        <div class="w3-container w3-cell w3-mobile">
+          <p>Total-body PET scanners represent a paradigm shift in nuclear medicine imaging. With dramatically increased sensitivity and axial field-of-view, these systems enable new applications in drug development and evaluation that were previously impractical.</p>
+          <p>My research in this area focuses on:</p>
+          <ul>
+            <li>Leveraging total-body PET for quantitative pharmacokinetic studies in drug development</li>
+            <li>Calibrating the accuracy and precision in quantitative measurement of PET</li>
+            <li>Developing novel imaging protocols for multi-organ drug distribution studies</li>
+            <li>Application of total-body PET in early phase clinical trials</li>
+          </ul>
+          <h4>Key Publications</h4>
+          <ul>
+            <li>Meng, X., Kong, X., Wu, R., & Yang, Z. (2025). <a href="https://doi.org/10.1053/j.semnuclmed.2024.09.006" target="_blank" rel="noopener">Total body PET/CT: A role in drug development?</a> <i>Seminars in Nuclear Medicine</i>, 55(1), 116-123.</li>
+            <li>Meng, X., Kong, X., Xia, L., Wu, R., Zhu, H., & Yang, Z. (2024). <a href="https://doi.org/10.2967/jnumed.123.266978" target="_blank" rel="noopener">The role of total-body PET in drug development and evaluation: status and outlook</a>. <i>Journal of Nuclear Medicine</i>, 65(Supplement 1), 46S-53S.</li>
+          </ul>
+        </div>
+        <div class="w3-container w3-cell w3-mobile w3-center w3-padding-24">
+          <img src="./Upload/research/TB_Dyn.gif" width="256px"
+            style="box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.7); border: 1px solid #808080;"
+            alt="Total-body PET scanner concept.">
+        </div>
+        <div class="w3-container meng-box-shadow" style="text-align: right;"><a href="#contents">back to top ↑</a>
+        </div>
+      </div>
     </div>
 
-    <div class="w3-container w3-padding" id="PETImagingPhysics">
+    <div class="w3-container w3-padding" id="NovelRadionuclides">
       <div class="w3-card">
         <header class="w3-container meng-box-shadow">
           <h3>PET imaging physics and instrumentation</h3>
         </header>
         <div class="w3-container w3-cell w3-mobile">
-          <p>Nowadays, commercialized PET scanners have evolved so much, that the physicians and operators are masked
-            from the underlying basic principles of the imaging technique. PET combines the state-of-the-art radiation
-            detection and high-speed electronics hardware with intricate reconstruction algorithms, resulting in a
-            complex system with so many mysteries to explore.</p>
-          <p>I am interested in the mechanism as well as the clinical relevance of these medical imaging physics as well
-            as instrumentation aspects. That includes:</p>
+          <p>The quantitative accuracy and diagnostic utility of PET imaging are fundamentally governed by the underlying physics principles and instrumentation design. My research focuses on comprehensive characterization and optimization of PET system performance to establish rigorous standards for clinical and research applications.</p>
+          <p>My work in this area encompasses:</p>
           <ul>
-            <li>The effect of the interaction of the magnetic field on positrons, in PET/MR scanners.</li>
-            <li>The clinical impact of correction methods in PET imaging reconstruction.</li>
+            <li>Multi-center harmonization of standardized uptake values (SUVs)</li>
+            <li>Systematic performance characterization of integrated PET/MR systems</li>
+            <li>Investigation of magnetic field interactions with positron annihilation physics and spatial resolution degradation</li>
+            <li>Instrumentation optimization for enhanced quantitative precision in hybrid imaging modalities</li>
           </ul>
-          <h4>Highlight</h4>
+          <h4>Key Publications</h4>
           <ul>
-            <li>Meng, X., Liu, H., Li, H., Wang, S., Sun, H., Wang, F., Ding, J., He, L., Chen, X., Jin, L., Dong, Y.,
-              Zhu, H., & Yang, Z. (2021). <a href="https://aapm.onlinelibrary.wiley.com/doi/10.1002/mp.15513"
-                target="_blank" rel="noopener">Evaluating the impact of different positron emitters on the performance of a clinical
-                PET/MR system</a>. <i>Medical Physics</i>, 49(4), 2642--2651.</li>
+            <li>Meng, X., Liu, H., Li, H., Wang, S., Sun, H., Wang, F., Ding, J., He, L., Chen, X., Jin, L., Dong, Y., Zhu, H., & Yang, Z. (2022). <a href="https://doi.org/10.1002/mp.15513" target="_blank" rel="noopener">Evaluating the impact of different positron emitters on the performance of a clinical PET/MR system</a>. <i>Medical Physics</i>, 49(4), 2642-2651.</li>
+            <li>Song, Y., Meng, X., Cao, Z., Zhao, W., Zhang, Y., Guo, R., Zhou, X., Yang, Z., & Li, N. (2023). <a href="https://doi.org/10.1186/s40658-023-00540-z" target="_blank" rel="noopener">Harmonization of standard uptake values across different positron emission tomography/computed tomography systems and different reconstruction algorithms: validation in oncology patients</a>. <i>EJNMMI Physics</i>, 10, 19.</li>
           </ul>
         </div>
         <div class="w3-container w3-cell w3-mobile w3-center w3-padding-24">
           <img src="./Upload/research/PETscanner.jpg" width="256px"
             style="box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.7); border: 1px solid #808080;"
-            alt="The detector modules of a PET/MR scanner.">
+            alt="PET/MR detector modules.">
         </div>
-        <div class="w3-container meng-box-shadow" style="text-align: right;"><a href="#contents">back to top &#8593;</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="w3-container w3-padding" id="Radiotracers">
-        <div class="w3-card">
-          <header class="w3-container meng-box-shadow">
-            <h3>Radiotracers and molecular probes development</h3>
-          </header>
-          <div class="w3-container w3-cell w3-mobile">
-            <p>For most molecular imaging modalities, the molecular probe is a central nexus, bridging between indigenous biomarkers and the imaging signal. Developing novel PET tracers and molecular probes for classic and novel targets requires synthetic chemistry as well as a systematic evaluation pipeline.</p>
-            <p>I am actively involved in developing novel radiotracers for preclinical research, which conceive the concept for translational applications.</p>
-            <ul>
-              <li>Multimodality theragnostic imaging probes, especially nano-probes, combining PET, SEPCT, optical imaging and other modalities.</li>
-              <li>Cyclotron production and labeling of novel positron emitters.</li>
-            </ul>
-          <h4>Highlight</h4>
-          <ul>
-            <li>Xia, L., Meng, X., Wen, L., Zhou, N., Liu, T., Xu, X., Wang, F., Cheng, Z., Yang, Z., & Zhu, H. (2021). <a href="https://doi.org/10.1002/smll.202100378" target="_blank" rel="noopener">A highly specific multiple enhancement theranostic nanoprobe for PET/MRI/PAI image-guided radioisotope combined photothermal therapy in prostate cancer</a>. <i>Small</i>, 17(21), 2100378. </li>
-          </ul>
-          </div>
-          <div class="w3-container w3-cell w3-mobile w3-center w3-padding-24">
-            <img src="./Upload/research/radiopharm.png" width="256px"
-              style="box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.7); border: 1px solid #808080;"
-              alt="The PET imaging of a novel tracer.">
-            <!-- <div class="w3-container w3-center w3-padding">learn more about this topic at the link below</div> -->
-          </div>
-          <div class="w3-container meng-box-shadow" style="text-align: right;"><a href="#contents">back to top &#8593;</a>
-          </div>
-        </div>
-      </div>
-
-    <div class="w3-container">
-      <h2 id="PETClinical">Clinical and Translational Research on PET and Nuclear Medicine</h2>
-    </div>
-
-    <div class="w3-container w3-padding" id="PETData">
-      <div class="w3-card">
-        <header class="w3-container meng-box-shadow">
-          <h3>Imaging data utilization in clinical studies</h3>
-        </header>
-        <div class="w3-container w3-cell w3-mobile">
-          <p>A huge amount of data are generated in the daily routine of a nuclear medicine department, let alone the
-            clinical trials. This so-called "big-data" not only presents a serious challenge for the data curator, but
-            also brings about an opportunity for data mining. The field of medical imaging witnesses a major success of
-            deep learning application, which is fueled by the large amount of imaging data available in the electronic
-            medical records. In our department, we believe the utilization of imaging data of PET and SPECT is driven by
-            concrete needs in medical procedures, instead of solving abstract problems.</p>
-          <p>I am trying to solve imaging-related problems with data science, which includes:</p>
-          <ul>
-            <li>Data analysis, medical statistics, statistical inference, and quantitative modeling in clinical studies
-              of nuclear medicine.</li>
-            <li>Statistical learning and radiomics in nuclear medicine.</li>
-            <li>The clinical application and translational research on deep-learning algorithms in nuclear medicine.
-            </li>
-          </ul>
-          <h4>Highlight</h4>
-          <ul>
-            <li>Zhou, N., Meng, X., Zhang, Y., Yu, B., Yuan, J., Yu, J., Zhu, H., & Yang, Z. (2021). <a
-                href="https://doi.org/10.3389/fonc.2021.717687" target="_blank" rel="noopener">Diagnostic value of delayed PET/MR in
-                liver metastasis in comparison with PET/CT</a>. <i>Frontiers in Oncology</i>, 11, 717687.</li>
-            <li>Geng, M., Meng, X., Yu, J., Zhu, L., Jin, L., Jiang, Z., Qiu, B., Li, H., Kong, H., Yuan, J., Yang, K.,
-              Shan, H., Han, H., Yang, Z., Ren, Q., & Lu, Y. (2022). <a href="https://doi.org/10.1109/tmi.2021.3113365"
-                target="_blank" rel="noopener">Content-noise complementary learning for medical image denoising</a>. <i>IEEE
-                Transactions on Medical Imaging</i>, 41(2), 407-419.</li>
-          </ul>
-        </div>
-        <div class="w3-container w3-cell w3-mobile w3-center w3-padding-24">
-          <img src="./Upload/research/data.png" width="256px"
-            style="box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.7); border: 1px solid #808080;"
-            alt="The PET/CT images and data processing.">
-        </div>
-        <div class="w3-container meng-box-shadow" style="text-align: right;"><a href="#contents">back to top &#8593;</a>
+        <div class="w3-container meng-box-shadow" style="text-align: right;"><a href="#contents">back to top ↑</a>
         </div>
       </div>
     </div>
 
     <div class="w3-container w3-padding" id="DynamicPET">
-        <div class="w3-card">
-          <header class="w3-container meng-box-shadow">
-            <h3>Dynamic PET, kinetic modeling, and pharmacology</h3>
-          </header>
-          <div class="w3-container w3-cell w3-mobile">
-            <p>Dynamic PET imaging involves continuous acquisition after bed-side injection of radiotracers. Dynamic imaging provides valuable quantitative data for kinetic modeling of the tracer, which reveals its pharmacokinetics characteristics. This process involves analysis of the 4D data, which usually require statistical methods in image and signal process. This area is indeed interesting.</p>
-            <p>Although dynamic PET has a long history, we believe it is far from being fully explored. As we have been equipped with next-generation scanners and latest achievement in data science, we believe it is important to cast an . We are working on topics including:</p>
-            <ul>
-              <li>Study the tracer kinetic characteristic and in vivo receptor binding behavior with dynamic PET and kinetic modeling.</li>
-              <li>Developing novel analysis pipeline involving the 4D data generated from dynamic PET.</li>
-            </ul>
-            <h4>Highlight</h4>
-            <ul>
-              <li>Mao, X., Zhao, S., Meng, X., Jin, Y., Kong, H., Yuan, J., He, Q., Liang, D., Yu, J., & Hu, Z. (2022). <a href="https://doi.org/10.1016/j.nima.2022.166411" target="_blank" rel="noopener">PET parametric imaging based on MR frequency-domain texture information</a>. <i>Nuclear Instruments and Methods in Physics Research, A</i>, 1029, 166411.</li>
-            </ul>
-          </div>
-          <div class="w3-container w3-cell w3-mobile w3-center w3-padding-24">
-            <img src="./Upload/research/Param.gif" width="256px"
-              style="box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.7); border: 1px solid #808080;"
-              alt="Parametric imaging of a patient.">
-          </div>
-          <div class="w3-container meng-box-shadow" style="text-align: right;"><a href="#contents">back to top &#8593;</a>
-          </div>
-        </div>
-      </div>
-  
-
-    <div class="w3-container">
-      <h2 id="OpticalImaging">Optical Imaging</h2>
-    </div>
-
-    <div class="w3-container w3-padding" id="NIRII">
       <div class="w3-card">
         <header class="w3-container meng-box-shadow">
-          <h3>NIR-II imaging</h3>
+          <h3>Dynamic PET and parametric imaging</h3>
         </header>
         <div class="w3-container w3-cell w3-mobile">
-          <p>The second near-infrared (NIR-II) window describes near-infrared light with wavelength in the range between
-            1000 nm and 1700 nm, in which the attenuation of biological tissue is relatively low. I have been designing
-            and constructing NIR-II imaging systems for fluorescence imaging applications of small animals since 2017.
-            However, I am still amazed at the emerging achievements of this imaging technique.</p>
-          <p>With the imaging platforms, various imaging applications have been realized. To name a few, our current
-            platform supports high frame rate real-time visualization of tracer perfusion, direct visualization of bowel
-            movement, visualization of vasculature of tumor models, as well as fluorescence-guided surgery. Several
-            selected research topics we have been working on include:</p>
+          <p>Dynamic PET imaging involves continuous acquisition after injection of radiotracers, providing valuable quantitative data for kinetic modeling. This technique reveals pharmacokinetic characteristics and in vivo receptor binding behavior through analysis of 4D data.</p>
+          <p>My research in this area includes:</p>
           <ul>
-            <li>Evaluation of various fluorescent theragnostic agents in the NIR-II window, including fluorophores based
-              on semiconductor quantum dots, organic dyes, polymers, transition metal complexes, and other materials or
-              molecules.</li>
-            <li>Fluorescence guided lymphadenectomy and other guided-surgery applications using NIR-II fluorescent
-              agents.</li>
+            <li>Study of tracer kinetic characteristics and receptor binding with dynamic PET</li>
+            <li>Development of novel analysis pipelines for 4D PET data</li>
+            <li>Parametric imaging based on multi-modal information fusion</li>
+            <li>Patlak graphical plot analysis for reversible tracers</li>
           </ul>
-          <h4>Highlight</h4>
+          <h4>Key Publications</h4>
           <ul>
-            <li>Zhuang, P., Xiang, K., Meng, X., Wang, G., Li, Z., Lu, Y., Kan, D., Zhang, X., & Sun, S. K. (2021). <a
-                href="https://doi.org/10.1039/d0tb02276d" target="_blank" rel="noopener">Gram-scale synthesis of a neodymium chelate as
-                a spectral CT and second near-infrared window imaging agent for visualizing the gastrointestinal tract
-                in vivo</a>. <i>Journal of Materials Chemistry B</i>, 9(9), 2285-2294. </li>
+            <li>Shao, W., Zhang, Y., Du, F., Cheng, F., Chen, Y., Meng, X., Liang, Y., & Xie, Z. (2025). <a href="https://doi.org/10.1186/s40658-025-00635-7" target="_blank" rel="noopener">Neural network-aided unsupervised input function estimation for dual-time-window PET Patlak analysis</a>. <i>EJNMMI Physics</i>, 12, 100.</li>
+            <li>Mao, X., Zhao, S., Meng, X., Kong, H., Yuan, J., He, Q., Liang, D., Yu, J., & Hu, Z. (2022). <a href="https://doi.org/10.1016/j.nima.2022.166411" target="_blank" rel="noopener">PET parametric imaging based on MR frequency-domain texture information</a>. <i>Nuclear Instruments and Methods in Physics Research, A</i>, 1029, 166411.</li>
           </ul>
         </div>
         <div class="w3-container w3-cell w3-mobile w3-center w3-padding-24">
-          <img src="./Upload/research/nirii.png" width="256px"
+          <img src="./Upload/research/availablesoon.png" width="256px"
             style="box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.7); border: 1px solid #808080;"
-            alt="Setup of an NIR-II imaging system">
+            alt="Parametric PET imaging.">
         </div>
-        <div class="w3-container meng-box-shadow" style="text-align: right;"><a href="#contents">back to top &#8593;</a>
+        <div class="w3-container meng-box-shadow" style="text-align: right;"><a href="#contents">back to top ↑</a>
         </div>
       </div>
     </div>
 
-    <div class="w3-container w3-padding" id="Cherenkov">
+    <div class="w3-container w3-padding" id="Radiomics">
       <div class="w3-card">
         <header class="w3-container meng-box-shadow">
-          <h3>Cherenkov Imaging</h3>
+          <h3>Automation of PET diagnostic pipeline</h3>
         </header>
         <div class="w3-container w3-cell w3-mobile">
-          <p>Cherenkov light is emitted when a charged particle travels within a medium at a speed greater than the
-            speed of light in the corresponding medium. It has a continuous spectrum, and its intensity decreases with
-            the increase of wavelength. Cherenkov radiation is emitted in nuclear reactors, in various radioisotope
-            solution, and also in radiotherapy linac (including X-ray mode which involves secondary ionized particles).
-            Although the intensity of such a electromagnetic radiation is often very weak, it could be captured with
-            high-sensitivity photon detectors.</p>
-          <p>I am currently exploring the diagnostic capability of the Cherenkov light, including:</p>
+          <p>Machine learning and artificial intelligence are transforming medical imaging by enabling automated analysis and decision support. I work on developing automated diagnostic pipelines for clinical PET applications, with particular focus on lung cancer diagnostics.</p>
+          <p>My research in this area focuses on:</p>
           <ul>
-            <li>Cherenkov light emitted from megavolt X-ray linac and radioisotopes, and the capability of the light to
-              excite fluorophores.</li>
-            <li>Cherenkov light and the NIR-II window.</li>
+            <li>Development of automated feature extraction and diagnostic pipelines for PET/CT</li>
+            <li>Machine learning-based prediction of pleural invasion in lung cancer using <sup>18</sup>F-FDG PET/CT</li>
+            <li>Clinical validation and translation of AI-assisted diagnostic tools</li>
+            <li>Integration of radiomics with clinical decision-making workflows</li>
           </ul>
-          <h4>Highlight</h4>
+          <h4>Key Publications</h4>
           <ul>
-            <li>Meng, X., Du, Y., Wang, R., Li, Z., Zhu, S., Wu, H., Li, C., Chen, W., Nie, S., Ren, Q., & Lu, Y.
-              (2019). <a href="https://doi.org/10.1016/j.optcom.2019.05.017" target="_blank" rel="noopener">Cherenkov excited
-                luminescence imaging induced by megavolt X-ray beams in the second near-infrared window</a>. <i>Optics
-                Communications</i>, 452, 417-421. </li>
+            <li>Kong, X., Zhang, A., Zhou, X., Zhao, M., Liu, J., Zhang, X., Zhang, W., Meng, X., Li, N., & Yang, Z. (2025). <a href="https://doi.org/10.1186/s13550-025-01264-0" target="_blank" rel="noopener">A strategy for the automatic diagnostic pipeline towards feature-based models: a primer with pleural invasion prediction from preoperative PET/CT images</a>. <i>EJNMMI Research</i>, 15, 70.</li>
+            <li>Zhang, A., Zhao, M., Kong, X., Zhang, W., Hou, X., Yang, Z., Meng, X., & Li, N. (2025). <a href="https://doi.org/10.1016/j.ejrad.2025.112199" target="_blank" rel="noopener">The predictive value of <sup>18</sup>F-FDG PET/CT radiomics for pleural invasion in non-small cell lung cancer</a>. <i>European Journal of Radiology</i>, 190, 112199.</li>
+            <li>Zhang, A., Meng, X., Yao, Y., Zhou, X., Yan, S., Wang, F., Zhou, N., Zhang, Y., Kong, H., & Li, N. (2023). <a href="https://doi.org/10.1002/jmri.28422" target="_blank" rel="noopener">Predictive value of <sup>18</sup>F-FDG PET/MRI for pleural invasion in solid and subsolid lung adenocarcinomas smaller than 3 cm</a>. <i>Journal of Magnetic Resonance Imaging</i>, 57(5), 1367-1375.</li>
           </ul>
         </div>
-
         <div class="w3-container w3-cell w3-mobile w3-center w3-padding-24">
-          <img src="./Upload/research/Cherenkov.png" width="256px"
+          <img src="./Upload/research/data.png" width="256px"
             style="box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.7); border: 1px solid #808080;"
-            alt="MV X-ray PDD obtained by Cherenkov imaging.">
+            alt="PET/CT images and data processing.">
         </div>
-        <div class="w3-container meng-box-shadow" style="text-align: right;"><a href="#contents">back to top &#8593;</a>
+        <div class="w3-container meng-box-shadow" style="text-align: right;"><a href="#contents">back to top ↑</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="w3-container w3-padding" id="Nanobodies">
+      <div class="w3-card">
+        <header class="w3-container meng-box-shadow">
+          <h3>Molecular probes and tracers</h3>
+        </header>
+        <div class="w3-container w3-cell w3-mobile">
+          <p>Molecular imaging probes serve as the bridge between biological targets and imaging signals. I have been involved in developing novel radiotracers and molecular probes for imaging specific molecular targets, with particular focus on nanobody-based agents.</p>
+          <p>My tracer development research focuses on:</p>
+          <ul>
+            <li>Radiopharmaceutical development based on nanobodies</li>
+            <li>Developing tracers with potential diagnostic and therapeutic applications</li>
+            <li>Preclinical evaluation and pilot clinical translation studies</li>
+            <li>Application of pharmacological methods in drug development</li>
+          </ul>
+          <h4>Key Publications</h4>
+          <ul>
+            <li>Zheng, D., Huang, Y., Li, C., Lu, Y., Xie, Z., Ren, Q., Liang, Y., & Meng, X. (2025). <a href="https://doi.org/10.1021/acs.jmedchem.5c01260" target="_blank" rel="noopener">A Radiofluorinated nanobody PET tracer to dynamically visualize differential Nectin4 expression in vivo</a>. <i>Journal of Medicinal Chemistry</i>, 68(20), 21366-21376.</li>
+            <li>Zheng, D., Huang, Y., Li, C., Lu, Y., Xie, Z., Liang, Y., Ren, Q., & Meng, X. (2025). <a href="https://doi.org/10.1021/acs.molpharmaceut.5c00839" target="_blank" rel="noopener">Novel radiofluorinated nanobody PET tracer for preclinical studies of TIM3 expression</a>. <i>Molecular Pharmaceutics</i>, 22(10), 6141-6150.</li>
+          </ul>
+        </div>
+        <div class="w3-container w3-cell w3-mobile w3-center w3-padding-24">
+          <img src="./Upload/research/radiopharm.png" width="256px"
+            style="box-shadow: 6px 6px 2px rgba(0, 0, 0, 0.7); border: 1px solid #808080;"
+            alt="Nanobody PET imaging.">
+        </div>
+        <div class="w3-container meng-box-shadow" style="text-align: right;"><a href="#contents">back to top ↑</a>
         </div>
       </div>
     </div>
@@ -283,8 +211,8 @@
     <!-- Bottom -->
     <hr />
   <footer class="w3-container w3-center" style="font-size:9px">
-      Meng Xiangxi, 20260115.
-    </footer>
+    Meng Xiangxi, 20260115.
+  </footer>
   </div>
 </body>
 
