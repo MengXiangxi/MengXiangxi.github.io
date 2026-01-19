@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "lastUpdated": 1768278397527,
+  "lastUpdated": 1768816993636,
   "plugins": [
     {
       "filename": "uexplorer-bib",
@@ -14,6 +14,21 @@
         "type": "skill",
         "size": 6784,
         "contentHash": "6f9ef280d3a0ecb17cb941d4e8ff9737f4f2b6d43f88b0d39f66e7dd9bd62182"
+      }
+    },
+    {
+      "filename": "git-status.md",
+      "type": "command",
+      "metadata": {
+        "sourcePath": "commands\\utilities\\git-status.md",
+        "filename": "git-status.md",
+        "name": "git-status",
+        "category": "utilities",
+        "type": "command",
+        "size": 1343,
+        "contentHash": "89acf696c7cbc530e05dd5fe4dee22a07ba0a9e19a585ee4de19a6542ed4253f",
+        "installedAt": 1768816993635,
+        "updatedAt": 1768816993635
       }
     }
   ]
